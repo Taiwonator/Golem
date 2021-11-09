@@ -1,36 +1,13 @@
-$color-black: #000;
-$color-white: #fff;
-$color-yellow: #ffd734;
-$color-purple: #3b11a3;
-
-$color-background--light: $color-white;
-$color-primary--light: $color-black;
-$color-secondary--light: $color-yellow;
-$color-tertiary--light: $color-purple;
-
-$color-background--dark: $color-black;
-$color-primary--dark: $color-white;
-$color-secondary--dark: $color-yellow; 
-$color-tertiary--dark: $color-purple;
-
-$color-background: $color-background--light;
-$color-primary: $color-primary--light;
-$color-secondary: $color-secondary--light;
-$color-tertiary: $color-tertiary--light;
+$color-black: #2A2A2A;
+$color-white: #ffffff;
+$color-green: #95D814;
+$color-darkgreen: #82B326;
+$color-orange: #FF7818;
 
 :export {
-  background: $color-background;
-  primary: $color-primary;
-  secondary: $color-secondary;
-  tertiary: $color-tertiary;
-
-  background--light: $color-white;
-  primary--light: $color-black;
-  secondary--light: $color-purple;
-  tertiary--light: $color-yellow;
-
-  background--dark: $color-black;
-  primary--dark: $color-white;
-  secondary--dark: $color-yellow;
-  tertiary--dark: $color-purple;
+  black: $color-black;
+  white: $color-white;
+  green: $color-green;
+  darkgreen: $color-darkgreen;
+  orange: $color-orange;
 }

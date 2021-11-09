@@ -1,0 +1,16 @@
+.navigation {
+    position: fixed;
+    width: 100%;
+    height: $nav-height;
+    display: flex;
+
+    &__left {
+        background-color: red;
+    }
+
+    &__right {
+        background-color: yellow;
+        flex-grow: 1;
+    }
+
+}

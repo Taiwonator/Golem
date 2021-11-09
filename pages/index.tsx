@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import BaseLayout from 'src/components/layouts/BaseLayout'
 const Home: NextPage = () => {
 
   return (
@@ -11,7 +12,9 @@ const Home: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      I am page
+      <BaseLayout>
+          Hello
+      </BaseLayout>
 
     </React.Fragment>
   )

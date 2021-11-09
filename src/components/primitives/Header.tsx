@@ -1,8 +1,17 @@
 import React from 'react'
 
-const Header: React.FC = props => {
+interface IHeader {
+    children: React.ReactNode, 
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+}
+
+const Header: React.FC<IHeader> = ({ children, tag }) => {
+    const Tag = tag || 'h2'
+
     return (
-        <div />
+        <Tag>
+            { children }
+        </Tag>
     )
 }
 

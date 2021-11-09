@@ -1,14 +1,14 @@
 import React from 'react'
-import styles from './Main.module.scss'
+import styles from './Home.module.scss'
 
 interface IHome {
-    children: React.ReactNode
+    
 }
 
-const Home: React.FC<IHome> = ({ children }) => {
+const Home: React.FC<IHome> = props => {
     return (
-        <main className={styles['main']}>
-            {children}
+        <main className={styles['home']}>
+            
         </main>
     )
 }

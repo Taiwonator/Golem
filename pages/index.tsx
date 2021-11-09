@@ -2,18 +2,15 @@ import React, { useEffect, useState, useRef } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import BaseLayout from 'src/components/layouts/BaseLayout'
+import Main from '../src/components/layouts/Home'
+
 const Home: NextPage = () => {
 
   return (
     <React.Fragment>
 
-      <Head>
-        <title>Golem</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-
-      <BaseLayout>
-          Hello
+      <BaseLayout pageTitle='Golem | Home'>
+          <Main />
       </BaseLayout>
 
     </React.Fragment>

@@ -1,14 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import BaseLayout from 'src/components/layouts/BaseLayout'
 
 const Blog: NextPage = () => {
     return (
-        <div>
-            <Head>
-                <title>Blog | Michael Taiwo</title>
-            </Head>
-            I am a blog
-        </div>
+      <BaseLayout pageTitle='Golem | Blog'>
+        This is the blog
+      </BaseLayout>
     )
 }
 

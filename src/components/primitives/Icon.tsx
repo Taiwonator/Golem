@@ -1,9 +1,20 @@
 import React from 'react'
 
-const Icon: React.FC = props => {
+interface IIcon {
+    children: React.ReactNode
+}
+
+const Icon: React.FC<IIcon> = ({ children }) => {
     return (
-        <div />
+        <i>
+            { children }
+        </i>
     )
 }
 
 export default Icon
+
+// logo
+// bar--s
+// bar--ne
+// bar--nw

@@ -2,14 +2,26 @@
     position: fixed;
     width: 100%;
     height: $nav-height;
-    display: flex;
+    background-color: white;
+
+    &__inner {
+        width: 100%;
+        max-width: $mw--desktop;
+        display: flex;
+        margin: 0 auto;
+        padding: 20px $gutter--mobile;
+
+        @include forTablet {
+            padding: 40px $gutter--tablet;
+            align-items: center;
+        }
+    }
 
     &__left {
-        background-color: red;
+
     }
 
     &__right {
-        background-color: yellow;
         flex-grow: 1
     }
 }
@@ -17,4 +29,86 @@
 .navigation__items {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+
+    @include forTablet {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__links {
+        order: 2;
+        background-color: $color-green;
+        margin-top: .5em;
+        font-size: 2em;
+        border-radius: 20px;
+        border: 4px solid $color-black;
+        border-bottom-width: 12px;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity .25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        @include forTablet {
+            display: flex;
+            flex-direction: row;
+            font-size: 1em;
+            margin: 0 20px;
+            order: 0;
+        }
+
+        &--active {
+            opacity: 1;
+        }
+    }
 }
+
+.navigation__link {
+    font-family: $font-family;
+    width: 100%;
+    padding: .25em .5em;
+
+    @include forTablet {
+        width: unset;
+    }
+
+    &:focus,
+    &:hover {
+        background-color: $color-white;
+    }
+
+    &:active {
+        background-color: $color-darkgreen;
+    }
+
+    &--button {
+        background-color: $color-orange;
+
+        &:focus,
+        &:hover {
+            background-color: $color-white;
+        }
+
+        &:active {
+            background-color: $color-orange;
+        }
+    }
+}
+
+.navigation__hamburger {
+    order: 1;
+
+    circle {
+        fill: $color-green
+    }
+
+    a:focus circle,
+    a:hover circle {
+        fill: $color-orange
+    }
+
+    a:active circle {
+        fill: $color-darkgreen
+    }
+}
+

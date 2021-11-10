@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Button.module.scss'
 
 interface IButton {
     children: React.ReactNode
@@ -6,7 +7,7 @@ interface IButton {
 
 const Button: React.FC<IButton> = ({ children }) => {
     return (
-        <button>{ children }</button>
+        <button className={styles['button']}>{ children }</button>
     )
 }
 

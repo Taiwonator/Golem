@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Header.module.scss'
 
 interface IHeader {
     children: React.ReactNode, 
@@ -9,7 +10,7 @@ const Header: React.FC<IHeader> = ({ children, tag }) => {
     const Tag = tag || 'h2'
 
     return (
-        <Tag>
+        <Tag className={styles['header']}>
             { children }
         </Tag>
     )

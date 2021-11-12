@@ -1,3 +1,5 @@
 .base-layout {
     min-height: 300vh;
+    display:flex; 
+    flex-direction:column;
 }

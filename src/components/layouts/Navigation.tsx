@@ -59,7 +59,7 @@ interface IHamburger {
 const Hamburger: React.FC<IHamburger> = ({ action }) => {
     return (
         <li className={styles['navigation__hamburger']} onClick={() => action()}>
-          <a href={'#'}>
+          <Button>
             <svg
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 76" height={70}>
                 <path fill={SETTINGS.black} d="M591.28,383.37a36,36,0,0,0-72,0c0,.67,0,1.34.06,2s-.06,1.33-.06,2a36,36,0,0,0,72,0c0-.67,0-1.34-.06-2S591.28,384,591.28,383.37Z" transform="translate(-519.28 -347.37)"/>
@@ -68,7 +68,7 @@ const Hamburger: React.FC<IHamburger> = ({ action }) => {
                 <path fill={SETTINGS.white} d="M537.78,380.37h36a3.5,3.5,0,0,1,3.5,3.5h0a3.5,3.5,0,0,1-3.5,3.5h-36a3.5,3.5,0,0,1-3.5-3.5h0A3.5,3.5,0,0,1,537.78,380.37Z" transform="translate(-519.28 -347.37)"/>
                 <path fill={SETTINGS.white} d="M537.78,390.37h36a3.5,3.5,0,0,1,3.5,3.5h0a3.5,3.5,0,0,1-3.5,3.5h-36a3.5,3.5,0,0,1-3.5-3.5h0A3.5,3.5,0,0,1,537.78,390.37Z" transform="translate(-519.28 -347.37)"/>
             </svg> 
-          </a>
+          </Button>
         </li>   
     )
 }

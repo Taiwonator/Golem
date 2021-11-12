@@ -1,0 +1,81 @@
+.footer {
+    margin-top: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @include forTablet {
+        text-align: left;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        justify-content: center;
+        align-items: center;
+
+        @include forTablet {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        &__item {
+            flex: 1;
+            margin-bottom: 40px;
+
+            @include forTablet {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 0px;
+            }
+
+            &__inner {
+                @include forTablet {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                li, h3 {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        &--row {
+            flex-direction: row;
+        }
+    }
+
+    &__circle {
+        transform: translateY(60%);
+        margin-top: -125px;
+
+        &:nth-child(2), &:nth-child(4), &:nth-child(5) {
+            display: none;
+        }
+
+        @include forTablet() {
+            margin-top: -125px;
+
+            &:nth-child(5) {
+                display: block;
+            }
+        }
+
+        @include forDesktop {
+            &:nth-child(2), &:nth-child(4) {
+                display: block;
+            }
+        }
+    }
+
+    &__credit {
+
+        span {
+            font-weight: 900;
+        }
+    }
+}

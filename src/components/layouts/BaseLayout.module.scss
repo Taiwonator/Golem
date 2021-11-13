@@ -9,7 +9,8 @@
         height: 1px;
         position: relative;
         max-width: $mw--desktop;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
 
 
         @include forTablet {

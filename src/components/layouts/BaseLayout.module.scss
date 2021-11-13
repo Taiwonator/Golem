@@ -1,5 +1,20 @@
 .base-layout {
-    min-height: 300vh;
     display:flex; 
     flex-direction:column;
+
+    &__main {
+        margin-top: $nav-height + 20px;
+        padding: 0 $gutter--mobile;
+        min-height: calc(100vh - (#{$nav-height} + 20px));
+        height: 1px;
+        position: relative;
+        max-width: $mw--desktop;
+        margin: 0 auto;
+
+
+        @include forTablet {
+            margin-top: $nav-height + 40px;
+            padding: 0 $gutter--tablet;
+        }
+    }
 }

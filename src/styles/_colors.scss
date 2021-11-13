@@ -3,6 +3,7 @@ $color-white: #ffffff;
 $color-green: #95D814;
 $color-darkgreen: #82B326;
 $color-orange: #FF7818;
+$color-grey: #CCCCCC;
 
 :export {
   black: $color-black;
@@ -10,4 +11,5 @@ $color-orange: #FF7818;
   green: $color-green;
   darkgreen: $color-darkgreen;
   orange: $color-orange;
+  grey: $color-grey;
 }

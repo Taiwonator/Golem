@@ -3,6 +3,7 @@ import styles from './Footer.module.scss'
 import SETTINGS from 'src/styles/settings'
 import classNames from 'classnames'
 import Link from '../primitives/Link'
+import { IContainer } from 'src/types/react-types'
 
 const Footer: React.FC = props => {
 
@@ -64,8 +65,7 @@ const Footer: React.FC = props => {
     )
 }
 
-interface IRow {
-    children: React.ReactNode,
+interface IRow extends IContainer {
     row?: boolean
 }
 
@@ -75,11 +75,7 @@ const Row: React.FC<IRow> = ({ children, row }) => (
     </div>
 )
 
-interface IRowItem {
-    children: React.ReactNode
-}
-
-const RowItem: React.FC<IRowItem> = ({ children }) => {
+const RowItem: React.FC<IContainer> = ({ children }) => {
     return (
         <div className={styles['footer__row__item']}>
             <div className={styles['footer__row__item__inner']}>

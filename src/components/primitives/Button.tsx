@@ -1,13 +1,21 @@
+import classNames from 'classnames'
 import React from 'react'
 import styles from './Button.module.scss'
+import { IContainer } from '../../types/react-types'
 
-interface IButton {
-    children: React.ReactNode
+interface IButton extends IContainer {
+    border?: boolean,
+    color?: string
 }
 
-const Button: React.FC<IButton> = ({ children }) => {
+const Button: React.FC<IButton> = ({ border, children, color }) => {
+    const className = classNames(
+        styles['button'],
+        border && styles['button--border']
+    )
+
     return (
-        <button className={styles['button']}>{ children }</button>
+        <button className={className} style={{ backgroundColor: color }}>{ children }</button>
     )
 }
 

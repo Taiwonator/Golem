@@ -12,6 +12,12 @@
     }
 }
 
+@mixin forDesktopLarge {
+    @media (min-width: $mq--desktop--large) { 
+        @content; 
+    }
+}
+
 @mixin forTablet {
     @media (min-width: $mq--tablet) { 
         @content; 

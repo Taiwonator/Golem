@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
-import { SETTINGS } from 'src/styles/settings'
+import SETTINGS  from 'src/styles/settings'
 
 export const useResponsiveWidth = () => {
     const [ device, setDevice ] = useState('mobile')

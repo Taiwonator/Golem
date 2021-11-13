@@ -3,10 +3,11 @@ $mq--tablet: 800px;
 
 $mq--desktop: 1224px;
 $mq--desktop--small: 864px;
+$mq--desktop--large: 1440px;
 
 /* GUTTERS */
-$gutter--mobile: .6rem;
-$gutter--tablet: 1rem;
+$gutter--mobile: 20px;
+$gutter--tablet: 40px;
 
 $padding--mobile--width: $gutter--mobile * 3;
 

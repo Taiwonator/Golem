@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     height: $nav-height;
-    background-color: white;
+    z-index: 2;
 
     &__inner {
         width: 100%;
@@ -10,6 +10,7 @@
         display: flex;
         margin: 0 auto;
         padding: 20px $gutter--mobile;
+        align-items: flex-start;
 
         @include forTablet {
             padding: 40px $gutter--tablet;
@@ -18,7 +19,37 @@
     }
 
     &__left {
+        display: flex;
+        align-items: center;
 
+        .navigation__logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            * + * {
+                margin-left: 10px;
+            }
+        
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 105%;
+                width: 600px;
+                height: 2px;
+                background-color: $color-orange;
+
+                @include forDesktopLarge {
+                    right: calc(100% + 50px);
+                }
+            }
+
+            h2 {
+                margin-bottom: unset;
+            }
+
+        }
     }
 
     &__right {
@@ -41,11 +72,12 @@
         order: 2;
         background-color: $color-green;
         margin-top: .5em;
-        font-size: 1.5em;
+        font-size: 1em;
         border-radius: 20px;
         border: 4px solid $color-black;
-        border-bottom-width: 12px;
+        box-shadow: 0 6px 1px $color-black;
         overflow: hidden;
+        display: none;
         opacity: 0;
         transition: opacity .25s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -55,10 +87,16 @@
             font-size: 1em;
             margin: 0 20px;
             order: 0;
+            box-shadow: 0 6px 1px $color-black;
         }
 
         &--active {
             opacity: 1;
+            display: block;
+
+            @include forTablet {
+                display: flex;
+            }
         }
     }
 }
@@ -97,17 +135,32 @@
 
 .navigation__hamburger {
     order: 1;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 105%;
+        width: 600px;
+        height: 2px;
+        background-color: $color-green;
+
+        @include forDesktopLarge {
+            left: calc(100% + 50px);
+        }
+    }
 
     circle {
         fill: $color-green
     }
 
-    a:focus circle,
-    a:hover circle {
+    button:focus circle,
+    button:hover circle {
         fill: $color-orange
     }
 
-    a:active circle {
+    button:active circle {
         fill: $color-darkgreen
     }
 }

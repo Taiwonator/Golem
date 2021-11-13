@@ -1,7 +1,7 @@
 import React from 'react'
+import { IContainer } from '../../types/react-types'
 
-interface ILink {
-    children: React.ReactNode,
+interface ILink extends IContainer {
     external?: boolean,
     to?: string
 }

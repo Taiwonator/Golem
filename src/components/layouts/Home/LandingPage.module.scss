@@ -1,0 +1,47 @@
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &__content {
+        position: relative;
+        
+
+        h3 {
+            text-align: center;
+            font-size: .75em;
+
+            @include forTablet {
+                text-align: left;
+            }
+        }
+        
+        h2 {
+            margin-top: -35px;
+
+            @include forTablet {
+                margin-top: 0;
+                font-size: 3em;
+            }
+        }
+
+        .landing-page__desktop-golem {
+            display: inline-flex;
+            position: relative;
+            margin-right: 10px;
+
+            div {
+                transform: translateY(25%);
+            }
+        }
+    }
+
+    &__desktop-image {
+        display: none;
+
+        @include forTablet {
+            display: block;
+        }
+    }
+}

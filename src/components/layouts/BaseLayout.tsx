@@ -4,9 +4,9 @@ import styles from './BaseLayout.module.scss'
 import Main from './Home'
 import Navigation from './Navigation'
 import Head from 'next/head'
+import { IContainer } from '../../types/react-types'
 
-interface IBaseLayout {
-    children: React.ReactNode, 
+interface IBaseLayout extends IContainer {
     pageTitle: string
 }
 
@@ -29,7 +29,9 @@ const BaseLayout: React.FC<IBaseLayout> = ({ children, pageTitle }) => {
             </Head>        
             <div className={styles['base-layout']}>
                 <Navigation />
+                <main className={styles['base-layout__main']}>
                     { children }
+                </main>
                 <Footer />
             </div>
         </React.Fragment>

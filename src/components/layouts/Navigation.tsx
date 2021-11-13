@@ -6,6 +6,7 @@ import Link from '../primitives/Link'
 import styles from './Navigation.module.scss'
 import SETTINGS from 'src/styles/settings'
 import classNames from 'classnames'
+import { IContainer } from 'src/types/react-types'
 
 const Navigation: React.FC = props => {
     const [active, setActive] = useState(false)
@@ -19,9 +20,7 @@ const Navigation: React.FC = props => {
             <div className={styles['navigation__inner']}>
                 <div className={styles['navigation__left']}>
                     <div className={styles['navigation__logo']}>
-                        <Header>
-                            <Icon name='logo'/><p>Golem</p>
-                        </Header>
+                        <Icon name='logo'/><Header>Golem</Header>
                     </div>
                 </div>
                 <div className={styles['navigation__right']}>
@@ -59,7 +58,7 @@ interface IHamburger {
 const Hamburger: React.FC<IHamburger> = ({ action }) => {
     return (
         <li className={styles['navigation__hamburger']} onClick={() => action()}>
-          <Button>
+          <Button color={SETTINGS.orange}>
             <svg
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 76" height={70}>
                 <path fill={SETTINGS.black} d="M591.28,383.37a36,36,0,0,0-72,0c0,.67,0,1.34.06,2s-.06,1.33-.06,2a36,36,0,0,0,72,0c0-.67,0-1.34-.06-2S591.28,384,591.28,383.37Z" transform="translate(-519.28 -347.37)"/>
@@ -73,8 +72,7 @@ const Hamburger: React.FC<IHamburger> = ({ action }) => {
     )
 }
 
-interface IItem {
-    children: React.ReactNode, 
+interface IItem extends IContainer {
     button?: boolean
 }
 

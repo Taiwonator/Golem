@@ -14,24 +14,24 @@ const LandingPage: React.FC = props => {
     const Decor = TextDecorator
 
     return (
-        <div className={styles['landing-page']}>
+        <section className={styles['landing-page']}>
             <div className={styles['landing-page__content']}>
                 <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header>
                 { isMobile ?
                     <>
                         <Image src="/assets/golem--mobile.png" alt="Picture of logo" width={525.51} height={207.41} />
-                        <Header>
+                        <Header tag='h1'>
                             <p><Decor color={SETTINGS.grey}>Is</Decor> emancipating</p>
                             <p><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</p>
                             <p><Decor color={SETTINGS.green} underline>globally</Decor></p>
                         </Header>
                     </> :
                     <>
-                        <Header>
+                        <Header tag='h1'>
                             <p>
-                                <div className={styles['landing-page__desktop-golem']}>
+                                <span className={styles['landing-page__desktop-golem']}>
                                     <Image src="/assets/golem.png" alt="Picture of logo" width={312.37} height={114.8} />
-                                </div>
+                                </span>
                                 <Decor color={SETTINGS.grey}>Is</Decor> emancipating
                             </p>
                             <p><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</p>
@@ -49,7 +49,7 @@ const LandingPage: React.FC = props => {
                     height={711}
                 />
             </div>
-        </div>
+        </section>
     )
 }
 

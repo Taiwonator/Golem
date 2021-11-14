@@ -6,17 +6,21 @@ import { IContainer } from '../../types/react-types'
 interface TextDecorator extends IContainer {
     color?: string,
     underline?: boolean,
-    underlineColor?: string
+    underlineCenter?: boolean
+    underlineColor?: 'orange' | 'green',
 }
 
-const TextDecorator: React.FC<TextDecorator> = ({ children, color, underline, underlineColor }) => {
+const TextDecorator: React.FC<TextDecorator> = ({ children, color, underline, underlineCenter, underlineColor }) => {
 
     const style = {
         color
     }
     
     const className = classNames(
-        underline && styles['underline']
+        underline && styles['underline'],
+        underlineCenter && styles['underline--center'],
+        underlineColor === 'green' && styles['underline--green'],
+        underlineColor === 'orange' && styles['underline--orange'],
     )
 
     return (

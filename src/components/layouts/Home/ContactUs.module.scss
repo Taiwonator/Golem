@@ -1,0 +1,12 @@
+.contact-us {
+    flex-direction: column;
+
+    h3 {
+        font-size: .65em;
+
+        @include forTablet {
+            padding: 1em;
+            font-size: 1.5em;
+        }
+    }
+}

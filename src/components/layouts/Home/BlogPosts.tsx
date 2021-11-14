@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Frame: React.FC = props => {
+const BlogPosts: React.FC = props => {
     return (
         <div />
     )
 }
 
-export default Frame
+export default BlogPosts

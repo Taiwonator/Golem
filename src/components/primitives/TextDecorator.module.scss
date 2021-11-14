@@ -11,4 +11,24 @@
         bottom: 0;
         z-index: -1;
     }
+
+    &--center {
+        &::before {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+        }
+    }
+
+    &--green {
+        &::before {
+            background-color: $color-green;
+        }
+    }
+
+    &--orange {
+        &::before {
+            background-color: $color-orange;
+        }
+    }
 }

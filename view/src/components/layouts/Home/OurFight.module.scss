@@ -1,0 +1,35 @@
+.our-fight {        
+    @include forTablet {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    &__content {
+
+        @include forTablet {
+            text-align: left;
+            flex: 1;
+        }
+    }
+
+    &__desktop-image {
+        display: none;
+
+        @include forTablet {
+            display: block;
+            position: relative;
+            flex: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 1000px;
+                height: 75%;
+                top: 50%;
+                left: 45%;
+                transform: translateY(-50%);
+                background-color: $color-black;
+            }
+        }
+    }
+}

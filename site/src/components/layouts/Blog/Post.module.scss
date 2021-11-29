@@ -1,4 +1,4 @@
-.article {
+.post {
     margin-bottom: 100px;
 
     @include forTablet {
@@ -55,11 +55,11 @@
     }
 }
 
-.article--main {
+.post--main {
 
     padding: 0 $gutter--mobile;
     
-    .article__frame {
+    .post__frame {
         flex: 1;
         max-width: unset;
 
@@ -75,7 +75,7 @@
         }
     }
 
-    .article__content {
+    .post__content {
         flex: 1;
         position: relative;
         margin: 0 $gutter--mobile;

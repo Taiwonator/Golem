@@ -7,9 +7,12 @@ import SETTINGS from 'src/styles/settings'
 
 interface IFrame {
     square?: boolean
+    src?: string
 }
 
-const Frame: React.FC<IFrame> = ({ square }) => {
+const Frame: React.FC<IFrame> = ({ square, src}) => {
+
+    src = src || "/assets/tigers.png"
 
     const className = classNames(
         styles['frame'],
@@ -20,7 +23,7 @@ const Frame: React.FC<IFrame> = ({ square }) => {
         <Button border otherClassNames={className} color={SETTINGS.white}>
             <div className={styles['frame__inner']}>
                 <Image 
-                    src="/assets/tigers.png"
+                    src={src}
                     layout='fill'
                     objectFit='cover'
                     alt="Image of tigers"

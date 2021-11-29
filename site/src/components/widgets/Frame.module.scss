@@ -2,6 +2,8 @@
     position: relative;
     width: 100%;
     padding-bottom: 100%;
+    // min-height: 300px;
+    // min-width: 300px;
 
     @include forMobile {
         border: none;

@@ -9,5 +9,14 @@ module.exports = (phase, {defaultConfig}) => {
           prependData: `@import "~@settings";`,
       }
   }
+  if ('images' in defaultConfig) {
+    defaultConfig['images'] = {
+      ...defaultConfig.images,
+      domains: ['placeimg.com'],
+    }
+  }
+
+  console.log('defaultConfig:', defaultConfig)
+
   return defaultConfig;
 }

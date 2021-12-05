@@ -10,7 +10,8 @@ import { getPost, getSlugs } from './lib/api'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-const Test: NextPage = ({ post }) => {
+const Test: NextPage = (props) => {
+  const post = props['post']
 
     return (  
       <BaseLayout pageTitle='Golem | Blog Post'>

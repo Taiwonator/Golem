@@ -6,11 +6,11 @@ import PostLayout from 'src/components/layouts/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
 import Link from 'src/components/primitives/Link'
 import useSwr from 'swr'
+import { getPost, getSlugs } from './lib/api'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
 const Test: NextPage = ({ post }) => {
-  console.log('post: ', post)
 
     return (  
       <BaseLayout pageTitle='Golem | Blog Post'>
@@ -30,11 +30,16 @@ const Test: NextPage = ({ post }) => {
 }
 
 export async function getStaticProps({ params }) {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
     const { slug } = params
-    const res = await fetch(`http://localhost:5001/blog-backend-67f71/us-central1/app/posts/?slug=${slug}`)
-    const post = await res.json()
+    const post = await getPost(slug, [
+      'author',
+      'body',
+      'datePublished',
+      'mainImageUrl',
+      'name',
+      'snippet',
+      'views'
+    ])
   
     return {
       props: {
@@ -44,15 +49,16 @@ export async function getStaticProps({ params }) {
   }
 
   export async function getStaticPaths() {
-    const res = await fetch('http://localhost:5001/blog-backend-67f71/us-central1/app/posts')
-    const posts = await res.json()
+    const slugs = await getSlugs()
 
     return {
-      paths: posts.map(post => ({
-        params: { slug: post.slug }
+      paths: slugs.map(slug => ({
+        params: { slug }
       })),
       fallback: false
     };
   }
 
 export default Test
+
+// author, body, datePublished, mainImageUrl, name, views, snippet

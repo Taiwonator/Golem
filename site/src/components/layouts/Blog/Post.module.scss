@@ -18,6 +18,10 @@
 
     &__content {
 
+        h2 {
+            font-size: 2em;
+        }
+
         &__row {
 
             @include forTablet {
@@ -47,23 +51,28 @@
 
     p {
         font-size: .75em;
-            margin-bottom: 1em;
+        margin-bottom: 1em;
 
         @include forTablet {
-            font-size: 1em;
+            font-size: .85em;
         }
     }
 }
 
 .post--main {
-
-    padding: 0 $gutter--mobile;
     
+    @include forTablet {
+        padding: 0 $gutter--mobile
+    }
+
     .post__frame {
         flex: 1;
         max-width: unset;
+        margin-bottom: 100px;
 
         @include forTablet {
+            margin-bottom: 0px;
+
             & > * {
                 box-shadow: 0 20px 1px $color-black;
             }
@@ -71,7 +80,6 @@
 
         @include forDesktop {
             padding: 0;
-            transform: translateX(-10%);
         }
     }
 
@@ -87,7 +95,7 @@
             }
 
             @include forDesktop {
-                max-width: 60%;
+                // max-width: 60%;
             }
 
 

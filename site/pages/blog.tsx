@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import BaseLayout from 'src/components/layouts/BaseLayout'
 import Main from 'src/components/layouts/Blog'
+import { getPosts } from './blog/lib/api'
 
 const Blog: NextPage = (posts) => {
     return (
@@ -12,10 +13,14 @@ const Blog: NextPage = (posts) => {
 }
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  const res = await fetch('https://us-central1-blog-backend-67f71.cloudfunctions.net/app/posts')
-  const posts = await res.json()
+ const posts = await getPosts([
+   'mainImageUrl',
+   'name',
+   'dateCreated',
+   'views',
+   'snippet',
+   'slug'
+  ])
 
   return {
     props: {
@@ -26,3 +31,5 @@ export async function getStaticProps() {
 
 
 export default Blog
+
+// image, name, datePublished, views, snippet, slug

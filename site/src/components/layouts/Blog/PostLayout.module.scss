@@ -18,20 +18,23 @@
             top: 0;
             z-index: -1;
         }
+    }
 
-        p {
-            margin-bottom: 1em;
-        }
+    &__snippet {
+        margin-bottom: 100px;
+        max-width: $mq--desktop--small;
     }
 
     &__info {
         display: flex;
+        width: 100%;
+        max-width: $mq--desktop--small;
+        justify-content: space-between;
         
         & > * {
             margin: 0 1em;
-
-            & > svg {
-                margin-right: .5em;
+            & div, & svg {
+                margin-right: 1em;
                 position: relative;
                 top: 2px;
                 color: white;

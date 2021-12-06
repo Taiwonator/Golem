@@ -1,7 +1,17 @@
 .stats {
 
+
+
     @include forTablet {
         margin-top: 300px; 
+    }
+
+    &__desktop-icon {
+        display: none;
+
+        @include forTablet {
+            display: block;
+        }
     }
 
     &__content {

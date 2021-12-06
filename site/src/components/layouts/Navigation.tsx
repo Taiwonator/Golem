@@ -21,7 +21,7 @@ const Navigation: React.FC = props => {
                 <div className={styles['navigation__left']}>
                     <Link to={'/'}>
                         <div className={styles['navigation__logo']}>
-                            <Icon name='logo'/><Header>Golem</Header>
+                            <Icon name='logo--green' width={50}/><Header>Golem</Header>
                         </div>
                     </Link>
                 </div>
@@ -44,7 +44,7 @@ const NavigationItems: React.FC<INavigationItems> = ({ active, toggleNav }) => {
                 <ul className={classNames(styles['navigation__items__links'], active && styles['navigation__items__links--active'])}>
                     <Item to={'/#about-us'}>about us</Item>
                     <Item to={'/#mission'}>mission</Item>
-                    <Item to={'blog'}>blog</Item>
+                    <Item to={'/blog'}>blog</Item>
                     <Item to={'/#help'}>how to help</Item>
                     <Item to={'/#help'} button>donate</Item>
                 </ul> 
@@ -62,7 +62,7 @@ const Hamburger: React.FC<IHamburger> = ({ action }) => {
         <li className={styles['navigation__hamburger']} onClick={() => action()}>
           <Button border>
             <svg
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 76" height={70}>
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 76" height={50}>
                 <path fill={SETTINGS.black} d="M591.28,383.37a36,36,0,0,0-72,0c0,.67,0,1.34.06,2s-.06,1.33-.06,2a36,36,0,0,0,72,0c0-.67,0-1.34-.06-2S591.28,384,591.28,383.37Z" transform="translate(-519.28 -347.37)"/>
                 <circle fill={SETTINGS.green}cx="36" cy="36" r="32"/>
                 <path fill={SETTINGS.white} d="M537.78,370.37h36a3.5,3.5,0,0,1,3.5,3.5h0a3.5,3.5,0,0,1-3.5,3.5h-36a3.5,3.5,0,0,1-3.5-3.5h0A3.5,3.5,0,0,1,537.78,370.37Z" transform="translate(-519.28 -347.37)"/>

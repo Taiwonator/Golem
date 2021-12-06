@@ -14,7 +14,12 @@ const OurFight: React.FC = props => {
         <Section id='mission' otherClassNames={styles['our-fight']}>
 
             <div className={styles['our-fight__content']}>
-                <Header large><TextDecorator underline underlineColor='green'>Our Fight</TextDecorator><Icon name="logo" /></Header>
+                <Header large>
+                    <TextDecorator underline underlineColor='orange'>Our Fight</TextDecorator>
+                    <div className={styles['our-fight__mobile-icon']}>
+                        <Icon name="logo" />
+                    </div>
+                </Header>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis, egestas nisl sit amet, convallis ante. Suspendisse eu elit a magna ultricies sodales nec a augue. Maecenas in lorem non ligula pellentesque efficitur vitae et tellus. Mauris quis sodales orci. Nunc scelerisque, nunc et sollicitudin venenatis, orci lacus fermentum purus, et consectetur ante urna non justo. Donec molestie pretium nisl sit amet pharetra. Etiam finibus turpis et suscipit dignissim.</p>
                 <Button border>Read More</Button>
             </div>

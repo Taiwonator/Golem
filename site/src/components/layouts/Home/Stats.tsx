@@ -10,7 +10,12 @@ import Icon from 'src/components/primitives/Icon'
 const Stats: React.FC = props => {
     return (
         <Section id='impact' otherClassNames={styles['stats']}>
-            <Header large><TextDecorator underline underlineColor='orange' underlineCenter>What have we done</TextDecorator><Icon name="logo--green" /></Header>
+            <Header large>
+                <TextDecorator underline underlineColor='orange'>Our Impact</TextDecorator>
+                <div className={styles['stats__desktop-icon']}>
+                    <Icon name="logo--green" />
+                </div>
+            </Header>
             <div className={styles['stats__content']}>
                 <div className={styles['stats__column']}>
                     <Circle color={SETTINGS.darkgreen} otherClassNames={styles['stats__circle']}>

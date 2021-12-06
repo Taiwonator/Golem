@@ -8,7 +8,7 @@
 
         @include forTablet {
             text-align: left;
-            flex: 1;
+            flex: 2;
         }
     }
 
@@ -30,6 +30,14 @@
                 transform: translateY(-50%);
                 background-color: $color-black;
             }
+        }
+    }
+
+    &__mobile-icon {
+        display: block;
+
+        @include forTablet {
+            display: none;
         }
     }
 }

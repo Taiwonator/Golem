@@ -1,8 +1,8 @@
-import * as functions from "firebase-functions";
+import {https} from "firebase-functions";
 import * as express from "express";
 import * as cors from "cors";
 
-import {addPost, getAllPosts} from "./api/posts";
+import {addPost, getAllPosts, getPost} from "./api/posts";
 
 const app = express();
 
@@ -13,10 +13,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get("/posts/:id", getPost);
 app.get("/posts", getAllPosts);
 app.post("/posts", addPost);
 
-exports.app = functions.https.onRequest(app);
+exports.app = https.onRequest(app);
 
 
 /* TODO

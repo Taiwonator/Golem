@@ -5,11 +5,12 @@ import Icon from 'src/components/primitives/Icon'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Credit from 'src/components/widgets/Credit'
 import Frame from 'src/components/widgets/Frame'
+import { formatDate } from 'src/lib/date'
 import Content from '../Content'
 import styles from './PostLayout.module.scss'
 
 interface PostLayoutProps {
-    date: Date,
+    dateCreated: Date,
     views: number,
     name: string,
     snippet: string,
@@ -18,20 +19,20 @@ interface PostLayoutProps {
     body: string
 }
 
-const PostLayout: React.FC<PostLayoutProps> = ({ date, views, name, snippet, author, mainImageUrl, body }) => {
+const PostLayout: React.FC<PostLayoutProps> = ({ dateCreated, views, name, snippet, author, mainImageUrl, body }) => {
 
 
     return (
         <article className={styles['post-layout']}>
            <div className={styles['post-layout__header']}>
                 <div className={styles['post-layout__info']}>
-                    <p><Icon fa='calendar' />{date}</p>
-                    <p><Icon fa='calendar' />{views} views</p>
+                    <p><Icon name='calendar' width={20} height={20} />{formatDate(dateCreated)}</p>
+                    <p><Icon name='eye' width={20} height={20} />{views} views</p>
                 </div>
                 <Header large><TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{name}</TextDecorator></Header>
-                <p>{snippet}</p>
+                <p className={styles['post-layout__snippet']}>{snippet}</p>
                 <Credit prefix='Written by'>
-                    <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author}</TextDecorator>
+                    <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author} 😏</TextDecorator>
                 </Credit>
             </div>
             <div className={styles['post-layout__image']}>

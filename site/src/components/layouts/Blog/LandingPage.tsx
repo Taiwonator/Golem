@@ -20,7 +20,7 @@ const LandingPage: React.FC = props => {
                 </TextDecorator>
             </Header>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis.</p>
-            <Icon name='bars--s--arrow' width={216} height={170} />
+            <Icon name='bars--s--arrow' width={216}/>
         </Section>
     )
 }

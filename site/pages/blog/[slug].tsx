@@ -17,7 +17,7 @@ const Test: NextPage = (props) => {
       <BaseLayout pageTitle='Golem | Blog Post'>
           <Content width='wide'>
               <PostLayout 
-                date={post.datePublished}
+                dateCreated={post.dateCreated}
                 views={post.views}
                 name={post.name}
                 snippet={post.snippet}
@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
     const post = await getPost(slug, [
       'author',
       'body',
-      'datePublished',
+      'dateCreated',
       'mainImageUrl',
       'name',
       'snippet',

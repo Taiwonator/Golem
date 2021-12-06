@@ -46,7 +46,7 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
             mainImageUrl={post.mainImageUrl}
             views={post.views}
             snippet={post.snippet}
-            datePublished={post.datePublished}
+            dateCreated={post.dateCreated}
             slug={post.slug}
             main={(i === 0) && true}
         />

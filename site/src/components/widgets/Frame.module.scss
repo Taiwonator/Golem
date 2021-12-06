@@ -34,17 +34,18 @@
 }
 
 .frame--square {
-    padding-bottom: 56.25%;
+    padding-bottom: 100%;
 
     @include forTablet {
-        border-radius: 50px;
+        padding-bottom: 60%;
+        border-radius: 190px;
     }
 
     .frame__inner {
         @include forTablet {
-            width: 98%;
-            height: 98%;
-            border-radius: 50px;
+            width: 93%;
+            height: 90%;
+            border-radius: 180px;
             overflow: hidden;
         }
     }

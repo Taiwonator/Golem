@@ -16,7 +16,7 @@ export async function getStaticProps() {
  const posts = await getPosts([
    'mainImageUrl',
    'name',
-   'datePublished',
+   'dateCreated',
    'views',
    'snippet',
    'slug'

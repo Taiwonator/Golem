@@ -7,12 +7,17 @@ export const useResponsiveWidth = () => {
 
     const onResize = () => {
         let minTabletWidth = parseInt(SETTINGS.minTablet.slice(0, -2))
+        let minDesktopWidth = parseInt(SETTINGS.minDesktop.slice(0, -2))
         
-        if(window.innerWidth >= minTabletWidth) {
+        if(window.innerWidth >= minDesktopWidth) {
+            setDevice('desktop')
+        } else if (window.innerWidth < minDesktopWidth && window.innerWidth >= minTabletWidth) {
             setDevice('tablet')
         } else {
             setDevice('mobile')
         }
+
+        
     }
 
     useEffect(() => {

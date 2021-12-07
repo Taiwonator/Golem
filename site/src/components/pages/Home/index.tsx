@@ -6,7 +6,7 @@ import Stats from './Stats'
 import Help from './Help'
 import BlogPosts from './BlogPosts'
 import ContactUs from './ContactUs'
-import Content from '../Content'
+import Content from '../../layouts/Content'
 
 const Home: React.FC = props => {
 

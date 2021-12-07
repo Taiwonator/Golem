@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import BaseLayout from 'src/components/layouts/BaseLayout'
-import Main from 'src/components/layouts/Blog'
+import Main from 'src/components/pages/Blog'
 import { getPosts } from './blog/lib/api'
 
 const Blog: NextPage = (posts) => {

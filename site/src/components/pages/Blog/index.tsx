@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'src/components/primitives/Button'
-import Content from '../Content'
+import Content from '../../layouts/Content'
 import Post from './Post'
 import PostLayout from './PostLayout'
 import LandingPage from './LandingPage'

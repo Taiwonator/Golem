@@ -46,7 +46,7 @@
     &::before {
         content: '';
         position: absolute;
-        height: 15px;
+        height: .25em;
         width: 70%;
         left: 0;
         bottom: 0;
@@ -58,10 +58,12 @@
     }
 
     &.underline--center {
+        display: inline-flex;
+        
         &::before {
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
+            width: 25%;
             bottom: .2em;
         }
     }

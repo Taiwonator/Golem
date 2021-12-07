@@ -3,7 +3,7 @@ import Button from 'src/components/primitives/Button'
 import Header from 'src/components/primitives/Header'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import SETTINGS from 'src/styles/settings'
-import Section from '../Section'
+import Section from '../../layouts/Section'
 import styles from './Help.module.scss'
 
 const Help: React.FC = props => {

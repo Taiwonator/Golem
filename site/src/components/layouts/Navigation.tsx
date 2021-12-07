@@ -45,7 +45,7 @@ const NavigationItems: React.FC<INavigationItems> = ({ active, toggleNav }) => {
                     <Item to={'/#about-us'}>about us</Item>
                     <Item to={'/#mission'}>mission</Item>
                     <Item to={'/blog'}>blog</Item>
-                    <Item to={'/#help'}>how to help</Item>
+                    <Item to={'/photo-gallery'}>gallery</Item>
                     <Item to={'/#help'} button>donate</Item>
                 </ul> 
                 <Hamburger action={toggleNav}/>

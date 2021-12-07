@@ -18,6 +18,10 @@
             top: 0;
             z-index: -1;
         }
+
+        h2 {
+            max-width: $mq--tablet;
+        }
     }
 
     &__snippet {
@@ -30,6 +34,8 @@
         width: 100%;
         max-width: $mq--desktop--small;
         justify-content: space-between;
+        margin-bottom: 2em;
+        font-size: .8em;
         
         & > * {
             margin: 0 1em;

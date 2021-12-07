@@ -1,6 +1,6 @@
 import React from 'react'
 import Circle from 'src/components/widgets/Circle'
-import Section from '../Section'
+import Section from '../../layouts/Section'
 import styles from './Stats.module.scss'
 import SETTINGS from 'src/styles/settings'
 import Header from 'src/components/primitives/Header'

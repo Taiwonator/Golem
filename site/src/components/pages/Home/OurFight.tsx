@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import Section from '../Section'
+import Section from '../../layouts/Section'
 import Image from 'next/image'
 import Header from 'src/components/primitives/Header'
 import TextDecorator from 'src/components/primitives/TextDecorator'

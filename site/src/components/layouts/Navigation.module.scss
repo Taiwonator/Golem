@@ -83,6 +83,7 @@
         overflow: hidden;
         display: none;
         opacity: 0;
+        text-transform: capitalize;
         transition: opacity .25s cubic-bezier(0.075, 0.82, 0.165, 1);
 
         @include forTablet {

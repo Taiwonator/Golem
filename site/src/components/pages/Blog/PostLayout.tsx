@@ -6,7 +6,7 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Credit from 'src/components/widgets/Credit'
 import Frame from 'src/components/widgets/Frame'
 import { formatDate } from 'src/lib/date'
-import Content from '../Content'
+import Content from '../../layouts/Content'
 import styles from './PostLayout.module.scss'
 
 interface PostLayoutProps {
@@ -32,7 +32,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ dateCreated, views, name, snipp
                 <Header large><TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{name}</TextDecorator></Header>
                 <p className={styles['post-layout__snippet']}>{snippet}</p>
                 <Credit prefix='Written by'>
-                    <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author} 😏</TextDecorator>
+                    <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author}</TextDecorator> 😏
                 </Credit>
             </div>
             <div className={styles['post-layout__image']}>

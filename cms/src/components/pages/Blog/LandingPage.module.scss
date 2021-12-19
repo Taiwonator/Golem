@@ -1,0 +1,12 @@
+.landing-page {
+    position: relative;
+    min-height: 70vh;
+    justify-content: center;
+    margin-bottom: 0;
+
+    p {
+        @include forTablet {
+            max-width: 50%;
+        }
+    }
+}

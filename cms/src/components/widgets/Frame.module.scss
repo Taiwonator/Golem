@@ -1,0 +1,52 @@
+.frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    // min-height: 300px;
+    // min-width: 300px;
+
+    @include forMobile {
+        border: none;
+        box-shadow: none;
+
+        &:hover {
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    &__inner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+
+        @include forTablet {
+            width: 90%;
+            height: 90%;
+            border-radius: 1000px;
+            overflow: hidden;
+        }
+
+    }
+}
+
+.frame--square {
+    padding-bottom: 100%;
+
+    @include forTablet {
+        padding-bottom: 60%;
+        border-radius: 190px;
+    }
+
+    .frame__inner {
+        @include forTablet {
+            width: 93%;
+            height: 90%;
+            border-radius: 180px;
+            overflow: hidden;
+        }
+    }
+}

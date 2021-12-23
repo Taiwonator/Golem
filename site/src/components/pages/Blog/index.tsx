@@ -29,7 +29,7 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
             comments: []
         }
 
-        fetch('http://localhost:5001/blog-backend-67f71/us-central1/app/posts', {
+        fetch('http://localhost:5001/blog-backend-67f71/us-central1/admin/posts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

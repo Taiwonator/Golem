@@ -1,6 +1,6 @@
 export async function getPost(slug, fields=[]): Promise<any> {
     // Make API Request
-    const res = await fetch(`http://localhost:5001/blog-backend-67f71/us-central1/app/posts/?slug=${slug}`)
+    const res = await fetch(`http://localhost:5001/blog-backend-67f71/us-central1/site/posts/?slug=${slug}`)
     const post = await res.json()
 
     if(fields.length) return filterPost(post, fields)

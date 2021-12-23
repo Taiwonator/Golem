@@ -13,6 +13,9 @@
   "include": [
     "src",
     "index.ts",
-    "shared"
+    "shared",
+    "api",
+    "admin",
+    "site"
   ],
 }

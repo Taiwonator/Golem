@@ -1,0 +1,12 @@
+.base-layout {
+    display:flex; 
+    flex-direction:column;
+
+    &__main {
+        margin-top: $nav-height + 20px;
+
+        @include forTablet {
+            margin-top: $nav-height + 20px;
+        }
+    }
+}

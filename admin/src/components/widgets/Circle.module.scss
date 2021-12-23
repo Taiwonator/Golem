@@ -1,0 +1,23 @@
+.circle {
+    position: relative;
+
+    &__content {
+        position: absolute;
+        width: 95%;
+        height: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1000px;
+
+        * {
+            margin: 0 !important;
+        }
+    }
+
+    &--has-child {
+        background-color: $color-white;
+        border-radius: 100%;
+        padding: .25em;
+    }
+}

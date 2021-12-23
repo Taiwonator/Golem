@@ -1,0 +1,24 @@
+.header {
+    margin-bottom: .5em;
+    text-transform: capitalize;
+
+    &--large {
+        font-size: 1.5em;
+
+        @include forTablet {
+            font-size: 2.5em;
+        }
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
+    p {
+        font-family: inherit;
+    }
+}
+
+.header--blog {
+    
+}

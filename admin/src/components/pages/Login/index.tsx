@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import Grid from 'src/components/layouts/Grid'
-import Section from 'src/components/layouts/Section'
+import styles from './Login.module.scss'
+import Image from 'next/image'
+import Router from 'next/router'
 import Button from 'src/components/primitives/Button'
 import Header from 'src/components/primitives/Header'
 import { getCurrentUser, logIn } from 'src/service/firebase'
 import SETTINGS from 'src/styles/settings'
 import Content from '../../layouts/Content'
-import Router from 'next/router'
 
 const Login: React.FC = props => {
     const [email, setEmail] = useState(null)
@@ -27,12 +27,15 @@ const Login: React.FC = props => {
 
     return (
         <Content width="medium">
-            <Section id="login">
-                <Header large>Golem log in</Header>
+            <div className={styles['login']}>
+                <div className={styles['login__logo']}>
+                    <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header> 
+                    <Image src="/assets/golem.png" alt="Picture of logo" width={644.22 * 2} height={236.84 * 2} /> 
+                </div>
                 <input type="email" value={email} onChange={e => emailHandler(e)}></input>
                 <input type="password" value={password} onChange={e => passwordHandler(e)}></input>
-                <Button onClick={() => userLogIn()} border color={SETTINGS.green}>Log in</Button>
-            </Section>
+                <Button onClick={() => userLogIn()} border color={SETTINGS.green}>LOGIN</Button>
+            </div>
         </Content>
     )
 }

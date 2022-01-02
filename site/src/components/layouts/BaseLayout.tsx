@@ -1,7 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
 import styles from './BaseLayout.module.scss'
-import Main from './Home'
 import Navigation from './Navigation'
 import Head from 'next/head'
 import { IContainer } from '../../types/react-types'

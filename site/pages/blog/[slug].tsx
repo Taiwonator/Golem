@@ -1,12 +1,7 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import BaseLayout from 'src/components/layouts/BaseLayout'
-import Main from 'src/components/pages/Blog'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
-import Link from 'src/components/primitives/Link'
-import useSwr from 'swr'
-import { getPost, getSlugs } from './lib/api'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -30,17 +25,8 @@ const Test: NextPage = (props) => {
     )
 }
 
-export async function getStaticProps({ params }) {
-    const { slug } = params
-    const post = await getPost(slug, [
-      'author',
-      'body',
-      'dateCreated',
-      'mainImageUrl',
-      'name',
-      'snippet',
-      'views'
-    ])
+export async function getStaticProps() {
+    const post = []
   
     return {
       props: {
@@ -50,7 +36,7 @@ export async function getStaticProps({ params }) {
   }
 
   export async function getStaticPaths() {
-    const slugs = await getSlugs()
+    const slugs = []
 
     return {
       paths: slugs.map(slug => ({

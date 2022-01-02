@@ -1,43 +1,13 @@
 import React from 'react'
-import Button from 'src/components/primitives/Button'
 import Content from '../../layouts/Content'
 import Post from './Post'
-import PostLayout from './PostLayout'
 import LandingPage from './LandingPage'
-import { IPost } from '../../../../../shared/types/api/posts'
-import faker from 'faker'
 
 interface BlogProps {
     posts: any[]
 }
 
 const Blog: React.FC<BlogProps> = ({ posts }) => {
-
-    const addPost = () => {
-        let post: IPost = {
-            name: faker.lorem.words(),
-            slug: faker.lorem.slug(),
-            author: faker.lorem.word(),
-            snippet: faker.lorem.sentences(),
-            body: faker.lorem.paragraphs(),
-            views: faker.random.number(),
-            mainImageUrl: faker.random.image(),
-            datePublished: faker.date.past(),
-            dateCreated: faker.date.past(),
-            categories: 'one',
-            tags: [],
-            comments: []
-        }
-
-        fetch('http://localhost:5001/blog-backend-67f71/us-central1/admin/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(post),})
-            .then(res => res.json())
-            .then(data => console.log("data: ", data))
-    }
 
     const postComps = posts.map((post, i) => (
         <Post 
@@ -63,8 +33,6 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
             <Content width='medium'>
                 {postComps.slice(1)}
             </Content>
-            
-            <Button border onClick={addPost}>Add post</Button>
         </React.Fragment>
     )
 }

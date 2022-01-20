@@ -12,9 +12,9 @@ const Test: NextPage = (props) => {
       <BaseLayout pageTitle='Golem | Blog Post'>
           <Content width='wide'>
               <PostLayout 
-                dateCreated={post.dateCreated}
+                publishedAt={post.publishedAt}
                 views={post.views}
-                name={post.name}
+                title={post.title}
                 snippet={post.snippet}
                 author={post.author}
                 mainImageUrl={post.mainImageUrl}
@@ -25,8 +25,10 @@ const Test: NextPage = (props) => {
     )
 }
 
-export async function getStaticProps() {
-    const post = []
+export async function getStaticProps({ params }) {
+  const query = `filters[slug][$eq]=${params.slug}`
+  const res = await fetch(`http://localhost:1337/api/posts?${query}`)
+  const post = (await res.json()).data[0].attributes
   
     return {
       props: {
@@ -36,7 +38,10 @@ export async function getStaticProps() {
   }
 
   export async function getStaticPaths() {
-    const slugs = []
+    // const slugs = []
+    const res = await fetch('http://localhost:1337/api/posts')
+    const slugs = (await res.json()).data.map(post => post.attributes.slug)
+
 
     return {
       paths: slugs.map(slug => ({
@@ -48,4 +53,4 @@ export async function getStaticProps() {
 
 export default Test
 
-// author, body, datePublished, mainImageUrl, name, views, snippet
+// author, body, datePublished, mainImage, title, views, snippet

@@ -11,8 +11,8 @@ import Link from 'src/components/primitives/Link'
 import { formatDate } from 'src/lib/date'
 
 interface PostProps {
-    name: string,
-    dateCreated: Date,
+    title: string,
+    publishedAt: Date,
     views: number,
     snippet: string,
     slug: string,
@@ -21,8 +21,8 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ 
-    name,
-    dateCreated,
+    title,
+    publishedAt,
     views,
     snippet,
     slug,
@@ -43,9 +43,9 @@ const Post: React.FC<PostProps> = ({
             <div className={styles['post__content']}>
                 <div className={styles['post__content__inner']}>
                     <div className={styles['post__content__row']}>
-                        <Header><TextDecorator underline underlineColor='green' theme='blog'>{name}</TextDecorator></Header>
+                        <Header><TextDecorator underline underlineColor='green' theme='blog'>{title}</TextDecorator></Header>
                         <div className={styles['post__info']}>
-                            <p><Icon name='calendar' color='#D2D2D2' />{formatDate(dateCreated)}</p>
+                            <p><Icon name='calendar' color='#D2D2D2' />{formatDate(publishedAt)}</p>
                             <p><Icon name='eye' color='#D2D2D2' />{views}</p>
                         </div>
                     </div>

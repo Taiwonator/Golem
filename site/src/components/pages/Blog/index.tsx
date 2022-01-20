@@ -12,11 +12,11 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
     const postComps = posts.map((post, i) => (
         <Post 
             key={i}
-            name={post.name}
-            mainImageUrl={post.mainImageUrl}
+            title={post.title}
+            mainImageUrl={post.mainImage}
             views={post.views}
             snippet={post.snippet}
-            dateCreated={post.dateCreated}
+            publishedAt={post.publishedAt}
             slug={post.slug}
             main={(i === 0) && true}
         />
@@ -27,7 +27,7 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
             <Content width='small'>
                 <LandingPage />
             </Content>
-            <Content width='wide'>
+            <Content width='medium'>
                 {postComps[0]}
             </Content>
             <Content width='medium'>

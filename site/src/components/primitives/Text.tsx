@@ -7,6 +7,7 @@ interface IText extends IContainer {
     bold?: boolean,
     uppercase?: boolean,
     className?: string,
+    marginBottom?: boolean,
     tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span'
     size?: 'standard' |
             'standard--small' |
@@ -18,8 +19,9 @@ interface IText extends IContainer {
             'header--large'
 }
 
-const Text: React.FC<IText> = ({ bold, className, children, size, tag, uppercase }) => {
+const Text: React.FC<IText> = ({ bold, className, children, marginBottom, size, tag, uppercase }) => {
     const Tag = tag || 'div'
+    const isStandard = size && size.includes('standard')
     return (
         <Tag 
         className={classNames(
@@ -27,6 +29,7 @@ const Text: React.FC<IText> = ({ bold, className, children, size, tag, uppercase
             size ? styles[size] : styles['standard'],
             bold && styles['bold'],
             uppercase && styles['uppercase'],
+            marginBottom && (isStandard ? styles['standard--marginBottom'] : styles['header--marginBottom']),
             className
         )}>
             { children }

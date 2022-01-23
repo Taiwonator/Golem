@@ -1,0 +1,21 @@
+.stack {
+
+}
+
+.gap--small {
+    & > * {
+        margin-bottom: 5px;
+    }
+}
+
+.gap--medium {
+    & > * {
+        margin-bottom: 10px;
+    }
+}
+
+.gap--large {
+    & > * {
+        margin-bottom: 20px;
+    }
+}

@@ -6,6 +6,7 @@ import Header from 'src/components/primitives/Header'
 import { useResponsiveWidth } from 'src/hooks/useResponsiveWidth'
 import SETTINGS from 'src/styles/settings'
 import TextDecorator from 'src/components/primitives/TextDecorator'
+import Text from 'src/components/primitives/Text'
 
 const LandingPage: React.FC = props => {
     const device = useResponsiveWidth()
@@ -39,7 +40,7 @@ const LandingPage: React.FC = props => {
                         </Header>
                     </> 
                 }
-                <Button color={SETTINGS.orange} border>Learn More</Button>
+                <Button color={SETTINGS.orange} border><Text tag="p" size="standard">Learn More</Text></Button>
             </div>
             <div className={styles['landing-page__desktop-image']} >
                 <Image

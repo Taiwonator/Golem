@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <React.Fragment>
 
-      <BaseLayout pageTitle='Golem | Home'>
+      <BaseLayout pageTitle='Golem | Home'>         
           <Main />
       </BaseLayout>
 

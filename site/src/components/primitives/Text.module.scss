@@ -1,0 +1,40 @@
+.text {
+}
+
+.standard, .standard--medium {
+    font-size: 18px;
+    margin-bottom: 1em;
+}
+
+.standard--small {
+    font-size: 14px;
+    margin-bottom: 1em;
+}
+
+.standard--large {
+    font-size: 22px;
+    margin-bottom: 1em;
+}
+
+.header, .header--medium {
+    font-size: 32px;
+    margin-bottom: .25em;
+}
+
+.header--small {
+    font-size: 22px;
+    margin-bottom: .25em;
+}
+
+.header--large {
+    font-size: 44px;
+    margin-bottom: .25em;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

@@ -20,7 +20,7 @@ interface IText extends IContainer {
 }
 
 const Text: React.FC<IText> = ({ bold, className, children, marginBottom, size, tag, uppercase }) => {
-    const Tag = tag || 'div'
+    const Tag = tag || 'p'
     const isStandard = size && size.includes('standard')
     return (
         <Tag 

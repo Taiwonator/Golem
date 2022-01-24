@@ -3,6 +3,7 @@
 
 .standard, .standard--medium {
     font-size: 18px;
+    line-height: 30px;
 }
 
 .standard--small {
@@ -23,6 +24,10 @@
 
 .header--large {
     font-size: 44px;
+
+    @include forTablet {
+        font-size: 66px;
+    }
 }
 
 .standard--marginBottom {

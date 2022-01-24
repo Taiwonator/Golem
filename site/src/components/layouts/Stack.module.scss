@@ -5,17 +5,31 @@
 .gap--small {
     & > * {
         margin-bottom: 5px;
+
+        @include forTablet {
+            margin-bottom: 10px;
+        }
     }
 }
 
 .gap--medium {
     & > * {
         margin-bottom: 10px;
+
+        @include forTablet {
+            margin-bottom: 20px;
+        }
     }
+
+
 }
 
 .gap--large {
     & > * {
         margin-bottom: 20px;
+
+        @include forTablet {
+            margin-bottom: 40px;
+        }
     }
 }

@@ -8,6 +8,7 @@
 
         @include forTablet {
             text-align: left;
+            padding-right: 100px;
             flex: 2;
         }
     }

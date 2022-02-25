@@ -43,19 +43,19 @@
 .underline--blog {
     text-transform: unset;
 
-    &::before {
-        content: '';
-        position: absolute;
-        height: .25em;
-        width: 70%;
-        left: 0;
-        bottom: 0;
-        z-index: -1;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     height: .25em;
+    //     width: 70%;
+    //     left: 0;
+    //     bottom: 0;
+    //     z-index: -1;
 
-        // @include forDesktop {
-        //     animation: 4s linear 0s infinite alternate grow_underline;
-        // }
-    }
+    //     // @include forDesktop {
+    //     //     animation: 4s linear 0s infinite alternate grow_underline;
+    //     // }
+    // }
 
     &.underline--center {
         display: inline-flex;

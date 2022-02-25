@@ -16,7 +16,5 @@ module.exports = (phase, {defaultConfig}) => {
     }
   }
 
-  console.log('defaultConfig:', defaultConfig)
-
   return defaultConfig;
 }

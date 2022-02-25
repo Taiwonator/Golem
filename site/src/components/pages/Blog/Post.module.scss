@@ -1,5 +1,5 @@
 .post {
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
 
     @include forTablet {
         display: flex;
@@ -19,7 +19,7 @@
     &__content {
 
         h2 {
-            font-size: 2em;
+            // font-size: 2em;
         }
 
         &__row {
@@ -32,6 +32,12 @@
             }
         }
 
+    }
+
+    &__title {
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__info {
@@ -50,11 +56,11 @@
     }
 
     p {
-        font-size: .75em;
-        margin-bottom: 1em;
+        // font-size: .75em;
+        // margin-bottom: 1em;
 
         @include forTablet {
-            font-size: .85em;
+            // font-size: .85em;
         }
     }
 }
@@ -68,10 +74,10 @@
     .post__frame {
         flex: 1;
         max-width: unset;
-        margin-bottom: 100px;
+        // margin-bottom: 100px;
 
         @include forTablet {
-            margin-bottom: 0px;
+            // margin-bottom: 0px;
 
             & > * {
                 box-shadow: 0 20px 1px $color-black;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { IContainer } from 'src/types/react-types'
+import Text from '../primitives/Text'
 import styles from './Credit.module.scss'
 
 interface ICredit extends IContainer {
@@ -8,12 +9,13 @@ interface ICredit extends IContainer {
 
 const Credit: React.FC<ICredit> = ({ children, prefix }) => {
     return (
-        <p 
+        <Text 
             className={styles['credit']}
+            bold
         >
             {prefix}&nbsp;
             { children }
-        </p>
+        </Text>
     )
 }
 

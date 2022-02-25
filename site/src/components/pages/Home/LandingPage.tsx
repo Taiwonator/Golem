@@ -7,6 +7,7 @@ import { useResponsiveWidth } from 'src/hooks/useResponsiveWidth'
 import SETTINGS from 'src/styles/settings'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Text from 'src/components/primitives/Text'
+import Stack from 'src/components/layouts/Stack'
 
 const LandingPage: React.FC = props => {
     const device = useResponsiveWidth()
@@ -16,7 +17,7 @@ const LandingPage: React.FC = props => {
 
     return (
         <section className={styles['landing-page']}>
-            <div className={styles['landing-page__content']}>
+            <Stack gap="large" className={styles['landing-page__content']}>
                 <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header>
                 { isMobile ?
                     <>
@@ -40,8 +41,8 @@ const LandingPage: React.FC = props => {
                         </Header>
                     </> 
                 }
-                <Button color={SETTINGS.orange} border><Text tag="p" size="standard">Learn More</Text></Button>
-            </div>
+                <Button color={SETTINGS.orange} border>Learn More</Button>
+            </Stack>
             <div className={styles['landing-page__desktop-image']} >
                 <Image
                     src="/assets/landing-image.png"

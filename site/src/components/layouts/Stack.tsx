@@ -4,20 +4,22 @@ import { IContainer } from '../../types/react-types'
 import classNames from 'classnames'
 
 interface IStack extends IContainer {
-    gap?: 'small' | 'medium' | 'large',
-    className?: string
+    gap?: 'small' | 'medium' | 'large' | 'huge',
+    className?: string,
+    tag?: 'div' | 'article' | 'section'
 }
 
-const Stack: React.FC<IStack> = ({ children, className, gap }) => {
+const Stack: React.FC<IStack> = ({ children, className, gap, tag }) => {
+    const Tag = tag || 'div'
 
     return (
-        <div className={classNames(
+        <Tag className={classNames(
             styles['stack'],
             gap ? styles[`gap--${gap}`] : styles['gap--medium'],
             className
         )}>
             { children }
-        </div>
+        </Tag>
     )
 }
 

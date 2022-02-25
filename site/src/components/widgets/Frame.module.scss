@@ -38,14 +38,14 @@
 
     @include forTablet {
         padding-bottom: 60%;
-        border-radius: 190px;
+        border-radius: 130px;
     }
 
     .frame__inner {
         @include forTablet {
-            width: 93%;
-            height: 90%;
-            border-radius: 180px;
+            width: 98%;
+            height: 97%;
+            border-radius: 120px;
             overflow: hidden;
         }
     }

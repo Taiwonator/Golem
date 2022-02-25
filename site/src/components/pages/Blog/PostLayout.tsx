@@ -1,7 +1,9 @@
 import React from 'react'
+import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
 import Header from 'src/components/primitives/Header'
 import Icon from 'src/components/primitives/Icon'
+import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Credit from 'src/components/widgets/Credit'
 import Frame from 'src/components/widgets/Frame'
@@ -25,15 +27,19 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snip
     return (
         <article className={styles['post-layout']}>
            <div className={styles['post-layout__header']}>
-                <div className={styles['post-layout__info']}>
-                    <p><Icon name='calendar' width={20} height={20} />{formatDate(publishedAt)}</p>
-                    <p><Icon name='eye' width={20} height={20} />{views} views</p>
-                </div>
-                <Header large><TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{title}</TextDecorator></Header>
-                <p className={styles['post-layout__snippet']}>{snippet}</p>
-                <Credit prefix='Written by'>
-                    <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author}</TextDecorator> 😏
-                </Credit>
+               <Content>
+                   <Stack>
+                        <div className={styles['post-layout__info']}>
+                            <Text><Icon name='calendar' width={20} height={20} />{formatDate(publishedAt)}</Text>
+                            <Text><Icon name='eye' width={20} height={20} />{views} views</Text>
+                        </div>
+                        <Text className={styles['post-layout__title']} tag="h1" size="header--large"><TextDecorator theme='blog'>{title}</TextDecorator></Text>
+                        <Text className={styles['post-layout__snippet']}>{snippet}</Text>
+                        <Credit prefix='Written by'>
+                            <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author}</TextDecorator> 😏
+                        </Credit>
+                    </Stack>
+                </Content>
             </div>
             <div className={styles['post-layout__image']}>
                 <div className={styles['post-layout__image__inner']}>
@@ -42,7 +48,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snip
             </div>
             <Content width='medium'>
                 <div className={styles['post-layout__content']}>
-                   <p>{body}</p>
+                   <Text>{body}</Text>
                 </div>
                 <Button border otherClassNames={styles['post-layout__share-button']}>
                     <p><Icon fa='hello'/> Share on <span>facebook</span></p>

@@ -6,6 +6,7 @@ import Link from '../primitives/Link'
 import { IContainer } from 'src/types/react-types'
 import Circle from '../widgets/Circle'
 import Credit from '../widgets/Credit'
+import Text from '../primitives/Text'
 
 const Footer: React.FC = props => {
 
@@ -44,10 +45,10 @@ const Footer: React.FC = props => {
             <Row>
                 {linksColumns.map(column => (
                    <RowItem key={column.header}>
-                    <h3>{column.header}</h3>
+                    <Text tag="h3" size="header--small">{column.header}</Text>
                     <ul>
                         {column.links.map(link => (
-                            <li key={link.name}><Link to={link.to}>{ link.name }</Link></li>
+                            <li key={link.name}><Link to={link.to}><Text>{link.name}</Text></Link></li>
                         ))}
                     </ul>
                 </RowItem> 

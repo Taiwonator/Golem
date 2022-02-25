@@ -1,5 +1,5 @@
 .post-layout {
-    margin-top: 60px;
+    margin-top: 0px;
     text-align: center;
     
     &__header {
@@ -24,18 +24,21 @@
         }
     }
 
-    &__snippet {
-        margin-bottom: 100px;
+    &__title, &__snippet, &__info {
         max-width: $mq--desktop--small;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__title {
+        text-decoration: underline;
+        text-decoration-color: $color-darkgreen;
     }
 
     &__info {
         display: flex;
         width: 100%;
-        max-width: $mq--desktop--small;
         justify-content: space-between;
-        margin-bottom: 2em;
-        font-size: .8em;
         
         & > * {
             margin: 0 1em;
@@ -79,18 +82,18 @@
         }
 
         p {
-            margin-bottom: 2em;
+            // margin-bottom: 2em;
             @include forTablet {
-                margin-bottom: 3em;
+                // margin-bottom: 3em;
             }
         }
     }
 
     &__share-button {
-        margin-bottom: 50px;
+        // margin-bottom: 50px;
 
         @include forTablet {
-            margin-bottom: 100p;
+            // margin-bottom: 100px;
         }
 
         span, svg {

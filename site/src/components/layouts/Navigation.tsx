@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../primitives/Button'
 import Header from '../primitives/Header'
 import Icon from '../primitives/Icon'
@@ -7,9 +7,15 @@ import styles from './Navigation.module.scss'
 import SETTINGS from 'src/styles/settings'
 import classNames from 'classnames'
 import { IContainer } from 'src/types/react-types'
+import { useResponsiveWidth } from 'src/hooks/useResponsiveWidth'
 
 const Navigation: React.FC = props => {
+    const device = useResponsiveWidth()
     const [active, setActive] = useState(false)
+
+    useEffect(() => {
+        setActive(device !== 'mobile')
+    }, [device])
     
     const toggleNav = () => {
         setActive((active) => !active)

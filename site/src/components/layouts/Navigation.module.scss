@@ -13,7 +13,7 @@
         align-items: flex-start;
 
         @include forTablet {
-            padding: 20px $gutter--tablet;
+            padding: 10px $gutter--tablet;
             align-items: center;
         }
     }

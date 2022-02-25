@@ -33,3 +33,13 @@
         }
     }
 }
+
+.gap--huge {
+    & > * {
+        margin-bottom: 40px;
+
+        @include forTablet {
+            margin-bottom: 80px;
+        }
+    }
+}

@@ -16,7 +16,7 @@ const Blog: React.FC<BlogProps> = ({ initialPosts }) => {
     const [posts, setPosts] = useState(initialPosts)
 
     const loadMorePosts = async() => {
-        const query = `pagination[page]=${pageIndex}&pagination[pageSize]=10`
+        const query = `pagination[page]=${pageIndex}&pagination[pageSize]=5`
         const res = await fetch(`http://localhost:1337/api/posts?${query}`)
         let newPosts = (await res.json()).data.map(post => post.attributes)
         setPosts(posts.concat(newPosts))

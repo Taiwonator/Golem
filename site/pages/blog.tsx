@@ -7,10 +7,9 @@ import faker from 'faker'
 
 
 const Blog: NextPage = (props) => {
-  console.log(props)
     return (
       <BaseLayout pageTitle='Golem | Blog'>
-          <Main posts={props['posts']} />
+          <Main initialPosts={props['posts']} />
       </BaseLayout>
     )
 }

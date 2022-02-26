@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MutableRefObject } from 'react'
 import Button from 'src/components/primitives/Button'
 import Header from 'src/components/primitives/Header'
 import Icon from 'src/components/primitives/Icon'
@@ -21,6 +21,7 @@ interface PostProps {
     slug: string,
     mainImageUrl: string
     main?: boolean,
+    ref?: MutableRefObject<HTMLDivElement>
 }
 
 const Post: React.FC<PostProps> = ({ 
@@ -30,7 +31,7 @@ const Post: React.FC<PostProps> = ({
     snippet,
     slug,
     mainImageUrl,
-    main 
+    main,
 }) => {
 
     const MAX_SNIPPET_LENGTH = 100

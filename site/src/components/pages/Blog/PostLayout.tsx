@@ -10,7 +10,6 @@ import Frame from 'src/components/widgets/Frame'
 import { formatDate } from 'src/lib/date'
 import Content from '../../layouts/Content'
 import styles from './PostLayout.module.scss'
-
 interface PostLayoutProps {
     publishedAt: Date,
     views: number,
@@ -21,7 +20,7 @@ interface PostLayoutProps {
     body: string
 }
 
-const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snippet, author, mainImageUrl, body }) => {
+const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snippet, author, mainImageUrl, body }) => {    
 
 
     return (
@@ -31,7 +30,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snip
                    <Stack>
                         <div className={styles['post-layout__info']}>
                             <Text><Icon name='calendar' width={20} height={20} />{formatDate(publishedAt)}</Text>
-                            <Text><Icon name='eye' width={20} height={20} />{views} views</Text>
+                            <Text><Icon name='eye' width={20} height={20} />{views} <span>views</span></Text>
                         </div>
                         <Text className={styles['post-layout__title']} tag="h1" size="header--large"><TextDecorator theme='blog'>{title}</TextDecorator></Text>
                         <Text className={styles['post-layout__snippet']}>{snippet}</Text>

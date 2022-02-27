@@ -6,25 +6,33 @@ import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from '../../../styles/settings'
 import { FaWonSign } from 'react-icons/fa'
+import Text from 'src/components/primitives/Text'
+import useSWR from 'swr'
+import T from 'src/components/primitives/TextDecorator'
 
 interface BlogProps {
-    initialPosts: any[]
+    posts: any[]
 }
 
-const Blog: React.FC<BlogProps> = ({ initialPosts }) => {
+const Blog: React.FC<BlogProps> = ({ posts }) => {
+    const PAGESIZE = 5
+
+    const [displayedPosts, setDisplayedPosts] = useState(posts.slice(0, PAGESIZE))
+    const [isDisabled, setIsDisabled] = useState(false)
     const [pageIndex, setPageIndex] = useState(2)
-    const [posts, setPosts] = useState(initialPosts)
 
     const loadMorePosts = async() => {
-        const query = `pagination[page]=${pageIndex}&pagination[pageSize]=5`
-        const res = await fetch(`http://localhost:1337/api/posts?${query}`)
-        let newPosts = (await res.json()).data.map(post => post.attributes)
-        setPosts(posts.concat(newPosts))
-        setPageIndex(pageIndex + 1)
+        console.log('pageIndex: ', pageIndex)
+        setDisplayedPosts(posts.slice(0, PAGESIZE * pageIndex))
         window.scrollBy(0, 200)
+        
+        if((displayedPosts.length + (PAGESIZE)) >= posts.length) {
+            setIsDisabled(true)
+        }
+        setPageIndex(pageIndex + 1)
     }
 
-    const postComps = posts.map((post, i) => (
+    const postComps = displayedPosts.map((post, i) => (
         <Post 
             key={i}
             title={post.title}
@@ -46,7 +54,10 @@ const Blog: React.FC<BlogProps> = ({ initialPosts }) => {
                 <Stack gap="huge">
                     {postComps[0]}
                     {postComps.slice(1)}
-                    <Button onClick={() => loadMorePosts()} color={SETTINGS.green} border>More Posts +</Button>
+                    <Stack gap="small">
+                        <Text tag='p'><Text tag="span" bold>{displayedPosts.length}</Text> (of {posts.length})</Text>
+                        <Button onClick={() => loadMorePosts()} color={SETTINGS.green} border disabled={isDisabled}>More Posts +</Button>
+                    </Stack>
                 </Stack>
             </Content>
         </React.Fragment>

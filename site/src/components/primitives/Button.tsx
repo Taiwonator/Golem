@@ -6,19 +6,21 @@ import { IContainer } from '../../types/react-types'
 interface IButton extends IContainer {
     border?: boolean,
     color?: string,
+    disabled?: boolean,
     theme?: string,
     onClick?: () => void
 }
 
-const Button: React.FC<IButton> = ({ border, children, color, theme, otherClassNames, onClick }) => {
+const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, otherClassNames, onClick }) => {
     const className = classNames(
         styles['button'],
         border && styles['button--border'],
+        disabled && styles['button--disabled'],
         otherClassNames
     )
 
     const Component = !theme 
-                            ? <button onClick={() => onClick && onClick()} className={className} style={{ backgroundColor: color }}>{ children }</button>
+                            ? <button onClick={() => onClick && onClick()} className={className} style={{ backgroundColor: color }} disabled={disabled}>{ children }</button>
                             : <button 
                                 onClick={() => onClick && onClick()}
                                 className={classNames(className, styles['button--blog'])}

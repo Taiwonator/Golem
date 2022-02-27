@@ -20,6 +20,15 @@
             filter: brightness(.9);
         }
     }
+
+    &--disabled {
+        background-color: $color-grey !important;
+
+        &:hover, &:active {
+            transform: unset;
+            box-shadow: 0 6px 1px  $color-black;
+        }
+    }
 }
 
 .button--blog {

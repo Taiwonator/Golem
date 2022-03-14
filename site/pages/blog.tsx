@@ -16,13 +16,12 @@ const Blog: NextPage = (props: any) => {
 }
 
 export async function getStaticProps() {
- 
-  const res = await fetch(`http://localhost:1337/api/posts`)
-  const posts = (await res.json()).data.map(post => post.attributes)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?sort=publishedAt:DESC`)
+  const data = (await res.json()).data
 
   return {
     props: {
-      posts,
+      posts: data ? data.map(post => post.attributes) : [],
     },
   }
 }

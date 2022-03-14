@@ -27,26 +27,26 @@ const Test: NextPage = (props) => {
 
 export async function getStaticProps({ params }) {
   const query = `filters[slug][$eq]=${params.slug}`
-  const res = await fetch(`http://localhost:1337/api/posts?${query}`)
-  const post = (await res.json()).data[0].attributes
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${query}`)
+  const data = (await res.json()).data
   
     return {
       props: {
-        post,
+        post: data ? data[0].attributes : {},
       },
     }
   }
 
   export async function getStaticPaths() {
     // const slugs = []
-    const res = await fetch('http://localhost:1337/api/posts')
-    const slugs = (await res.json()).data.map(post => post.attributes.slug)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
+    const data = (await res.json()).data
 
 
     return {
-      paths: slugs.map(slug => ({
+      paths: data ? data.map(post => post.attributes.slug).map(slug => ({
         params: { slug }
-      })),
+      })) : [],
       fallback: false
     };
   }

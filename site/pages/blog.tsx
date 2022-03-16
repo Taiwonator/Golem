@@ -17,6 +17,10 @@ const Blog: NextPage = (props: any) => {
 
 export async function getStaticProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?sort=publishedAt:DESC`)
+  if(res.status > 300) {
+    console.error('blog.jsx - get static props error')
+    return { notFound: true }
+  }
   const data = (await res.json()).data
 
   return {

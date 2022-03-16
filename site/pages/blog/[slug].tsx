@@ -3,9 +3,7 @@ import BaseLayout from 'src/components/layouts/BaseLayout'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
-
-const Test: NextPage = (props) => {
+const BlogPost: NextPage = (props) => {
   const post = props['post']
 
     return (  
@@ -28,6 +26,9 @@ const Test: NextPage = (props) => {
 export async function getStaticProps({ params }) {
   const query = `filters[slug][$eq]=${params.slug}`
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${query}`)
+  if(res.status > 300) {
+    return { notFound: true }
+  }
   const data = (await res.json()).data
   
     return {
@@ -38,10 +39,12 @@ export async function getStaticProps({ params }) {
   }
 
   export async function getStaticPaths() {
-    // const slugs = []
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
-    const data = (await res.json()).data
-
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
+      if(res.status > 300) {
+        console.error('[slug].jsx - get static paths error')
+        return { paths: [], fallback: false }
+      }
+      const data = (await res.json()).data
 
     return {
       paths: data ? data.map(post => post.attributes.slug).map(slug => ({
@@ -51,6 +54,4 @@ export async function getStaticProps({ params }) {
     };
   }
 
-export default Test
-
-// author, body, datePublished, mainImage, title, views, snippet
+export default BlogPost

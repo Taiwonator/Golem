@@ -12,7 +12,7 @@ module.exports = (phase, {defaultConfig}) => {
   if ('images' in defaultConfig) {
     defaultConfig['images'] = {
       ...defaultConfig.images,
-      domains: ['placeimg.com'],
+      domains: ['placeimg.com', 'res.cloudinary.com'],
     }
   }
 

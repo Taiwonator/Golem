@@ -1,0 +1,11 @@
+{
+  "name": "golem-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Taiwonator/Golem.git",
+  "author": "Michael Taiwo <22432591+Taiwonator@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy:strapi": "git subtree push --prefix strapi heroku master"
+  }
+}

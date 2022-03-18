@@ -25,8 +25,10 @@ const BlogPost: NextPage = (props) => {
 
 export async function getStaticProps({ params }) {
   const query = `filters[slug][$eq]=${params.slug}`
+  console.log('API: ', process.env.NEXT_PUBLIC_API_URL)
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?${query}`)
   if(res.status > 300) {
+    console.error('[slug].jsx - get static props error')
     return { notFound: true }
   }
   const data = (await res.json()).data

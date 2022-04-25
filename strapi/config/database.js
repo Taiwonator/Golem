@@ -1,12 +1,15 @@
+const path = require("path");
+
 module.exports = ({ env }) => ({
   connection: {
-    client: 'postgres',
+    client: "postgres",
     connection: {
-      host: env('DATABASE_HOST', '127.0.0.1'),
-      port: env.int('DATABASE_PORT', 3001),
-      database: env('DATABASE_NAME', 'Blog'),
-      user: env('DATABASE_USERNAME', 'postgres'),
-      password: env('DATABASE_PASSWORD', 'Qualitycake7ql'),
+      host: env("DATABASE_HOST", "127.0.0.1"),
+      port: env.int("DATABASE_PORT", 5432),
+      database: env("DATABASE_NAME", "strapi"),
+      user: env("DATABASE_USERNAME", "postgres"),
+      password: env("DATABASE_PASSWORD", "mysecretpassword"),
     },
+    useNullAsDefault: true,
   },
 });

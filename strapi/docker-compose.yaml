@@ -1,0 +1,26 @@
+# version: '3'
+# services:
+#   # strapi:
+#   #   build: .
+#   #   ports: 
+#   #     - 1337:1337
+#   #   environment:
+#   #     DATABASE_HOST: "${DATABASE_HOST}"
+#   #     DATABASE_PORT: "${DATABASE_PORT}"
+#   #     DATABASE_NAME: "${DATABASE_NAME}"
+#   #     DATABASE_USERNAME: "${DATABASE_USERNAME}"
+#   #     DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
+#   #     DATABASE_CLIENT: "${DATABASE_CLIENT}"
+#   #   depends_on:
+#   #     - postgres
+    
+postgres:
+  image: postgres:14.2
+  ports:
+    - 5432:5432
+  environment:
+    POSTGRES_DB: "${DATABASE_NAME}"
+    POSTGRES_USER: "${DATABASE_USER}"
+    POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+  volumes:
+    - "./.tmp/:/var/lib/postgresql/data"

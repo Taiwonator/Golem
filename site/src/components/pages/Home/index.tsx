@@ -7,6 +7,7 @@ import Help from './Help'
 import BlogPosts from './BlogPosts'
 import ContactUs from './ContactUs'
 import Content from '../../layouts/Content'
+import FAQs from './FAQs'
 
 const Home: React.FC = props => {
 
@@ -19,6 +20,7 @@ const Home: React.FC = props => {
             <Help />
             <BlogPosts />
             <ContactUs />
+            <FAQs />
         </Content>
     )
 }

@@ -13,7 +13,12 @@ const Help: React.FC = props => {
         <Section id='help' otherClassNames={styles['help']}>
             <Stack gap="large">
                 <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='green' underlineCenter>How to help</TextDecorator></Text>
-                <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis, egestas nisl sit amet, convallis ante. Suspendisse eu elit a magna ultricies sodales nec a augue. Maecenas in lorem non ligula pellentesque efficitur vitae et tellus. Mauris quis sodales orci. Nunc scelerisque, nunc et sollicitudin venenatis, orci lacus fermentum purus, et consectetur ante urna non justo. Donec molestie pretium nisl sit amet pharetra. Etiam finibus turpis et suscipit dignissim.</Text>
+                <Text>With hunger and natural disasters becoming more widespread across the world, the need for development and relief aid to accompany the work of evangelism and mission has never been more urgent.  If you are reading this and would like to support us in reaching more needy people with the gospel of love, consider making a donation to GOLEM by on our site, by cheque or direct to our account.</Text>
+                <div className={styles['contact-details']}>
+                    <Text bold>GOLEM MINISTRIES</Text>
+                    <Text bold>Account No.: 83577238</Text>
+                    <Text bold>Sort Code: 60-15-31</Text>
+                </div>
                 <Button color={SETTINGS.orange} border>Donate now</Button>
             </Stack>
         </Section>

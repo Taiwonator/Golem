@@ -1,3 +1,14 @@
 .help {
     flex-direction: column;
+
+    .contact-details {
+        @include forTablet {
+            display: flex;
+            justify-content: center;
+
+            * + * {
+                margin-left: 2em;
+            }
+        }
+    }
 }

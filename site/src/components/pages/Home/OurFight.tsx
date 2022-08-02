@@ -17,12 +17,12 @@ const OurFight: React.FC = props => {
 
             <Stack gap="large" className={styles['our-fight__content']}>
                 <Text tag="h2" size="header--large">
-                    <TextDecorator underline underlineColor='orange'>Our Fight</TextDecorator>
+                    <TextDecorator underline underlineColor='orange'>Who We are</TextDecorator>
                     <div className={styles['our-fight__mobile-icon']}>
                         <Icon name="logo" />
                     </div>
                 </Text>
-                <Text tag="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis, egestas nisl sit amet, convallis ante. Suspendisse eu elit a magna ultricies sodales nec a augue. Maecenas in lorem non ligula pellentesque efficitur vitae et tellus. Mauris quis sodales orci. Nunc scelerisque, nunc et sollicitudin venenatis, orci lacus fermentum purus, et consectetur ante urna non justo. Donec molestie pretium nisl sit amet pharetra. Etiam finibus turpis et suscipit dignissim.</Text>
+                <Text tag="p">GOLEM (God of Love Emancipation Ministries) is a charitable emancipation organisation incorporated in August 2012 to propagate the Christian gospel around the world and demonstrate the love of Christ to the needy and vulnerable in practical ways. Prior to August 2012, GOLEM founded in 1998 by a Christian couple Jonathan Taiwo and Alice Taiwo has been operating informally raising and distributing vital funds to many local and overseas based ministries. Some of these were Oxfam, World Vision, Tear Fund, Euro Vision, Power of Apostolic Church International (PAC) just to mention a few.</Text>
                 <Button border>Read More</Button>
             </Stack>
             

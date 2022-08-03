@@ -29,7 +29,7 @@ const AboutUs: React.FC = props => {
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
                 <Text tag="p">We value love, justice, liberty, inclusivity, transparency, honesty, accountability humility, selfless and exemplary leadership.</Text>
                 <Button border color={SETTINGS.green}>Read More</Button>
-                <Icon name="bars--s" />
+                <Icon name="bars--s" width={100} />
                 <div className={styles['about-us__image-1']}>
                     <Image 
                         src={SideImage1}

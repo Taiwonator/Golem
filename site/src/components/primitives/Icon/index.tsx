@@ -4,6 +4,8 @@ import { FaBeer } from 'react-icons/fa';
 import { AiFillFacebook, AiTwotoneCalendar, AiOutlineEye } from 'react-icons/ai';
 import { Calendar, Eye } from './vanilla-icons';
 import styles from './Icon.module.scss'
+import { ExecSyncOptionsWithStringEncoding } from 'node:child_process';
+import classNames from 'classnames'
 
 interface IIcon {
     fa?: string,
@@ -11,9 +13,10 @@ interface IIcon {
     height?: number,
     name?: string,
     color?: string
+    className?: string
 }
 
-const Icon: React.FC<IIcon> = ({ fa, height, width, name, color }) => {
+const Icon: React.FC<IIcon> = ({ fa, height, width, name, color, className }) => {
 
     let Component
     if(fa) {
@@ -37,14 +40,17 @@ const Icon: React.FC<IIcon> = ({ fa, height, width, name, color }) => {
                 Component = <Calendar color={color} />
                 break
             default:
-                Component = <Image 
-                                className={styles['icon--image']} 
-                                src={`/assets/svg/${name}.svg`}
-                                width={width || '100%'} 
-                                height={height || '100%'} 
-                                alt={'logo'}
-                                objectFit="contain" 
-                            />
+                Component = 
+                <span
+                    className={classNames(styles['icon--image'], className)} 
+                    style={{ width, height: width, position: "relative" }}>
+                    <Image
+                        src={`/assets/svg/${name}.svg`}
+                        layout="fill" 
+                        alt={'logo'}
+                        objectFit="contain" 
+                    />
+                </span>
 
                 break
         }

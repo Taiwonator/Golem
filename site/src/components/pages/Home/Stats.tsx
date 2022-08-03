@@ -15,9 +15,7 @@ const Stats: React.FC = props => {
             <Stack gap="large">
                 <Text tag="h2" size="header--large">
                     <TextDecorator underline underlineColor='orange'>Our Impact</TextDecorator>
-                    <div className={styles['stats__desktop-icon']}>
-                        <Icon name="logo--green" />
-                    </div>
+                    <Icon className={styles['stats__desktop-icon']} name="logo--green" width={70} />
                 </Text>
                 <Stack className={styles['stats__content']}>
                     <Stack className={styles['stats__column']}>

@@ -1,3 +1,5 @@
 .icon--image {
-  object-fit: contain !important;
+  img {
+    object-fit: contain !important;
+  }
 }

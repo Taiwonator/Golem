@@ -37,7 +37,14 @@ const Icon: React.FC<IIcon> = ({ fa, height, width, name, color }) => {
                 Component = <Calendar color={color} />
                 break
             default:
-                Component = <Image className={styles['icon--image']} src={`/assets/svg/${name}.svg`} width={width || '100%'} height={height || '100%'} alt={'logo'} objectFit="contain" />
+                Component = <Image 
+                                className={styles['icon--image']} 
+                                src={`/assets/svg/${name}.svg`}
+                                width={width || '100%'} 
+                                height={height || '100%'} 
+                                alt={'logo'}
+                                objectFit="contain" 
+                            />
 
                 break
         }

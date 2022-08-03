@@ -48,7 +48,7 @@ const NavigationItems: React.FC<INavigationItems> = ({ active, toggleNav }) => {
     return (
             <ul className={styles['navigation__items']}>
                 <ul className={classNames(styles['navigation__items__links'], active && styles['navigation__items__links--active'])}>
-                    <Item to={'/#about-us'}>about us</Item>
+                    <Item to={'/about'}>about us</Item>
                     <Item to={'/mission'}>mission</Item>
                     <Item to={'/blog'}>blog</Item>
                     <Item to={'/photo-gallery'}>gallery</Item>

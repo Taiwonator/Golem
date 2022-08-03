@@ -1,0 +1,54 @@
+.landing-page {
+  @include forTablet {
+    margin-bottom: 300px;
+  }
+
+    &__inner {
+      @include forTablet {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    &__image {
+      margin-bottom: 1em;
+      flex: 1;
+      @include forTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include forTablet {
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 50px;
+      }
+
+      h1 * {
+        display: block;
+      }
+    }
+
+    &__icon--tablet {
+      margin-left: auto;
+    }
+
+    &--mobileOnly {
+      display: block;
+      @include forTablet {
+        display: none;
+      }
+    }
+
+    &--tabletOnly {
+      display: none;
+      @include forTablet {
+        display: block;
+      }
+    }
+}

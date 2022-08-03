@@ -24,7 +24,7 @@
 
             @include forTablet {
                 margin-top: 0;
-                font-size: 3em;
+                font-size: 2.5em;
             }
         }
 
@@ -44,6 +44,11 @@
 
         @include forTablet {
             display: block;
+        }
+
+        @include forDesktop {
+            margin-left: 50px;
+            margin-right: 75px;
         }
     }
 }

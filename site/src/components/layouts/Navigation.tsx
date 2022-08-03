@@ -27,7 +27,7 @@ const Navigation: React.FC = props => {
                 <div className={styles['navigation__left']}>
                     <Link to={'/'}>
                         <div className={styles['navigation__logo']}>
-                            <Icon name='logo--green' width={50}/><Header>Golem</Header>
+                            <Icon name='logo--green' width={50} height={70}/><Header>Golem</Header>
                         </div>
                     </Link>
                 </div>

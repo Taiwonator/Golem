@@ -16,13 +16,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", 
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@settings": [
         "src/styles/settings.scss"
-      ],
-    }
+      ]
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
@@ -31,5 +32,5 @@
   ],
   "exclude": [
     "node_modules"
-  ], 
+  ]
 }

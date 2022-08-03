@@ -4,6 +4,7 @@ import styles from './BaseLayout.module.scss'
 import Navigation from './Navigation'
 import Head from 'next/head'
 import { IContainer } from '../../types/react-types'
+import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 interface IBaseLayout extends IContainer {
     pageTitle: string

@@ -1,3 +1,7 @@
+.bold {
+    font-weight: 900;
+}
+
 .underline {
     position: relative;
     text-transform: uppercase;
@@ -24,6 +28,12 @@
     &--green {
         &::before {
             background-color: $color-green;
+        }
+    }
+
+    &--darkgreen {
+        &::before {
+            background-color: $color-darkgreen;
         }
     }
 

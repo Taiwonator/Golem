@@ -8,6 +8,7 @@ import SETTINGS from 'src/styles/settings'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
+import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const LandingPage: React.FC = props => {
     const device = useResponsiveWidth()
@@ -32,7 +33,7 @@ const LandingPage: React.FC = props => {
                         <Header tag='h1'>
                             <p>
                                 <span className={styles['landing-page__desktop-golem']}>
-                                    <Image src="/assets/golem.png" alt="Picture of logo" width={312.37} height={114.8} />
+                                    <Image src="/assets/golem.png" alt="Picture of logo" width={312.37} height={114.8} loading="eager" />
                                 </span>
                                 <Decor color={SETTINGS.grey}>is</Decor> emancipating
                             </p>

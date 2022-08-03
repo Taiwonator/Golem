@@ -8,19 +8,34 @@ import BlogPosts from './BlogPosts'
 import ContactUs from './ContactUs'
 import Content from '../../layouts/Content'
 import FAQs from './FAQs'
+import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Home: React.FC = props => {
 
     return (
         <Content width="medium">
-            <LandingPage />
-            <OurFight />
-            <AboutUs />
-            <Stats />
-            <Help />
-            <BlogPosts />
-            <ContactUs />
-            <FAQs />
+            <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+                <LandingPage />
+            </AnimationOnScroll>
+
+            <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+                <OurFight />
+            </AnimationOnScroll>
+
+            <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+                <AboutUs />
+            </AnimationOnScroll>
+
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
+                <Stats />
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
+                <Help />
+                <BlogPosts />
+                <ContactUs />
+                <FAQs />
+            </AnimationOnScroll>
+
         </Content>
     )
 }

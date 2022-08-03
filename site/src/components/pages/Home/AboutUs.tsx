@@ -10,16 +10,20 @@ import Text from 'src/components/primitives/Text'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
 
+import SideImage1 from '../../../../public/assets/side-image-1.png'
+import SideImage2 from '../../../../public/assets/side-image-2.png'
+
 const AboutUs: React.FC = props => {
     return (
         <Section id='about-us' otherClassNames={styles['about-us']}>
             <Stack gap="large" className={styles['about-us__content']}>
                 <div className={styles['about-us__image-2']}>
                     <Image 
-                        src="/assets/side-image-2.png"
+                        src={SideImage2}
                         width={967.06}
                         height={468.2}
                         alt="Image of a lady"
+                        placeholder="blur"
                     />
                 </div>
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
@@ -28,10 +32,11 @@ const AboutUs: React.FC = props => {
                 <Icon name="bars--s" />
                 <div className={styles['about-us__image-1']}>
                     <Image 
-                        src="/assets/side-image-1.png"
+                        src={SideImage1}
                         width={963.91}
                         height={897.18}
                         alt="Image of a lady"
+                        placeholder="blur"
                     />
                 </div>
             </Stack>

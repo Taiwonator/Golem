@@ -5,10 +5,7 @@ import LandingPage from './LandingPage'
 import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from '../../../styles/settings'
-import { FaWonSign } from 'react-icons/fa'
 import Text from 'src/components/primitives/Text'
-import useSWR from 'swr'
-import T from 'src/components/primitives/TextDecorator'
 
 interface BlogProps {
     posts: any[]

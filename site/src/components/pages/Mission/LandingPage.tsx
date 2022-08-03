@@ -29,7 +29,7 @@ const LandingPage: React.FC = () => {
                     </TextDecorator>
                 </Text>
                 <Text className={styles["landing-page__description"]}>Our mission is to accomplish the holistic emancipation of vulnerable people globally with a special focus on Nigeria through effective and sustainable address of physical, social, material, educational  and spiritual needs.</Text>
-                <Icon name='bars--s--arrow' width={216}/>
+                <Icon name='bars--s--arrow' width={180}/>
             </Stack>
         </Section>
     </Content>

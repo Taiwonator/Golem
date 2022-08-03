@@ -1,4 +1,7 @@
 .icon--image {
+  position: relative;
+  display: inline-flex;
+  
   img {
     object-fit: contain !important;
   }

@@ -43,7 +43,7 @@ const Icon: React.FC<IIcon> = ({ fa, height, width, name, color, className }) =>
                 Component = 
                 <span
                     className={classNames(styles['icon--image'], className)} 
-                    style={{ width, height: width, position: "relative" }}>
+                    style={{ width, height: width }}>
                     <Image
                         src={`/assets/svg/${name}.svg`}
                         layout="fill" 

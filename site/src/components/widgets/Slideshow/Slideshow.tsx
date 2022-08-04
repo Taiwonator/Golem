@@ -38,8 +38,16 @@ const Slideshow: React.FC<SlideshowProps> = ({ config={} }) => {
     initial: 0,
     loop,
     slides: {
-      perView: sneakPeak ? 1.5 : 1,
+      perView: sneakPeak ? 1.35 : 1,
       origin: sneakPeak ? 'center' : 'auto',
+    },
+    breakpoints: {
+      '(min-width: 800px)': {
+        slides: {
+          perView: sneakPeak ? 1.5 : 1,
+          origin: sneakPeak ? 'center' : 'auto',
+        }
+      }
     },
     slideChanged(s) {
       setActiveSlideIndex(s.track.absToRel(s.track.details.abs))

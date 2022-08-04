@@ -19,8 +19,13 @@ const slideTexts: string[] = [
 
 export const projectsConfig: Config = {
   slides: slideTexts.map((text, i) => 
-  <Text size="header--small" bold key={i}>
-    <span className="text-double--desktop">{text}</span>
+  <Text tag="div" size="header--small" bold key={i}>
+    <TextDecorator color={SETTINGS.orange}>
+      {i+1}.
+    </TextDecorator>{' '}
+    <Text size="header--small" bold tag="p" className="text-double--desktop">
+      <span className="text-double--desktop">{text}</span>
+    </Text>
   </Text>
   ),
   slideOptions: {

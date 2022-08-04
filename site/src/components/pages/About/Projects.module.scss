@@ -2,13 +2,19 @@
   text-align: center;
 
   &__email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     p {
       font-weight: 900;
     }
 
      a {
-       font-size: 1.5em;
+      font-size: 1.25em;
+       @include forTablet {
+        font-size: 1.5em;
+       }
      }
   }
 }

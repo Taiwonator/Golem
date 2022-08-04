@@ -18,6 +18,12 @@
   }
 }
 
+.text-larger--desktop {
+  @include forTablet {
+    font-size: 1.3em;
+  }
+}
+
 .text-double--desktop {
   @include forTablet {
     font-size: 2em;

@@ -18,7 +18,20 @@ const Projects: React.FC = () => {
             </TextDecorator>
           </Text>
         </Stack>
-        <Text>Our projects are delivered locally and Overseas in collaboration with our partners abroad. Power of Apostolic Church International (PAC), a faith based organisation based in the rural communities of Western part of Nigeria is our key ministry partner. Whilst most of our current overseas is based in Nigeria in keeping with the adage: ” charity begins at home”, our long term vision is to identify other viable NGO Partners overseas and expand the scope of our operations to other needy developing communities.</Text>
+        <Stack gap="large">
+          <Text>
+            Our projects are delivered locally and Overseas in collaboration with our 
+            partners abroad. Power of Apostolic Church International (PAC), a faith 
+            based organisation based in the rural communities of Western part of Nigeria 
+            is our key ministry partner. Whilst most of our current overseas is based 
+            in Nigeria in keeping with the adage: ” charity begins at home”, our long 
+            term vision is to identify other viable NGO Partners overseas and expand 
+            the scope of our operations to other needy developing communities.
+          </Text>
+          <Text>
+            <TextDecorator bold color={SETTINGS.darkgreen}>Here are some ongoing and planned projects:</TextDecorator>
+          </Text>
+        </Stack>
       </Content>
       <Slideshow config={projectsConfig} />
       <Content width="small">

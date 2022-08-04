@@ -8,7 +8,7 @@ interface IText extends IContainer {
     uppercase?: boolean,
     className?: string,
     marginBottom?: boolean,
-    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span'
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span' | 'div'
     size?: 'standard' |
             'standard--small' |
             'standard--medium' |

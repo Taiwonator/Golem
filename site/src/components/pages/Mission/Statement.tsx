@@ -6,9 +6,10 @@ import Education from '../../../../public/assets/education.jpg'
 import Image from "next/image";
 import Stack from "src/components/layouts/Stack";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import PageStack from "src/components/primitives/PageStack";
 
 const Statement: React.FC = () => (
-  <div className={styles['statement']}>
+  <PageStack className={styles['statement']}>
     <AnimationOnScroll
         animateIn="animate__fadeIn"
         animateOnce
@@ -54,7 +55,7 @@ const Statement: React.FC = () => (
       </Text>
     </Stack>
   </AnimationOnScroll>
-</div>
+</PageStack>
 )
 
 export default Statement

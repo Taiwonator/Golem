@@ -19,19 +19,20 @@ const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, o
         otherClassNames
     )
 
-    const Component = !theme 
-                            ? <button onClick={() => onClick && onClick()} className={className} style={{ backgroundColor: color }} disabled={disabled}>{ children }</button>
-                            : <button 
-                                onClick={() => onClick && onClick()}
-                                className={classNames(className, styles['button--blog'])}
-                                style={{
-                                    color,
-                                    border: `2px solid ${color}`,
-                                    boxShadow: `0 4px 1px  ${color}`
-                                }}
-                              >
-                                { children }
-                              </button>
+    const Component = 
+    !theme 
+    ? <button onClick={() => onClick && onClick()} className={className} style={{ backgroundColor: color }} disabled={disabled}>{ children }</button>
+    : <button 
+        onClick={() => onClick && onClick()}
+        className={classNames(className, styles['button--blog'])}
+        style={{
+            color,
+            border: `2px solid ${color}`,
+            boxShadow: `0 4px 1px  ${color}`
+        }}
+    >
+        { children }
+    </button>
 
     return Component
 }

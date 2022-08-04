@@ -1,0 +1,25 @@
+.thumbnail .keen-slider__slide {
+  background-color: $color-green;
+  &.active {
+    background-color: $color-green;
+  }
+  &.active ~ * {
+    background-color: $color-white;
+  }
+}
+
+.keen-slider {
+  &--sneak-peak .keen-slider__slide {
+    opacity: 0.2;
+  }
+
+  &--sneak-peak .keen-slider__slide.active {
+    opacity: 1 !important;
+  }
+}
+
+.text-double--desktop {
+  @include forTablet {
+    font-size: 2em;
+  }
+}

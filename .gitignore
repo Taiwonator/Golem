@@ -34,6 +34,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+site/.env
+site/.env.production
 
 # vercel
 .vercel
@@ -103,3 +105,4 @@ node_modules/
 
 # Yarn Integrity file
 .yarn-integrity
+

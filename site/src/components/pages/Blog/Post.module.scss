@@ -17,13 +17,20 @@
     }
 
     &__content {
+        padding: 20px 0;
 
-        h2 {
-            // font-size: 2em;
+        @include forTablet {
+            flex-grow: 1;
+        }
+
+        &__inner {
+            text-align: center;
+            @include forTablet {
+                text-align: left;
+            }
         }
 
         &__row {
-
             @include forTablet {
                 display: flex;
                 flex-direction: row;
@@ -65,20 +72,16 @@
     }
 }
 
-.post--main {
-    
-    @include forTablet {
-        padding: 0 $gutter--mobile
-    }
+.post--featured {
 
     .post__frame {
-        flex: 1;
         max-width: unset;
         // margin-bottom: 100px;
 
         @include forTablet {
-            // margin-bottom: 0px;
-
+            width: calc(50% + 120px);
+            margin-left: -120px;
+            
             & > * {
                 box-shadow: 0 20px 1px $color-black;
             }
@@ -93,19 +96,6 @@
         flex: 1;
         position: relative;
         margin: 0 $gutter--mobile;
-
-        &__inner {
-            text-align: center;
-            @include forTablet {
-                text-align: left;
-            }
-
-            @include forDesktop {
-                // max-width: 60%;
-            }
-
-
-        }
 
         &__row {
             flex-direction: column;

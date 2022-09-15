@@ -12,51 +12,40 @@ interface BlogProps {
 }
 
 const Blog: React.FC<BlogProps> = ({ posts }) => {
-    const PAGESIZE = 5
 
-    const [displayedPosts, setDisplayedPosts] = useState(posts.slice(0, PAGESIZE))
-    const [isDisabled, setIsDisabled] = useState(false)
-    const [pageIndex, setPageIndex] = useState(2)
-
-    const loadMorePosts = async() => {
-        console.log('pageIndex: ', pageIndex)
-        setDisplayedPosts(posts.slice(0, PAGESIZE * pageIndex))
-        window.scrollBy(0, 200)
-        
-        if((displayedPosts.length + (PAGESIZE)) >= posts.length) {
-            setIsDisabled(true)
-        }
-        setPageIndex(pageIndex + 1)
-    }
-
-    const postComps = displayedPosts.map((post, i) => (
-        <Post 
-            key={i}
-            title={post.title}
-            mainImageUrl={post.mainImage}
-            views={post.views}
-            snippet={post.snippet}
-            publishedAt={post.publishedAt}
-            slug={post.slug}
-            main={true}
-        />
-    ))
+    const featuredPosts = posts.filter(post => post.featured)
 
     return (
         <React.Fragment>
             <Content width='small' center>
                 <LandingPage />
             </Content>
-            <Content width='medium' center>
-                <Stack gap="huge">
-                    {postComps[0]}
-                    {postComps.slice(1)}
-                    <Stack gap="small">
-                        <Text tag='p'><Text tag="span" bold>{displayedPosts.length}</Text> (of {posts.length})</Text>
-                        <Button onClick={() => loadMorePosts()} color={SETTINGS.green} border disabled={isDisabled}>More Posts +</Button>
+            <Stack gap='huge'>
+                {featuredPosts.map((featuredPost, i) => 
+                    <Post key={`fpost_${i}`} views={0} heroImageId={featuredPost.image} {...featuredPost} /> 
+                )}
+                <Content width='medium' center>
+                    <Stack gap="huge">
+                        {posts.map((post, i) => {
+                            if(!post.featured) {
+                                return (
+                                    <Post 
+                                        key={`post_${i}`}
+                                        views={0}
+                                        heroImageId={post.image}
+                                        {...post}
+                                    />
+                                )
+                            }
+                            return null
+                        })}
+                        <Stack gap="small">
+                            <Text tag='p'><Text tag="span" bold>[count]</Text> (of [total])</Text>
+                            <Button color={SETTINGS.green} border disabled={false}>More Posts +</Button>
+                        </Stack>
                     </Stack>
-                </Stack>
-            </Content>
+                </Content>
+            </Stack>
         </React.Fragment>
     )
 }

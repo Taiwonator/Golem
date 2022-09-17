@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
 }
 
   export async function getStaticPaths() {
-      const [data, res, error] = await payloadFetch(`posts`)
+      const [data, res, error] = await payloadFetch(`posts?limit=20`)
       if(error) {
         console.error('[slug].jsx - get static paths error')
         return { paths: [], fallback: false }

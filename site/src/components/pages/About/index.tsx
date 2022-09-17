@@ -7,6 +7,7 @@ import Slideshow from 'src/components/widgets/Slideshow/Slideshow'
 import { aboutConfig, projectsConfig } from 'src/data/Slideshow'
 import PageStack from 'src/components/primitives/PageStack'
 import Projects from './Projects'
+import styles from './index.module.scss'
 
 const Mission: React.FC = props => {
 
@@ -18,7 +19,7 @@ const Mission: React.FC = props => {
              <Content width="medium">
                 <Slideshow config={aboutConfig} />
             </Content>
-            <Content width="small">
+            <Content width="small" className={styles['about__content--no-margin-top']}>
                 <PageStack>
                     <Statement />
                     <Funding />

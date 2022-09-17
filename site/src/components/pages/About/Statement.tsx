@@ -7,7 +7,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import Header from "src/components/primitives/Header";
 
 const Statement: React.FC = () => (
-  <div className={styles['statement']}>
+  <div className={styles['statement']} id="values">
     <AnimationOnScroll
         animateIn="animate__fadeIn"
         animateOnce

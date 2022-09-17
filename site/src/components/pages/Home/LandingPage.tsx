@@ -10,7 +10,11 @@ import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const LandingPage: React.FC = props => {
+interface LandingPageProps {
+    onButtonClick?: () => void
+}
+
+const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
     const device = useResponsiveWidth()
     const isMobile = device === 'mobile'
 
@@ -24,9 +28,9 @@ const LandingPage: React.FC = props => {
                     <>
                         <Image src="/assets/golem--mobile.png" alt="Picture of logo" width={525.51} height={207.41} />
                         <Header tag='h1'>
-                            <p><Decor color={SETTINGS.grey}>is</Decor> emancipating</p>
-                            <p><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</p>
-                            <p><Decor color={SETTINGS.green} underline>globally</Decor></p>
+                            <span><Decor color={SETTINGS.grey}>is</Decor> emancipating</span>
+                            <span><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</span>
+                            <span><Decor color={SETTINGS.green} underline>globally</Decor></span>
                         </Header>
                     </> :
                     <>
@@ -42,7 +46,7 @@ const LandingPage: React.FC = props => {
                         </Header>
                     </> 
                 }
-                <Button color={SETTINGS.orange} border>Learn More</Button>
+                <Button color={SETTINGS.orange} border onClick={onButtonClick}>Learn More</Button>
             </Stack>
             <div className={styles['landing-page__desktop-image']} >
                 <Image

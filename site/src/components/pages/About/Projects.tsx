@@ -13,12 +13,10 @@ const Projects: React.FC = () => {
       <Content width="small">
         <Stack gap="large">
           <Text tag="h2" size="header--large">
-            <TextDecorator underline underlineColor='orange' underlineCenter>
-              Our Projects
-            </TextDecorator>
-          </Text>
-        </Stack>
-        <Stack gap="large">
+              <TextDecorator underline underlineColor='orange' underlineCenter>
+                Our Projects
+              </TextDecorator>
+            </Text>
           <Text>
             Our projects are delivered locally and Overseas in collaboration with our 
             partners abroad. Power of Apostolic Church International (PAC), a faith 

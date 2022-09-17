@@ -7,9 +7,10 @@ interface IContent extends IContainer {
     width?: 'small' | 'medium' | 'wide',
     className?: string,
     center?: boolean
+    id?: string
 }
 
-const Content: React.FC<IContent> = ({ children, center, className, width }) => {
+const Content: React.FC<IContent> = ({ children, center, className, width, id }) => {
 
     return (
         <div className={classNames(
@@ -17,7 +18,9 @@ const Content: React.FC<IContent> = ({ children, center, className, width }) => 
             width && styles[`content--${width}`],
             center && styles[`content--center`],
             className
-        )}>
+        )}
+            id={id}
+        >
             { children }
         </div>
     )

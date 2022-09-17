@@ -2,6 +2,7 @@ import React from 'react'
 import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
 import Header from 'src/components/primitives/Header'
+import Link from 'src/components/primitives/Link'
 import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import SETTINGS from 'src/styles/settings'
@@ -19,7 +20,11 @@ const Help: React.FC = props => {
                     <Text bold>Account No.: 83577238</Text>
                     <Text bold>Sort Code: 60-15-31</Text>
                 </div>
-                <Button color={SETTINGS.orange} border>Donate now</Button>
+                <Button color={SETTINGS.orange} border>
+                    <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=UNZTUKLRTG58J" external>
+                        Donate Now
+                    </Link>
+                </Button>
             </Stack>
         </Section>
     )

@@ -8,7 +8,7 @@ interface ISection extends IContainer {
     otherClassNames?: string
 }
 
-const Section: React.FC<ISection> = ({ children, id, otherClassNames }) => {
+const Section = React.forwardRef<HTMLElement | null, ISection>(({ children, id, otherClassNames }, ref) => {
 
     const className = classNames(
         styles['section'],
@@ -16,10 +16,10 @@ const Section: React.FC<ISection> = ({ children, id, otherClassNames }) => {
     )
 
     return (
-        <section id={id} className={className}>
+        <section id={id} className={className} ref={ref}>
             { children }
         </section>
     )
-}
+})
 
 export default Section

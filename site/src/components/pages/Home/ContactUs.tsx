@@ -1,6 +1,7 @@
 import React from 'react'
 import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
+import Link from 'src/components/primitives/Link'
 import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import SETTINGS from 'src/styles/settings'
@@ -14,7 +15,11 @@ const ContactUs: React.FC = props => {
                 <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='orange' underlineCenter>Get in touch</TextDecorator></Text>
                 <Text size="standard--large">Click the button to get in contact with us today 📩</Text>
                 <Button color={SETTINGS.darkgreen} border>
-                    <Text tag="h3"><TextDecorator color={SETTINGS.white}>jonathan.golemministries@gmail.com</TextDecorator></Text>
+                    <Text tag="h3"><TextDecorator color={SETTINGS.white}>
+                        <Link to="mailto:jonathan.golemministries@gmail.com">
+                            jonathan.golemministries@gmail.com
+                        </Link>
+                    </TextDecorator></Text>
                 </Button>
             </Stack>
         </Section>

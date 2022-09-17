@@ -1,5 +1,6 @@
 import Stack from 'src/components/layouts/Stack';
 import Button from 'src/components/primitives/Button';
+import Link from 'src/components/primitives/Link';
 import Text from 'src/components/primitives/Text';
 import TextDecorator from 'src/components/primitives/TextDecorator';
 import Minus from 'src/components/widgets/FAQs/svgs/Minus';
@@ -32,7 +33,11 @@ const Funding: React.FC = () => {
           ensuring that maximum benefits is delivered to funds
           beneficiaries.
         </Text>
-        <Button color={SETTINGS.orange} border>Donate Now</Button>
+        <Button color={SETTINGS.orange} border>
+          <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=UNZTUKLRTG58J" external>
+            Donate Now
+          </Link>
+        </Button>
       </Stack>
     </div>
   )

@@ -11,7 +11,7 @@ export interface Config {
         perView?: number,
         origin?: string
       },
-      tablet?: { 
+    tablet?: { 
         perView?: number,
         origin?: string
       }  

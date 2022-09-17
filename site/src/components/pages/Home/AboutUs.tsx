@@ -12,6 +12,7 @@ import SETTINGS from 'src/styles/settings'
 
 import SideImage1 from '../../../../public/assets/side-image-1.png'
 import SideImage2 from '../../../../public/assets/side-image-2.png'
+import Link from 'src/components/primitives/Link'
 
 const AboutUs: React.FC = props => {
     return (
@@ -28,7 +29,11 @@ const AboutUs: React.FC = props => {
                 </div>
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
                 <Text tag="p">We value love, justice, liberty, inclusivity, transparency, honesty, accountability humility, selfless and exemplary leadership.</Text>
-                <Button border color={SETTINGS.green}>Read More</Button>
+                <Button border color={SETTINGS.green}>
+                    <Link to="/about#values">
+                        Read More
+                    </Link>
+                </Button>
                 <Icon name="bars--s" width={100} />
                 <div className={styles['about-us__image-1']}>
                     <Image 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { IContainer } from '../../types/react-types'
+import NextLink from 'next/link'
 
 interface ILink extends IContainer {
     external?: boolean,
@@ -10,13 +11,11 @@ const Link: React.FC<ILink> = ({ children, external, to }) => {
     to = to || '#'
 
     return (
-        <a 
-            href={to}
-            target={external && '_blank'}
-            rel={external && 'noopener'}
-        >
-            { children }
-        </a>
+        <NextLink href={to}>
+            <a target={external && '_blank'} rel={external && 'noopener'}>
+                { children }
+            </a>
+        </NextLink>
     )
 }
 

@@ -1,5 +1,9 @@
 .statement {
   text-align: center;
+  padding-top: 100px;
+  @include forTablet {
+    padding-top: 200px;
+  }
 
   &__large {
 

@@ -83,15 +83,10 @@
 
     .post__frame {
         max-width: unset;
-        // margin-bottom: 100px;
 
         @include forTablet {
             width: calc(50% + 120px);
             margin-left: -120px;
-            
-            & > * {
-                box-shadow: 0 20px 1px $color-black;
-            }
         }
 
         @include forDesktop {

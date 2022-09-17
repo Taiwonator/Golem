@@ -49,8 +49,8 @@ const Post: React.FC<PostProps> = ({
         <Stack tag="article" className={className}>
             <div className={styles['post__frame']}>
                 { (heroImage) ? 
-                    <Frame src={heroImage?.url} square={featured}/> :  
-                    <Frame loading={true} square={featured}/>
+                    <Frame noHover src={heroImage?.url} square={featured}/> :  
+                    <Frame noHover loading={true} square={featured}/>
                 }
             </div>
             <div className={styles['post__content']}>
@@ -63,7 +63,11 @@ const Post: React.FC<PostProps> = ({
                         </div>
                     </Stack>
                     <Text>{shortSnippet}</Text>
-                    <Button border theme="blog" color={SETTINGS.orange}>Read article</Button>
+                    <Button border theme="blog" color={SETTINGS.orange}>
+                        <Link to={`blog/${slug}`}>
+                            Read article
+                        </Link>
+                    </Button>
                 </Stack>
             </div>
         </Stack>

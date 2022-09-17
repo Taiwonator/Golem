@@ -6,6 +6,7 @@ import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from '../../../styles/settings'
 import Text from 'src/components/primitives/Text'
+import styles from './index.module.scss'
 
 interface BlogProps {
     posts: any[]
@@ -16,10 +17,11 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
     const featuredPosts = posts.filter(post => post.featured)
 
     return (
-        <React.Fragment>
+        <Stack gap="large">
             <Content width='small' center>
                 <LandingPage />
             </Content>
+            {!posts.length && (<Text className={styles['blog__empty-text']} size="header--medium">We are working on some amazing posts ⭐</Text>)}
             <Stack gap='huge'>
                 {featuredPosts.map((featuredPost, i) => 
                     <Post key={`fpost_${i}`} views={0} heroImageId={featuredPost.image} {...featuredPost} /> 
@@ -45,7 +47,7 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
                     </Stack>
                 </Content>
             </Stack>
-        </React.Fragment>
+        </Stack>
     )
 }
 

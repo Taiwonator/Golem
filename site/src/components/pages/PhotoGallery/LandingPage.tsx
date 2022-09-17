@@ -17,7 +17,7 @@ const LandingPage: React.FC = props => {
                     Photo Gallery
                 </TextDecorator>
             </Header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis.</p>
+            <p>A quick look at the change we're making.</p>
             <Icon name='bars--s--arrow' width={216}/>
         </Section>
     )

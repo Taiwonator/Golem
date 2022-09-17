@@ -22,7 +22,14 @@ const LandingPage: React.FC = props => {
                         The Blog
                     </TextDecorator>
                 </Text>
-                <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis.</Text>
+                <Text>
+                    Check out our collection of blog articles about everything{' '}
+                    <TextDecorator bold>Africa</TextDecorator>
+                    ,{' '}
+                    <TextDecorator bold>Faith</TextDecorator>
+                    {' '}and{' '}
+                    <TextDecorator bold>Life</TextDecorator>
+                </Text>
                 <Icon name='bars--s--arrow' width={216}/>
             </Stack>
         </Section>

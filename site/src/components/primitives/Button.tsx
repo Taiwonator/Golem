@@ -25,6 +25,7 @@ const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, o
     : <button 
         onClick={() => onClick && onClick()}
         className={classNames(className, styles['button--blog'])}
+        disabled={disabled}
         style={{
             color,
             border: `2px solid ${color}`,

@@ -9,9 +9,10 @@ interface IFrame {
     loading?: boolean,
     square?: boolean
     src?: string
+    noHover?: boolean 
 }
 
-const Frame: React.FC<IFrame> = ({ loading, square, src }) => {
+const Frame: React.FC<IFrame> = ({ loading, square, src, noHover }) => {
 
     const className = classNames(
         styles['frame'],
@@ -19,7 +20,7 @@ const Frame: React.FC<IFrame> = ({ loading, square, src }) => {
     )
 
     return (
-        <Button border otherClassNames={className} color={SETTINGS.white}>
+        <Button disabled={noHover} border otherClassNames={className} color={SETTINGS.white}>
             <div className={styles['frame__inner']}>
                 {loading && (
                     <span className={styles['frame__loader']} />

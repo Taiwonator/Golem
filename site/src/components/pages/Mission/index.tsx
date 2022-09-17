@@ -5,26 +5,22 @@ import LandingPage from './LandingPage'
 import Statement from './Statement'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Slideshow from 'src/components/widgets/Slideshow/Slideshow'
-import { missionsConfig, makeFieldReportsConfig } from 'src/data/Slideshow'
+import { makeFieldReportsConfig, makeMissionsConfig } from 'src/data/Slideshow'
 import PageStack from 'src/components/primitives/PageStack'
 import FieldReport from './FieldReport'
 import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
+import { MissionProps } from 'pages/mission'
 
-interface MissionProps {
-    fieldReports: any[]
-}
 
-const Mission: React.FC<MissionProps> = ({ fieldReports }) => {
-
-    const [selectedReport, setSelectedReport] = useState(fieldReports[0].content)
+const Mission: React.FC<MissionProps> = ({ fieldReports, goals }) => {
 
     return (
         <>
             <LandingPage />
             <PageStack gap="large">
                 <Content width="medium">
-                    <Slideshow config={missionsConfig} />
+                    <Slideshow config={makeMissionsConfig(goals.map(goal => goal.text))} />
                 </Content>
                 <Content width="small">
                     <Statement />

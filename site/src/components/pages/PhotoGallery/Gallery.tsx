@@ -16,7 +16,7 @@ const Gallery: React.FC<IGallery> = () => {
     let images = keys.map(k => k.default)
 
     const device = useResponsiveWidth()
-    const [modalImage, setModalImage] = useState(null)
+    const [modalImage, setModalImage] = useState<any>({})
 
     function generateGrid() {
         let Grid
@@ -52,10 +52,12 @@ const Gallery: React.FC<IGallery> = () => {
             columns[columnIndex].push(
                 <GalleryItem 
                     key={`item-${i}`} 
+                    blurDataURL={image.blurDataURL}
+                    alt={image.src}
                     src={image.src} 
                     width={image.width}
                     height={image.height}
-                    onClick={() => setModalImage(image.src)}
+                    onClick={() => setModalImage(image)}
                 />
             )
         }
@@ -71,7 +73,7 @@ const Gallery: React.FC<IGallery> = () => {
     }
 
     const closeModal = () => {
-        setModalImage(null)
+        setModalImage({})
     }
 
     const Component = generateGrid()
@@ -82,19 +84,26 @@ const Gallery: React.FC<IGallery> = () => {
                 {Component}
             </ul>
             <div className={styles['gallery__shadow']} />
-            <Modal src={modalImage} onClick={() => closeModal()}/>
+            <Modal 
+                src={modalImage.src} 
+                onClick={() => closeModal()}
+                alt={modalImage.src}
+                blurDataURL={modalImage.blurDataURL}
+            />
         </React.Fragment>
     )
 }
 
 interface IGalleryItem {
     src: string,
+    alt?: string,
     width: number,
     height: number,
     onClick: () => void
+    blurDataURL?: string
 }
 
-const GalleryItem: React.FC<IGalleryItem> = ({ src, width, height, onClick }) => {
+const GalleryItem: React.FC<IGalleryItem> = ({ src, alt, width, height, onClick, blurDataURL }) => {
 
     return (
         <button 
@@ -103,11 +112,13 @@ const GalleryItem: React.FC<IGalleryItem> = ({ src, width, height, onClick }) =>
         >
             <Image 
                 src={src}
-                alt="Image of a lady"
+                alt={alt}
                 width={width}
                 height={height}
                 loading="lazy"
                 objectFit="cover"
+                blurDataURL={blurDataURL}
+                placeholder="blur"
             />
         </button>
     )
@@ -129,24 +140,29 @@ const GalleryColumn: React.FC<IGalleryColumn> = ({ children, varience }) => {
 
 interface IModal {
     src: string,
+    alt?: string,
+    blurDataURL?: string
     onClick: () => void
 }
 
-const Modal: React.FC<IModal> = ({ src, onClick }) => {
+const Modal: React.FC<IModal> = ({ src, alt, blurDataURL, onClick }) => {
 
     const Component = (
         <li className={styles['gallery__modal']} onClick={onClick}>
             <div className={styles['gallery__modal__inner']}>
                 <Image 
                     src={src}
-                    alt="modal image"
+                    alt={alt}
                     layout="fill"
                     objectFit="contain"
+                    blurDataURL={blurDataURL}
+                    placeholder="blur"
                 />
             </div>
         </li>
     )
-    return src && Component
+    if(src) return Component
+    return null
 }
 
 export default Gallery

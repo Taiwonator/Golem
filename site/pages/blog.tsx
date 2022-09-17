@@ -16,7 +16,7 @@ const Blog: NextPage = (props: any) => {
 
 export async function getStaticProps () {
 
-  const [data, res, error] = await payloadFetch('posts')
+  const [data, res, error] = await payloadFetch('posts?sort=-publishedDate')
   if(error) {
     console.error('blog.jsx - get static props error: ', error)
     return { notFound: true }

@@ -22,11 +22,12 @@
     }
 
     &--disabled {
-        background-color: $color-grey !important;
+        background-color: $color-grey;
 
         &:hover, &:active {
-            transform: unset;
-            box-shadow: 0 6px 1px  $color-black;
+            transform: unset !important;
+            box-shadow: 0 6px 1px  $color-black !important;
+            filter: brightness(1);
         }
     }
 }
@@ -37,5 +38,10 @@
     &.button--border {
         text-transform: uppercase;
     }
-
+    
+    &.button--border {
+        &:hover {
+            transform: translateY(0);
+        }
+    }
 }

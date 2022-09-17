@@ -18,9 +18,9 @@ const slideTexts: string[] = [
   'Children educational sponsorship , school visits and youth mentoring in order to cultivate good morals, sense of responsibility and strong leadership.',
 ]
 
-export const missionsConfig: Config = {
+export const makeMissionsConfig = (goals: string[]): Config => ({
   title: "How we achieve our goals",
-  slides: slideTexts.map((text, i) => 
+  slides: goals.map((text, i) => 
   <Text size="header--medium" bold key={i}>
     <TextDecorator color={SETTINGS.green}>
       {i+1}.
@@ -31,4 +31,4 @@ export const missionsConfig: Config = {
   slideOptions: {
     center: true
   }
-}
+})

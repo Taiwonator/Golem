@@ -27,12 +27,10 @@ interface PostLayoutProps {
 }
 
 const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content }) => {  
-       
-    // const { key: mediaKey, fetcher } = useSWRConfig(`media/${heroImageId}`)
-    // const { data: heroImage } = useSWR(mediaKey, fetcher)
 
     const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
     const { data: avatarImage } = useSWR(avatarKey, fetcher)
+    console.log('fetch: ', avatarImage)
         
     return (
         <article className={styles['post-layout']}>
@@ -69,8 +67,8 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
             <div className={styles['post-layout__image']}>
                 <div className={styles['post-layout__image__inner']}>
                     { (heroImage) ? 
-                        <Frame src={heroImage?.url} square/> :  
-                        <Frame loading={true} square/>
+                        <Frame noHover src={heroImage?.url} square/> :  
+                        <Frame noHover loading={true} square/>
                     }
                 </div>
             </div>

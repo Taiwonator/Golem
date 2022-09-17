@@ -3,21 +3,21 @@
 }
 
 .gap--small {
-    & > * {
-        margin-bottom: 5px;
+    & > * + * {
+        margin-top: 5px;
 
         @include forTablet {
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
     }
 }
 
 .gap--medium {
-    & > * {
-        margin-bottom: 10px;
+    & > * + * {
+        margin-top: 10px;
 
         @include forTablet {
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
     }
 
@@ -25,21 +25,21 @@
 }
 
 .gap--large {
-    & > * {
-        margin-bottom: 20px;
+    & > * + * {
+        margin-top: 20px;
 
         @include forTablet {
-            margin-bottom: 40px;
+            margin-top: 40px;
         }
     }
 }
 
 .gap--huge {
-    & > * {
-        margin-bottom: 40px;
+    & > * + * {
+        margin-top: 40px;
 
         @include forTablet {
-            margin-bottom: 80px;
+            margin-top: 80px;
         }
     }
 }

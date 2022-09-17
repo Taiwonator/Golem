@@ -8,7 +8,8 @@ import payloadFetch from 'src/lib/payload-fetcher'
 export interface HomeProps {
   posts: any[],
   postCount: number,
-  fPost: any
+  fPost: any,
+  faqs: any[]
 }
 
 const Home: NextPage<HomeProps> = (props) => {
@@ -34,17 +35,22 @@ export async function getStaticProps () {
   
   const [fData, fRes, fError] = await payloadFetch('posts?where[status][equals]=published&where[featured][equals]=true')
   if(fError) {
-    console.error('index.jsx - get static props error: ', error)
+    console.error('index.jsx - get static props error: ', fError)
     return { notFound: true }
   }
 
-  console.log('fData: ', fData)
+  const [faqsData, faqsRes, faqsError] = await payloadFetch('faqs')
+  if(faqsError) {
+    console.error('index.jsx - get static props error: ', faqsError)
+    return { notFound: true }
+  }
 
   return {
     props: {
       posts: data ? data.docs : [],
       postCount: data ? data.totalDocs : 0,
-      fPost: (fData && fData.docs.length) ? fData.docs[0] : null
+      fPost: (fData && fData.docs.length) ? fData.docs[0] : null,
+      faqs: faqsData ? faqsData.docs : []
     },
   }
 }

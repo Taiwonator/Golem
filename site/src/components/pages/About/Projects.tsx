@@ -1,15 +1,20 @@
+import Image from "next/image"
 import Content from "src/components/layouts/Content"
 import Stack from "src/components/layouts/Stack"
 import Text from "src/components/primitives/Text"
 import TextDecorator from "src/components/primitives/TextDecorator"
 import Slideshow from "src/components/widgets/Slideshow/Slideshow"
-import { projectsConfig } from "src/data/Slideshow"
+import { makeProjectsConfig } from "src/data/Slideshow"
 import SETTINGS from "src/styles/settings"
 import styles from './Projects.module.scss' 
 
-const Projects: React.FC = () => {
+interface ProjectsProps {
+  projects: any[]
+}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <Stack gap="large" className={styles['projects']}>
+    <Stack gap="huge" className={styles['projects']}>
       <Content width="small">
         <Stack gap="large">
           <Text tag="h2" size="header--large">
@@ -31,7 +36,25 @@ const Projects: React.FC = () => {
           </Text>
         </Stack>
       </Content>
-      <Slideshow config={projectsConfig} />
+      <Slideshow config={makeProjectsConfig(projects.map((project, i) => (
+        <div className={styles['projects__project']}>
+          <Text tag="div" size="header--small" key={i}>
+            <Stack>
+              <TextDecorator color={SETTINGS.orange}>
+                <Text bold tag="p">{i+1}.</Text>
+              </TextDecorator>{' '}
+              {project.image && (
+                <div className={styles['projects__project__image']}>
+                  <Image src={project.image.url} alt={project.image.filename} layout="fill" objectFit="cover" />
+                </div>
+              )}
+              <Text size="header--small" bold tag="p" className="text-double--desktop">
+                <span className="text-double--desktop">{project.text}</span>
+              </Text>
+            </Stack>
+          </Text>
+        </div>
+      )))} />
       <Content width="small">
         <Text className={styles['projects__email']} bold>
           <p>For more information about any of these projects or how to get involved please email</p>{' '}

@@ -9,6 +9,7 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Content from 'src/components/layouts/Content'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
+import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
 
 const data = [
   {
@@ -41,17 +42,21 @@ const data = [
   },
 ]
 
-const FAQs: React.FC = props => {
+export interface FAQsProps {
+  faqs: any[]
+}
+
+const FAQs: React.FC<FAQsProps> = ({ faqs=[] }) => {
     const [visibleFaqs, setVisibleFaqs] = useState(3)
 
     return (
       <Content className={styles['faqs']} width="medium">
         <Stack gap="large">
           <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='green' underlineCenter>FAQs</TextDecorator></Text>
-          {data.map((faq, i) => {
+          {faqs.map((faq, i) => {
             return i < visibleFaqs ? <FAQ key={faq.question} {...faq} /> : null
           })}
-          {visibleFaqs <= data.length && (
+          {visibleFaqs <= faqs.length && (
             <Button
               onClick={() => setVisibleFaqs(visibleFaqs + 3)}
               otherClassNames={styles['faqs__pagination-button']}
@@ -61,6 +66,7 @@ const FAQs: React.FC = props => {
               Show more
             </Button>
           )}
+          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we don't get asked any questions :/</Text>)}
         </Stack>
       </Content>
     )
@@ -68,7 +74,7 @@ const FAQs: React.FC = props => {
 
 interface FAQProps {
   question: string
-  answer: string
+  answer: any
 }
 
 const FAQ: React.FC<FAQProps> = ({ question, answer }) => {
@@ -85,7 +91,8 @@ const FAQ: React.FC<FAQProps> = ({ question, answer }) => {
       </div>
       {open && (
         <div className={styles['faq__answer']}>
-        <Text>{answer}</Text>
+        {typeof answer === 'string' || answer instanceof String && (<Text>{answer}</Text>)}
+        {typeof answer === 'object' && (<SlateSerialiser data={answer} />)}
         </div>
       )}
     </div>

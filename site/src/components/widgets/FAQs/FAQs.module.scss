@@ -18,6 +18,10 @@
    margin-left: auto;
    margin-right: auto;
   }
+
+  &__empty-label {
+    text-align: center;
+  }
 }
 
 .faq {
@@ -37,5 +41,6 @@
   &__answer {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    font-size: 0.85em;
   }
 }

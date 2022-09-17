@@ -28,6 +28,7 @@ interface BlogPost {
 
 
 const BlogPosts: React.FC<BlogPosts> = ({ posts, fPost }) => {
+    console.log('fPost', fPost)
     return (
         <Stack gap="large" className={styles['blog-posts']}>
             <div className={styles['blog-posts__title']}>

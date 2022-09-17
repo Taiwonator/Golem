@@ -10,7 +10,11 @@ import SETTINGS from 'src/styles/settings'
 import Stack from 'src/components/layouts/Stack'
 import classNames from 'classnames'
 
-const LandingPage: React.FC = () => {
+interface LandingPageProps {
+  onButtonClick: () => void
+}
+
+const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
   return (
     <Section id='about-landing' otherClassNames={styles['landing-page']}>
         <div className={styles['landing-page__inner']}>
@@ -29,7 +33,9 @@ const LandingPage: React.FC = () => {
               <span>So...</span>{' '}
               <span>Who Are We?</span>
             </Text>
-            <Button border color={SETTINGS.orange}>Continue Reading</Button>
+            <Button border color={SETTINGS.orange} onClick={onButtonClick}>
+              Continue Reading
+            </Button>
             <Icon className={styles['landing-page--mobileOnly']} name="bars--s" width={100} />
           </Stack>
         </div>

@@ -29,10 +29,9 @@ const generateStatsData = (postCount) => ({
 }
 )
 
-const Home: React.FC<HomeProps> = ({ posts, postCount, fPost }) => {
+const Home: React.FC<HomeProps> = ({ posts, postCount, fPost, faqs }) => {
 
-    const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
-    console.log('postCount: ', postCount)
+const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
 
     return (
         <Content width="medium">
@@ -56,7 +55,7 @@ const Home: React.FC<HomeProps> = ({ posts, postCount, fPost }) => {
                     <Help />
                     <BlogPosts fPost={fPost} posts={posts} />
                     <ContactUs />
-                    <FAQs />
+                    <FAQs faqs={faqs} />
                 </PageStack>
             </AnimationOnScroll>
 

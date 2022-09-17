@@ -10,7 +10,7 @@ interface IContent extends IContainer {
     id?: string
 }
 
-const Content = React.forwardRef<HTMLElement | null, IContent>(({ children, center, className, width, id }, ref) => {
+const Content = React.forwardRef<HTMLDivElement | null, IContent>(({ children, center, className, width, id }, ref) => {
 
     return (
         <div className={classNames(
@@ -26,5 +26,7 @@ const Content = React.forwardRef<HTMLElement | null, IContent>(({ children, cent
         </div>
     )
 })
+
+Content.displayName = "Content"
 
 export default Content

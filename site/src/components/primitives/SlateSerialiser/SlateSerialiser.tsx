@@ -33,7 +33,7 @@ const serialise = (data: any): any => {
                 case 'indent':
                     return <div key={i} className={styles['slate-serialiser__indent']}>{serialise(node.children)}</div>
                 case 'link':
-                    return <Link key={i} to={node.url} external={node.newTab ? '_blank' : ''}>{serialise(node.children)}</Link>
+                    return <Link key={i} to={node.url} external={node.newTab}>{serialise(node.children)}</Link>
                 case 'upload':
                     return (
                         <div key={i} className={styles['slate-serialiser__image-wrapper']}>

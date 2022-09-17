@@ -11,7 +11,7 @@ import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
 import Link from 'src/components/primitives/Link'
 
-const OurFight: React.FC = React.forwardRef<HTMLElement | null>((props, ref) => {
+const OurFight = React.forwardRef<HTMLDivElement | null>((props, ref) => {
 
     return (
         <Section id='mission' otherClassNames={styles['our-fight']} ref={ref}>
@@ -41,5 +41,7 @@ const OurFight: React.FC = React.forwardRef<HTMLElement | null>((props, ref) => 
         </Section>
     )
 })
+
+OurFight.displayName = "OurFight"
 
 export default OurFight

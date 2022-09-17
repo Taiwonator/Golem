@@ -12,7 +12,7 @@ interface IGallery {
 const Gallery: React.FC<IGallery> = () => {
 
     const path = require.context('./photos', false)
-    const keys = path.keys().map(path)
+    const keys: any[] = path.keys().map(path)
     let images = keys.map(k => k.default)
 
     const device = useResponsiveWidth()

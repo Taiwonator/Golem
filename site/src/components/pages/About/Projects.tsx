@@ -37,7 +37,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         </Stack>
       </Content>
       <Slideshow config={makeProjectsConfig(projects.map((project, i) => (
-        <div className={styles['projects__project']}>
+        <div key={`project_${i}`} className={styles['projects__project']}>
           <Text tag="div" size="header--small" key={i}>
             <Stack>
               <TextDecorator color={SETTINGS.orange}>

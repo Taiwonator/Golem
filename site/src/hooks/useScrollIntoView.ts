@@ -1,9 +1,9 @@
 import { useRef, MutableRefObject } from 'react'
 
-type UseScrollIntoView = () => [MutableRefObject<HTMLElement | null>, () => void] 
+type UseScrollIntoView = () => [MutableRefObject<HTMLDivElement | null>, () => void] 
 
 export const useScrollIntoView: UseScrollIntoView = () => {
-    const ref = useRef<HTMLElement | null>(null)
+    const ref = useRef<HTMLDivElement | null>(null)
     const scrollIntoView = () => ref.current.scrollIntoView({block: "center"})
     return [ref, scrollIntoView]
 }

@@ -66,7 +66,7 @@ const FAQs: React.FC<FAQsProps> = ({ faqs=[] }) => {
               Show more
             </Button>
           )}
-          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we don't get asked any questions :/</Text>)}
+          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we do nott get asked any questions :/</Text>)}
         </Stack>
       </Content>
     )

@@ -22,4 +22,6 @@ const Section = React.forwardRef<HTMLElement | null, ISection>(({ children, id, 
     )
 })
 
+Section.displayName = "Content"
+
 export default Section

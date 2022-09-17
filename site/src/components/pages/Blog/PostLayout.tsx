@@ -15,6 +15,8 @@ import useSWR from 'swr'
 import Image from 'next/image'
 import SETTINGS from 'src/styles/settings'
 import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
+import Link from 'src/components/primitives/Link'
+import { useRouter } from 'next/router'
 
 interface PostLayoutProps {
     publishedDate: Date,
@@ -30,6 +32,8 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
 
     const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
     const { data: avatarImage } = useSWR(avatarKey, fetcher)
+
+    const router = useRouter()
         
     return (
         <article className={styles['post-layout']}>
@@ -76,7 +80,9 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                    <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['post-layout__share-button']}>
-                    <p><Icon fa='hello'/> Share on <span>facebook</span></p>
+                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}/${router.asPath}`} external>
+                        <p><Icon fa='hello'/> Share on <span>facebook</span></p>
+                    </Link>
                 </Button>
             </Content>
         </article>

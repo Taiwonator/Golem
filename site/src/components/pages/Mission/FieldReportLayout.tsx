@@ -9,6 +9,8 @@ import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSeri
 import I from 'src/components/widgets/Slideshow/components/I'
 import SETTINGS from 'src/styles/settings'
 import { formatDate } from 'src/lib/date'
+import Link from 'src/components/primitives/Link'
+import { useRouter } from 'next/router'
 
 interface FieldReportLayoutProps {
     publishedDate: Date,
@@ -17,6 +19,8 @@ interface FieldReportLayoutProps {
 }
 
 const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, title, content }) => {  
+
+    const router = useRouter()
         
     return (
         <article className={styles['field-report-layout']}>
@@ -32,7 +36,9 @@ const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, ti
                    <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['field-report-layout__share-button']}>
-                    <p><Icon fa='hello'/> Share on <span>facebook</span></p>
+                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}/${router.asPath}`} external>
+                        <p><Icon fa='hello'/> Share on <span>facebook</span></p>
+                    </Link>
                 </Button>
             </Content>
         </article>

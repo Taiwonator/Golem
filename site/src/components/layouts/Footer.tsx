@@ -15,9 +15,9 @@ const Footer: React.FC = props => {
         {
             header: 'get to know us',
             links: [
-                { name: 'about us', to: '/#about-us' },
-                { name: 'missions', to: '/#our-fight' },
-                { name: 'values', to: '/#' },
+                { name: 'about us', to: '/about' },
+                { name: 'missions', to: '/mission' },
+                { name: 'values', to: '/about#values' },
             ]
         },
         {
@@ -36,7 +36,7 @@ const Footer: React.FC = props => {
         {
             header: 'stay updated',
             links: [
-                { name: 'read our blog', to: '/blog' },
+                { name: 'read our blog', to: '/blog#top' },
             ]
         }
     ]

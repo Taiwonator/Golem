@@ -59,7 +59,7 @@ const Post: React.FC<PostProps> = ({
                         <Text className={styles['post__title']} tag="h2" size="header"><Link to={`blog/${slug}`}>{title}</Link></Text>
                         <div className={styles['post__info']}>
                             <Text><Icon name='calendar' color='#D2D2D2' />{formatDate(publishedDate)}</Text>
-                            <Text><Icon name='eye' color='#D2D2D2' />{views}</Text>
+                            {/* <Text><Icon name='eye' color='#D2D2D2' />{views}</Text> */}
                         </div>
                     </Stack>
                     <Text>{shortSnippet}</Text>

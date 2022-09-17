@@ -20,7 +20,7 @@ const Frame: React.FC<IFrame> = ({ loading, square, src, noHover }) => {
     )
 
     return (
-        <Button disabled={noHover} border otherClassNames={className} color={SETTINGS.white}>
+        <Button noPsuedoClasses={noHover} border otherClassNames={className} color={SETTINGS.white}>
             <div className={styles['frame__inner']}>
                 {loading && (
                     <span className={styles['frame__loader']} />

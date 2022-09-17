@@ -27,13 +27,13 @@ const Home: NextPage<HomeProps> = (props) => {
 
 export async function getStaticProps () {
 
-  const [data, res, error] = await payloadFetch('posts?where[status][equals]=published')
+  const [data, res, error] = await payloadFetch('posts?where[status][equals]=published&sort=-publishedDate')
   if(error) {
     console.error('index.jsx - get static props error: ', error)
     return { notFound: true }
   }
   
-  const [fData, fRes, fError] = await payloadFetch('posts?where[status][equals]=published&where[featured][equals]=true')
+  const [fData, fRes, fError] = await payloadFetch('posts?where[status][equals]=published&where[featured][equals]=true&sort=-publishedDate')
   if(fError) {
     console.error('index.jsx - get static props error: ', fError)
     return { notFound: true }

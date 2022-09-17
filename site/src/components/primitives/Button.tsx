@@ -9,13 +9,15 @@ interface IButton extends IContainer {
     disabled?: boolean,
     theme?: string,
     onClick?: () => void
+    noPsuedoClasses?: boolean
 }
 
-const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, otherClassNames, onClick }) => {
+const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, otherClassNames, onClick, noPsuedoClasses }) => {
     const className = classNames(
         styles['button'],
         border && styles['button--border'],
         disabled && styles['button--disabled'],
+        // noPsuedoClasses && styles['button--noPsuedoClasses'],
         otherClassNames
     )
 

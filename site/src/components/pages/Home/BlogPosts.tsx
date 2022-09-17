@@ -28,7 +28,7 @@ interface BlogPost {
 
 
 const BlogPosts: React.FC<BlogPosts> = ({ posts, fPost }) => {
-    console.log('fPost', fPost)
+
     return (
         <Stack gap="large" className={styles['blog-posts']}>
             <div className={styles['blog-posts__title']}>
@@ -36,13 +36,24 @@ const BlogPosts: React.FC<BlogPosts> = ({ posts, fPost }) => {
                 <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='darkgreen' underlineCenter>Blog Posts</TextDecorator></Text>
                 <Icon className={cx(styles['blog-posts--tabletOnly'], styles['blog-posts__icon--tablet'])} name="bars--ne" width={100} />
             </div>
-            { fPost && (<div><FeaturedBlogPost {...fPost} /></div> )}
-            <div className={styles['blog-posts__list']}>
-                {posts.map( (post, i) => {
-                    if(fPost && post.slug !== fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
-                    return <BlogPost odd={i % 2 != 0} key={i} {...post} />
-                }).filter(x => x != undefined).slice(0, 3)}
-            </div>
+            {posts.length > 3 ? (
+                <>
+                    { fPost && (<div><FeaturedBlogPost {...fPost} /></div> )}
+                    <div className={styles['blog-posts__list']}>
+                        {posts.map( (post, i) => {
+                            if(post.slug != fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
+                            return undefined
+                        }).filter(x => x != undefined).slice(0, 3)}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className={styles['blog-posts__list']}>
+                        {posts.map( (post, i) => <BlogPost odd={i % 2 != 0} key={i} {...post} />)}
+                    </div>
+                </>
+            )}
+
             {posts.length === 0 && (<Text size="header--medium">We are working on some amazing posts ⭐</Text>) }
         </Stack>
     )
@@ -61,7 +72,7 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
                 <Text tag="h3" size="header--small">{title}</Text>
                 <Text tag="p" size="standard--medium">{shortSnippet}</Text>
                 <Button>
-                    <TextDecorator bold color={odd ? SETTINGS.orange : SETTINGS.green}>READ BLOG</TextDecorator>
+                    <TextDecorator bold color={SETTINGS.darkgreen}>READ BLOG</TextDecorator>
                 </Button>
             </Stack>
         </Link>

@@ -21,14 +21,16 @@
         }
     }
 
-    &--disabled {
-        background-color: $color-grey;
-
+    &--no-psuedo-classes, &--disabled {
         &:hover, &:active {
             transform: unset !important;
             box-shadow: 0 6px 1px  $color-black !important;
             filter: brightness(1);
         }
+    }
+
+    &--disabled {
+        background-color: $color-grey !important;
     }
 }
 

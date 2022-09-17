@@ -30,7 +30,6 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
 
     const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
     const { data: avatarImage } = useSWR(avatarKey, fetcher)
-    console.log('fetch: ', avatarImage)
         
     return (
         <article className={styles['post-layout']}>
@@ -41,9 +40,9 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                             <Text><Icon name='calendar' width={20} height={20} color={SETTINGS.green} />
                                 {formatDate(publishedDate)}
                             </Text>
-                            <Text><Icon name='eye' width={20} height={20} color={SETTINGS.green} />
+                            {/* <Text><Icon name='eye' width={20} height={20} color={SETTINGS.green} />
                                 {views}<span> views</span>
-                            </Text>
+                            </Text> */}
                         </div>
                         <Text className={styles['post-layout__title']} tag="h1" size="header--large"><TextDecorator theme='blog'>{title}</TextDecorator></Text>
                         <Text className={styles['post-layout__snippet']}>{snippet}</Text>

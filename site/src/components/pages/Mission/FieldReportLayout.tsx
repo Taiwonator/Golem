@@ -36,7 +36,7 @@ const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, ti
                    <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['field-report-layout__share-button']}>
-                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}/${router.asPath}`} external>
+                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}${router.asPath}`} external>
                         <p><Icon fa='hello'/> Share on <span>facebook</span></p>
                     </Link>
                 </Button>

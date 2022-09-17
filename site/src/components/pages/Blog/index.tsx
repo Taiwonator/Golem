@@ -32,7 +32,6 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
                                     <Post 
                                         key={`post_${i}`}
                                         views={0}
-                                        heroImageId={post.image}
                                         {...post}
                                     />
                                 )

@@ -1,0 +1,40 @@
+.field-report {
+    width: 100%;
+
+    &--bordered {
+        border-left: 2px solid $color-orange;
+        border-right: 2px solid $color-orange;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &__image {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: 30%;
+        height: 0;
+        border-radius: 1000px;
+        overflow: hidden;
+        padding-bottom: 30%;
+        background-color: $color-lightgrey;
+        border: 5px solid black;
+        box-sizing: content-box;
+    }
+
+    &__date {
+        font-weight: 900;
+        // color: $color-darkgreen;
+    }
+
+    &__latest {
+        font-weight: 900;
+        color: $color-white;
+        background-color: $color-orange;
+        padding: 2.5px 0;
+    }
+
+    &__button {
+        margin-bottom: 20px
+    }
+}

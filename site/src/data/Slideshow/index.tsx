@@ -5,7 +5,17 @@ export interface Config {
     center?: boolean
     hideThumbnails?: boolean,
     loop?: boolean,
-    sneakPeak?: boolean
+    sneakPeak?: boolean,
+    perViewOptions?: {
+      mobile?: { 
+        perView?: number,
+        origin?: string
+      },
+      tablet?: { 
+        perView?: number,
+        origin?: string
+      }  
+    }
   }
   images?: ImageProps[]
 }
@@ -18,3 +28,4 @@ interface ImageProps {
 export * from './mission'
 export * from './about'
 export * from './projects'
+export * from './field-reports'

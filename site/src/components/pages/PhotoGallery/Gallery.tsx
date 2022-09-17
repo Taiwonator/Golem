@@ -9,30 +9,14 @@ interface IGallery {
     images: string[]
 }
 
-const Gallery: React.FC<IGallery> = ({ images }) => {
+const Gallery: React.FC<IGallery> = () => {
+
+    const path = require.context('./photos', false)
+    const keys = path.keys().map(path)
+    let images = keys.map(k => k.default)
 
     const device = useResponsiveWidth()
     const [modalImage, setModalImage] = useState(null)
-
-    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data
-    function foo() {
-        var oReq = new XMLHttpRequest();
-        oReq.open("GET", "https://media.istockphoto.com/vectors/human-head-profile-with-brain-symbol-black-icon-vector-illustration-vector-id1060489934?k=20&m=1060489934&s=612x612&w=0&h=VSC7boCYe0D00R2yrCq7csSeL0cfThVmT7-BAfoPf94=", true);
-        oReq.responseType = "arraybuffer";
-
-        oReq.onload = function (oEvent) {
-        var arrayBuffer = oReq.response; // Note: not oReq.responseText
-        if (arrayBuffer) {
-            var byteArray = new Uint8Array(arrayBuffer);
-            for (var i = 0; i < byteArray.byteLength; i++) {
-            // do something with each byte in the array
-            console.log('byte: ', byteArray[i])
-            }
-        }
-        };
-        oReq.send(null);
-    }
-
 
     function generateGrid() {
         let Grid

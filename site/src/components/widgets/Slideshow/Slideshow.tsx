@@ -30,9 +30,9 @@ interface SlideshowProps {
   config: Config
 }
 
-const Slideshow: React.FC<SlideshowProps> = ({ config={} }) => {
-  const { title, slides, slideOptions={}, images } = config
-  const { center, loop, hideThumbnails, sneakPeak } = slideOptions
+const Slideshow: React.FC<SlideshowProps> = ({ config }) => {
+  const { title, slides, slideOptions={}, images } = config || {}
+  const { center, loop, hideThumbnails, sneakPeak, perViewOptions } = slideOptions
   const [ activeSlideIndex , setActiveSlideIndex ] = useState<number>(0)
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,

@@ -21,7 +21,7 @@ interface PostProps {
     views: number,
     snippet: string,
     slug: string,
-    heroImageId: string,
+    heroImage: any,
     featured?: boolean,
     ref?: MutableRefObject<HTMLDivElement>
 }
@@ -32,7 +32,7 @@ const Post: React.FC<PostProps> = ({
     views,
     snippet,
     slug,
-    heroImageId,
+    heroImage,
     featured,
 }) => {
 
@@ -45,18 +45,18 @@ const Post: React.FC<PostProps> = ({
 
     const shortSnippet = snippet.length > MAX_SNIPPET_LENGTH ? snippet.slice(0, MAX_SNIPPET_LENGTH) + '...' : snippet
 
-    const { key, fetcher } = useSWRConfig(`media/${heroImageId}`)
-    const { data: heroImage, error } = useSWR(key, fetcher)
-
     return (
         <Stack tag="article" className={className}>
             <div className={styles['post__frame']}>
-                <Frame src={heroImage?.url} square={featured} />
+                { (heroImage) ? 
+                    <Frame src={heroImage?.url} square={featured}/> :  
+                    <Frame loading={true} square={featured}/>
+                }
             </div>
             <div className={styles['post__content']}>
                 <Stack gap="large" className={styles['post__content__inner']}>
                     <Stack className={styles['post__content__row']}>
-                        <Text className={styles['post__title']} tag="h2" size="header"><Link to={`blog/${slug}`}><TextDecorator underline underlineColor='green' theme='blog'>{title}</TextDecorator></Link></Text>
+                        <Text className={styles['post__title']} tag="h2" size="header"><Link to={`blog/${slug}`}>{title}</Link></Text>
                         <div className={styles['post__info']}>
                             <Text><Icon name='calendar' color='#D2D2D2' />{formatDate(publishedDate)}</Text>
                             <Text><Icon name='eye' color='#D2D2D2' />{views}</Text>

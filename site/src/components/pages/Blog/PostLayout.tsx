@@ -8,46 +8,75 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Credit from 'src/components/widgets/Credit'
 import Frame from 'src/components/widgets/Frame'
 import { formatDate } from 'src/lib/date'
+import { useSWRConfig } from 'src/lib/payload-fetcher'
 import Content from '../../layouts/Content'
 import styles from './PostLayout.module.scss'
+import useSWR from 'swr'
+import Image from 'next/image'
+import SETTINGS from 'src/styles/settings'
+import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
+
 interface PostLayoutProps {
-    publishedAt: Date,
+    publishedDate: Date,
     views: number,
     title: string,
     snippet: string,
-    author: string,
-    mainImageUrl: string,
-    body: string
+    author: any,
+    heroImage: any,
+    content: string
 }
 
-const PostLayout: React.FC<PostLayoutProps> = ({ publishedAt, views, title, snippet, author, mainImageUrl, body }) => {    
+const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content }) => {  
+       
+    // const { key: mediaKey, fetcher } = useSWRConfig(`media/${heroImageId}`)
+    // const { data: heroImage } = useSWR(mediaKey, fetcher)
 
-
+    const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
+    const { data: avatarImage } = useSWR(avatarKey, fetcher)
+        
     return (
         <article className={styles['post-layout']}>
            <div className={styles['post-layout__header']}>
                <Content>
                    <Stack>
                         <div className={styles['post-layout__info']}>
-                            <Text><Icon name='calendar' width={20} height={20} />{formatDate(publishedAt)}</Text>
-                            <Text><Icon name='eye' width={20} height={20} />{views} <span>views</span></Text>
+                            <Text><Icon name='calendar' width={20} height={20} color={SETTINGS.green} />
+                                {formatDate(publishedDate)}
+                            </Text>
+                            <Text><Icon name='eye' width={20} height={20} color={SETTINGS.green} />
+                                {views}<span> views</span>
+                            </Text>
                         </div>
                         <Text className={styles['post-layout__title']} tag="h1" size="header--large"><TextDecorator theme='blog'>{title}</TextDecorator></Text>
                         <Text className={styles['post-layout__snippet']}>{snippet}</Text>
-                        <Credit prefix='Written by'>
-                            <TextDecorator underline underlineCenter underlineColor='white' theme='blog'>{author}</TextDecorator> 😏
+                        <Credit className={styles['post-layout__credit']} prefix='Written by'>
+                                <Text className={styles['post-layout__author']}>{author.name}</Text>
+                                <div className={styles['post-layout__avatar']}>
+                                {avatarImage && (
+                                    <Image 
+                                        src={avatarImage.url}
+                                        width={40}
+                                        height={40}
+                                        layout="responsive"
+                                        alt={author.name}
+                                    />
+                                )}
+                            </div>
                         </Credit>
                     </Stack>
                 </Content>
             </div>
             <div className={styles['post-layout__image']}>
                 <div className={styles['post-layout__image__inner']}>
-                    <Frame src={mainImageUrl} square/>
+                    { (heroImage) ? 
+                        <Frame src={heroImage?.url} square/> :  
+                        <Frame loading={true} square/>
+                    }
                 </div>
             </div>
-            <Content width='medium'>
+            <Content width='small'>
                 <div className={styles['post-layout__content']}>
-                   <Text>{body}</Text>
+                   <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['post-layout__share-button']}>
                     <p><Icon fa='hello'/> Share on <span>facebook</span></p>

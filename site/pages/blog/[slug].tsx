@@ -4,20 +4,16 @@ import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
 import payloadFetch from 'src/lib/payload-fetcher'
 
-const BlogPost: NextPage = (props) => {
-  const post = props['post']
+const BlogPost: NextPage = (props: any) => {
+  const { post } = props
+  console.log('nextPage: ', post)
 
     return (  
       <BaseLayout pageTitle='Golem | Blog Post'>
           <Content width='wide'>
               <PostLayout 
-                publishedAt={post.publishedAt}
-                views={post.views}
-                title={post.title}
-                snippet={post.snippet}
-                author={post.author}
-                mainImageUrl={post.mainImageUrl}
-                body={post.body}
+                views={0}
+                {...post}
             />
           </Content>
       </BaseLayout>
@@ -25,7 +21,7 @@ const BlogPost: NextPage = (props) => {
 }
 
 export async function getStaticProps({ params }) {
-  const filter = `filters[slug][$eq]=${params.slug}`
+  const filter = `where[slug][equals]=${params.slug}`
   const [data, res, error] = await payloadFetch(`posts?${filter}`)
   if(error) {
     console.error('[slug].jsx - get static props error')
@@ -34,21 +30,21 @@ export async function getStaticProps({ params }) {
   
   return {
     props: {
-      post: data ? data[0].attributes : {},
+      post: data ? data.docs[0] : {},
     },
   }
 }
 
   export async function getStaticPaths() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
-      if(res.status > 300) {
+      const [data, res, error] = await payloadFetch(`posts`)
+      if(error) {
         console.error('[slug].jsx - get static paths error')
         return { paths: [], fallback: false }
       }
-      const data = (await res.json()).data
+  
 
     return {
-      paths: data ? data.map(post => post.attributes.slug).map(slug => ({
+      paths: data ? data.docs.map(post => post.slug).map(slug => ({
         params: { slug }
       })) : [],
       fallback: false

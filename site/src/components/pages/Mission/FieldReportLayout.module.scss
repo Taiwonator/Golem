@@ -1,0 +1,57 @@
+.field-report-layout {
+    margin-top: 0px;
+    text-align: center;
+    
+    &__header {
+        position: relative;
+        padding: 2em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            max-width: $mq--tablet;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+    
+        span {
+          margin-left: 0.5em;
+          text-transform: uppercase;
+        }
+    }
+
+    &__content {
+
+        text-align: center;
+        margin: 50px 0;
+        
+        @include forTablet {
+            margin: 100px 0;
+        }
+
+        p {
+            // margin-bottom: 2em;
+            @include forTablet {
+                // margin-bottom: 3em;
+            }
+        }
+    }
+
+    &__share-button {
+        // margin-bottom: 50px;
+
+        @include forTablet {
+            // margin-bottom: 100px;
+        }
+
+        span, svg {
+            color: #1877F2;
+            font-weight: 900;
+        }
+    }
+
+}

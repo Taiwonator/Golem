@@ -31,7 +31,7 @@
         }
 
         &__row {
-            @include forTablet {
+            @include forDesktop {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-end;
@@ -42,8 +42,15 @@
     }
 
     &__title {
+        text-decoration: underline;
+        text-decoration-color: $color-green;
+
         &:hover {
-            text-decoration: underline;
+            text-decoration-color: $color-black;
+        }
+
+        @include forDesktop {
+            max-width: 50%;
         }
     }
 

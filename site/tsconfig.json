@@ -18,6 +18,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "types": [
+      "node",
+      "webpack-env"
+    ],
     "paths": {
       "@settings": [
         "src/styles/settings.scss"

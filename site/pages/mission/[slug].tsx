@@ -6,7 +6,6 @@ import payloadFetch from 'src/lib/payload-fetcher'
 
 const FieldReport: NextPage = (props: any) => {
   const { fieldReport } = props
-  console.log('field report (1): ', fieldReport)
 
     return (  
       <BaseLayout pageTitle='Golem | Field Report'>

@@ -6,7 +6,6 @@ import payloadFetch from 'src/lib/payload-fetcher'
 
 const BlogPost: NextPage = (props: any) => {
   const { post } = props
-  console.log('nextPage: ', post)
 
     return (  
       <BaseLayout pageTitle='Golem | Blog Post'>

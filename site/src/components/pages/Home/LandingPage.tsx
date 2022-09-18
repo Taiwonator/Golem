@@ -35,13 +35,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                     </> :
                     <>
                         <Header tag='h1'>
-                            <p>
+                            <p className={styles['landing-page__header__top-line']}>
                                 <span className={styles['landing-page__desktop-golem']}>
                                     <Image src="/assets/golem.png" alt="Picture of logo" width={312.37} height={114.8} loading="eager" />
                                 </span>
-                                <Decor color={SETTINGS.grey}>is</Decor> emancipating
+                                <Decor color={SETTINGS.grey}>is</Decor>
                             </p>
-                            <p><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</p>
+                            <p>emancipating <Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</p>
                             <p><Decor color={SETTINGS.green} underline>globally</Decor></p>
                         </Header>
                     </> 

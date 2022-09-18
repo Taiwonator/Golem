@@ -15,7 +15,7 @@ import PageStack from 'src/components/primitives/PageStack'
 
 const generateStatsData = (postCount) => ({
     families: {
-        count: 30,
+        count: '20+',
         text: "We are dedicated to serving families, especially widows and their children. We believe in equipping them in order that they may continue to help others and themselves."
     },
     posts: {

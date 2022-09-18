@@ -11,7 +11,7 @@ import Stack from 'src/components/layouts/Stack'
 
 const statData = {
     families: {
-        count: 30,
+        count: '20+',
         text: "We are dedicated to serving families, especially widows and their children. We believe in equipping them in order that they may continue to help others and themselves."
     },
     posts: {
@@ -25,7 +25,7 @@ const statData = {
 }
 
 interface Stat {
-    count: number
+    count: number | string
     text: string
 }
 

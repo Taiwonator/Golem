@@ -1,11 +1,10 @@
 import React from 'react'
 import LandingPage from './LandingPage'
 import Content from '../../layouts/Content'
-import Gallery from './Gallery'
-import { generateImageUrls } from './lib/generate-image-urls'
+import Gallery, { GalleryProps } from './Gallery'
 
 
-const Home: React.FC = props => {
+const Home: React.FC<GalleryProps> = props => {
     return (
         <React.Fragment>
         <Content width="medium">
@@ -13,7 +12,7 @@ const Home: React.FC = props => {
         </Content>
 
         <Content width="wide">
-            <Gallery images={generateImageUrls(100)}/>
+            <Gallery {...props} />
         </Content>
         </React.Fragment>
     )

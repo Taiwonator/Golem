@@ -4,16 +4,22 @@ import styles from './Gallery.module.scss'
 import Image from 'next/image'
 import { useScroll } from 'src/hooks/useScroll'
 import { IContainer } from 'src/types/react-types'
+import { imageConfigDefault } from 'next/dist/shared/lib/image-config'
+import getRandomNumber from 'src/lib/get-random-number'
 
-interface IGallery {
-    images: string[]
+export interface GalleryProps {
+    imageUrls: string[]
 }
 
-const Gallery: React.FC<IGallery> = () => {
 
-    const path = require.context('../../../../public/assets/gallery', false)
-    const keys: any[] = path.keys().map(path)
-    let images = keys.map(k => k.default)
+const Gallery: React.FC<GalleryProps> = ({ imageUrls }) => {
+
+    let images = imageUrls.map(url => ({
+        src: url,
+        alt: url,
+        width: getRandomNumber(400, 600),
+        height: getRandomNumber(400, 600)
+    }))
 
     const device = useResponsiveWidth()
     const [modalImage, setModalImage] = useState<any>({})
@@ -50,17 +56,12 @@ const Gallery: React.FC<IGallery> = () => {
             const columnIndex = (i + startIndex) % columnCount
             const image = images[i]
 
-            // JANK
-            const filename = image.src.split('/')[image.src.split('/').length - 1]
-            const dotSplitFilename = filename.split('.')
-            let correctedFilename = dotSplitFilename.filter((f, i) => i != dotSplitFilename.length - 2).join('.')
-
             columns[columnIndex].push(
                 <GalleryItem 
                     key={`item-${i}`} 
                     blurDataURL={image.blurDataURL}
                     alt={image.src}
-                    src={`/assets/gallery/${correctedFilename}`} 
+                    src={image.src} 
                     width={image.width}
                     height={image.height}
                     onClick={() => setModalImage(image)}
@@ -123,8 +124,8 @@ const GalleryItem: React.FC<IGalleryItem> = ({ src, alt, width, height, onClick,
                 height={height}
                 loading="lazy"
                 objectFit="cover"
-                blurDataURL={blurDataURL}
-                placeholder="blur"
+                // blurDataURL={blurDataURL}
+                // placeholder="blur"
             />
         </button>
     )
@@ -161,8 +162,8 @@ const Modal: React.FC<IModal> = ({ src, alt, blurDataURL, onClick }) => {
                     alt={alt}
                     layout="fill"
                     objectFit="contain"
-                    blurDataURL={blurDataURL}
-                    placeholder="blur"
+                    // blurDataURL={blurDataURL}
+                    // placeholder="blur"
                 />
             </div>
         </li>

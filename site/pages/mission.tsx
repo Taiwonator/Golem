@@ -26,13 +26,13 @@ const Mission: NextPage<MissionProps> = (props) => {
 
 export async function getStaticProps () {
 
-  const [data, res, error] = await payloadFetch('field-reports?sort=-publishedDate')
+  const [data, res, error] = await payloadFetch('field-reports?sort=-publishedDate&limit=20')
   if(error) {
     console.error('mission.jsx - get static props error: ', error)
     return { notFound: true }
   }
 
-  const [goalsData, goalsRes, goalsError] = await payloadFetch('goals')
+  const [goalsData, goalsRes, goalsError] = await payloadFetch('goals?limit=50')
   if(error) {
     console.error('mission.jsx - get static props error: ', goalsError)
     return { notFound: true }

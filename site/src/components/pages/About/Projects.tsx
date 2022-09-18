@@ -11,7 +11,7 @@ import { useSWRConfig } from 'src/lib/payload-fetcher'
 import useSWR from 'swr'
 
 const Projects: React.FC = () => {
-  const { key, fetcher } = useSWRConfig(`projects`)
+  const { key, fetcher } = useSWRConfig(`projects?limit=100`)
   const { data, error } = useSWR(key, fetcher)
 
   const projects = data ? data.docs : []

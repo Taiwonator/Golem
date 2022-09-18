@@ -7,7 +7,7 @@ import useSWR from 'swr'
 
 const Mission: NextPage= () => {
 
-  const { key: fieldReportsKey, fetcher } = useSWRConfig(`field-reports?sort=-publishedDate?limit=20`)
+  const { key: fieldReportsKey, fetcher } = useSWRConfig(`field-reports?sort=-publishedDate?limit=20&where[status][equals]=published`)
   const { data: fieldReportsData } = useSWR(fieldReportsKey, fetcher)
 
   const { key: goalsKey } = useSWRConfig(`goals?limit=50`)

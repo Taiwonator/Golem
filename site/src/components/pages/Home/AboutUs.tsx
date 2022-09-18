@@ -24,7 +24,6 @@ const AboutUs: React.FC = props => {
                         width={967.06}
                         height={468.2}
                         alt="Image of a lady"
-                        placeholder="blur"
                     />
                 </div>
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
@@ -41,7 +40,6 @@ const AboutUs: React.FC = props => {
                         width={963.91}
                         height={897.18}
                         alt="Image of a lady"
-                        placeholder="blur"
                     />
                 </div>
             </Stack>

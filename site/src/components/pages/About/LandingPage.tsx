@@ -25,6 +25,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
               width={1640}
               height={1307}
               loading="eager"
+              placeholder='blur'
             />
           </div>
           <Stack className={styles['landing-page__content']} gap="medium">

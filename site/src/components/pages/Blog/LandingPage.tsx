@@ -29,6 +29,7 @@ const LandingPage: React.FC = props => {
                     <TextDecorator bold>Faith</TextDecorator>
                     {' '}and{' '}
                     <TextDecorator bold>Life</TextDecorator>
+                    .
                 </Text>
                 <Icon name='bars--s--arrow' width={216}/>
             </Stack>

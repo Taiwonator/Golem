@@ -43,4 +43,16 @@ const PhotoGallery: NextPage = () => {
   )
 }
 
+export async function getStaticProps () {
+    console.log(process.env.NODE_ENV)
+
+    if(process.env.NODE_ENV === 'production') {
+        return { notFound: true }
+    }
+  
+    return {
+      props: {},
+    }
+  }
+
 export default PhotoGallery

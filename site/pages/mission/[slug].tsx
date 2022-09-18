@@ -3,12 +3,23 @@ import BaseLayout from 'src/components/layouts/BaseLayout'
 import FieldReportLayout from 'src/components/pages/Mission/FieldReportLayout'
 import Content from 'src/components/layouts/Content'
 import payloadFetch from 'src/lib/payload-fetcher'
+import { formatDate } from 'src/lib/date'
 
 const FieldReport: NextPage = (props: any) => {
   const { fieldReport, siteUrl } = props
 
     return (  
-      <BaseLayout pageTitle='Golem | Field Report'>
+      <BaseLayout 
+        pageTitle={`Golem | Field Report - ${fieldReport.title}`}
+        metaData={{
+          description: `Golem | Field Report - ${fieldReport.title} (${formatDate(fieldReport.publishedDate)})`,
+          keywords: 'Field Report, Updates, Mission, Charity',
+          og: {
+            title: fieldReport.title,
+            imageUrl: fieldReport.heroImage?.url 
+          }
+        }}
+      >
           <Content width='wide'>
               <FieldReportLayout 
                 siteUrl={siteUrl}

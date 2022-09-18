@@ -11,7 +11,13 @@ export interface AboutProps {
 const About: NextPage<AboutProps> = (props) => {
 
   return (
-    <BaseLayout pageTitle='Golem | About'>         
+    <BaseLayout
+      pageTitle='Golem | About Us'
+      metaData={{
+        description: 'At Golem, we believe in rendering selfless sacrificial services to mankind through the charitable services we provide to our targeted audience. This is in keeping with our Christian ethos and aspiring to pattern our lives and conduct after our Lord Jesus Christ.',
+        keywords: 'Values, About , Golem, Beliefs, Missionary, Mission'
+      }}
+    >         
         <Main {...props} />
     </BaseLayout>
   )

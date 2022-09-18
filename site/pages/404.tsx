@@ -7,7 +7,7 @@ import TextDecorator from "src/components/primitives/TextDecorator"
 import SETTINGS from "src/styles/settings"
 
 const NotFound: NextPage = () => {
-  return(
+  return (
     <div style={{
       display: 'flex',
       height: '100vh',

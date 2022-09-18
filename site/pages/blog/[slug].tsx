@@ -3,12 +3,23 @@ import BaseLayout from 'src/components/layouts/BaseLayout'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
 import payloadFetch from 'src/lib/payload-fetcher'
+import { formatDate } from 'src/lib/date'
 
 const BlogPost: NextPage = (props: any) => {
   const { post, siteUrl } = props
 
     return (  
-      <BaseLayout pageTitle='Golem | Blog Post'>
+      <BaseLayout
+        pageTitle={`Golem | Blog Post - ${post.title}`}
+        metaData={{
+          description: post.snippet,
+          keywords: 'Blog, Post, Updates, Faith, Africa, Mission, Charity, Golem',
+          og: { 
+            title: post.title,
+            imageUrl: post.heroImage?.url 
+          }
+        }}
+      >
           <Content width='wide'>
               <PostLayout 
                 views={0}

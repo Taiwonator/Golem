@@ -8,13 +8,34 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 interface IBaseLayout extends IContainer {
     pageTitle: string
+    metaData?: {
+        description?: string
+        keywords?: string
+        author?: string,
+        og?: {
+            title?: string
+            description?: string
+            imageUrl?: string
+        } 
+    }
 }
 
-const BaseLayout: React.FC<IBaseLayout> = ({ children, pageTitle }) => {
+const BaseLayout: React.FC<IBaseLayout> = ({ children, pageTitle, metaData={} }) => {
+    const { description, keywords, author, og={} } = metaData 
+    const { title: ogTitle, description: ogDescription, imageUrl: ogImageUrl } = og
+  
     return (
         <React.Fragment>
             <Head>
                 <title>{ pageTitle }</title>
+                {description && (<meta name="description" content={description} />)}
+                {keywords && (<meta name="keywords" content={keywords} />)}
+                {author && (<meta name="author" content={author} />)}
+
+                {ogTitle || pageTitle && (<meta property="og:title" content={ogTitle || pageTitle} />)}
+                {ogDescription || description && (<meta property="og:description" content={ogDescription || description} />)}
+                <meta property="og:image" content={ogImageUrl || '/assets/golem-heart--mobile.png'} />
+
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

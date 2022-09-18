@@ -9,7 +9,13 @@ const Blog: NextPage = (props: any) => {
   const { docs: posts, ...metaData } = postsData
 
     return (
-      <BaseLayout pageTitle='Golem | Blog'>
+      <BaseLayout
+        pageTitle='Golem | Blog'
+        metaData={{
+          description: 'Check out our collection of blog articles about everything Africa, Faith and Life.',
+          keywords: 'Charity, Golem, God, Blog, Stories, Missionary, Ministry'
+        }}
+      >
           <Main featuredPosts={featuredPosts} posts={posts} metaData={metaData} />
       </BaseLayout>
     )

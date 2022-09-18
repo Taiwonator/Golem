@@ -12,7 +12,13 @@ export interface MissionProps {
 const Mission: NextPage<MissionProps> = (props) => {
 
   return (
-    <BaseLayout pageTitle='Golem | Mission'>         
+    <BaseLayout 
+      pageTitle='Golem | Our Mission'
+      metaData={{
+        description: 'Our mission is to accomplish the holistic emancipation of vulnerable people globally with a special focus on Nigeria through effective and sustainable address of physical, social, material, educational  and spiritual needs.',
+        keywords: 'Field Reports, Goals , Golem, Volunteers, Missionary, Mission'
+      }}
+    >         
         <Main {...props} />
     </BaseLayout>
   )

@@ -1,13 +1,6 @@
 .post-layout {
     margin-top: 0px;
     text-align: center;
-
-    p {
-        font-size: 0.75em;
-        @include forTablet {
-            font-size: 0.9em;
-        }
-    }
     
     &__header {
         position: relative;
@@ -97,9 +90,9 @@
         }
 
         p {
-            // margin-bottom: 2em;
+            font-size: 0.75em;
             @include forTablet {
-                // margin-bottom: 3em;
+                font-size: 0.9em;
             }
         }
     }

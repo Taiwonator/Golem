@@ -7,6 +7,6 @@ export const formatDate = (date) => {
         const formattedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() //Tuesday February 12 2013
         return formattedDate
     } else {
-        return 'Invalid date'
+        return '...'
     }
 }

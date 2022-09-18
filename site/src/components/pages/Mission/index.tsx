@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Content from 'src/components/layouts/Content'
 import Stack from 'src/components/layouts/Stack'
 import LandingPage from './LandingPage'
@@ -16,22 +16,23 @@ import useSWR from 'swr'
 
 const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
 
-    const { key: fieldReportsKey, fetcher } = useSWRConfig(`field-reports?sort=-publishedDate`)
-    const { data: fieldReportsData } = useSWR(fieldReportsKey, fetcher)
+    const [visibleFieldReports, setVisibleFieldReports] = useState(fieldReports)
+    const [visibleGoals, setVisibleGoals] = useState(goals)
 
-    const { key: goalsKey } = useSWRConfig(`goals`)
-    const { data: goalsData } = useSWR(goalsKey, fetcher)
+    useEffect(() => {
+        setVisibleFieldReports(fieldReports)
+    }, [fieldReports])
+
+    useEffect(() => {
+        setVisibleGoals(goals)
+    }, [goals])
 
     return (
         <>
             <LandingPage />
             <PageStack gap="large">
                 <Content width="medium">
-                    { goalsData ? (
-                        <Slideshow config={makeMissionsConfig(goalsData.docs.map(goal => goal.text))} />
-                    ) : goals ? (
-                        <Slideshow config={makeMissionsConfig(goals.map(goal => goal.text))} />
-                    ) : null}
+                    {visibleGoals.length && (<Slideshow config={makeMissionsConfig(visibleGoals.map(goal => goal.text))} />)}
                 </Content>
                 <Content width="small">
                     <Statement />
@@ -42,11 +43,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
                             <Text tag="h2" size="header--large">
                                 <TextDecorator underline underlineColor='green' underlineCenter>Field Reports</TextDecorator>
                             </Text>
-                            {fieldReportsData ? (
-                                (<Slideshow config={makeFieldReportsConfig(fieldReportsData.docs.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)
-                            ) : fieldReports ? (
-                                (<Slideshow config={makeFieldReportsConfig(fieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)
-                            ) : null}
+                            {visibleFieldReports.length && (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)}
                         </Stack>
                     </Content>
                 </AnimationOnScroll>

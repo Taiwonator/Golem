@@ -11,7 +11,7 @@ interface IGallery {
 
 const Gallery: React.FC<IGallery> = () => {
 
-    const path = require.context('./photos', false)
+    const path = require.context('../../../../public/assets/gallery', false)
     const keys: any[] = path.keys().map(path)
     let images = keys.map(k => k.default)
 
@@ -49,6 +49,7 @@ const Gallery: React.FC<IGallery> = () => {
             const startIndex = 1
             const columnIndex = (i + startIndex) % columnCount
             const image = images[i]
+            console.log('src: ', image)
             columns[columnIndex].push(
                 <GalleryItem 
                     key={`item-${i}`} 

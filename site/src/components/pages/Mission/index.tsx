@@ -32,7 +32,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
             <LandingPage />
             <PageStack gap="large">
                 <Content width="medium">
-                    {visibleGoals.length && (<Slideshow config={makeMissionsConfig(visibleGoals.map(goal => goal.text))} />)}
+                    {visibleGoals.length ? (<Slideshow config={makeMissionsConfig(visibleGoals.map(goal => goal.text))} />) : null}
                 </Content>
                 <Content width="small">
                     <Statement />
@@ -43,7 +43,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
                             <Text tag="h2" size="header--large">
                                 <TextDecorator underline underlineColor='green' underlineCenter>Field Reports</TextDecorator>
                             </Text>
-                            {visibleFieldReports.length && (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)}
+                            {visibleFieldReports.length ? (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />) : null}
                         </Stack>
                     </Content>
                 </AnimationOnScroll>

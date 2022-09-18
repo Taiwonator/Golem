@@ -8,8 +8,10 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Icon from 'src/components/primitives/Icon'
 import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
+import { useSWRConfig } from 'src/lib/payload-fetcher'
+import useSWR from 'swr'
 
-const statData = {
+const statData: StatsData = {
     families: {
         count: '20+',
         text: "We are dedicated to serving families, especially widows and their children. We believe in equipping them in order that they may continue to help others and themselves."
@@ -29,16 +31,17 @@ interface Stat {
     text: string
 }
 
-interface StatsInterface {
-    data: {
-        families: Stat
-        posts: Stat
-        countries: Stat
-    }
+interface StatsData {
+    families: Stat
+    posts: Stat
+    countries: Stat
 }
 
-const Stats: React.FC<StatsInterface> = ({ data=statData }) => {
-    const {families, posts, countries } = data
+const Stats: React.FC = () => {
+    const {families, posts, countries } = statData
+
+const { key, fetcher } = useSWRConfig('posts')
+const { data: postData, error } = useSWR(key, fetcher)
     
     return (
         <Section id='impact' otherClassNames={styles['stats']}>
@@ -57,7 +60,7 @@ const Stats: React.FC<StatsInterface> = ({ data=statData }) => {
                     </Stack>
                     <Stack className={styles['stats__column']}>
                         <Circle color={SETTINGS.orange} otherClassNames={styles['stats__circle']}>
-                            <Text tag="h2" size="header--large">{posts.count}</Text>
+                            {postData && (<Text tag="h2" size="header--large">{postData.totalDocs}</Text>)}
                         </Circle>
                         <Text tag="h2" size="header">Blog Posts</Text>
                         <Text>{posts.text}</Text>

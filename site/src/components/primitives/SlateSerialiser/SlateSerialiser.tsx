@@ -11,7 +11,7 @@ interface SlateSerialiserProps {
 }
 
 const serialise = (data: any): any => {
-    const Component = data.map((node, i) => {
+    const Component = data?.map((node, i) => {
         if(node.type) {
             switch(node.type) {
                 case 'h1':

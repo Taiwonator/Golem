@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Content from '../../layouts/Content'
 import Post from './Post'
 import LandingPage from './LandingPage'
@@ -22,7 +22,15 @@ const Blog: React.FC<BlogProps> = ({ posts, metaData, featuredPosts }) => {
     const [allPosts, setAllPosts] = useState<any[]>(posts)
     const [currentMetaData, setCurrentMetaData] = useState<any>(metaData)
 
-    const totalPosts = metaData.totalDocs;
+    const totalPosts = metaData ? metaData.totalDocs : 0;
+
+    useEffect(() => {
+        setAllPosts(posts)
+    }, [posts])
+
+    useEffect(() => {
+        setCurrentMetaData(metaData)
+    }, [metaData])
 
     const loadMore = async() => {
         if(currentMetaData.hasNextPage) {
@@ -59,7 +67,7 @@ const Blog: React.FC<BlogProps> = ({ posts, metaData, featuredPosts }) => {
                         <Stack gap="small">
                             <Text tag='p'><Text tag="span" bold>{totalPostsVisible}</Text> (of {totalPosts})</Text>
                             <Button 
-                                disabled={!currentMetaData.hasNextPage}
+                                disabled={!currentMetaData?.hasNextPage}
                                 onClick={() => loadMore()}
                                 color={SETTINGS.green}
                                 border

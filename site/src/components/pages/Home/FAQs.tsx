@@ -1,12 +1,12 @@
 import React from 'react'
 import Section from '../../layouts/Section'
 import styles from './FAQs.module.scss'
-import FAQsWidget, { FAQsProps } from '../../widgets/FAQs'
+import FAQsWidget from '../../widgets/FAQs'
 
-const FAQs: React.FC<FAQsProps> = ({ faqs }) => {
+const FAQs: React.FC = () => {
     return (
         <Section id='faqs' otherClassNames={styles['faqs']}>
-            <FAQsWidget faqs={faqs} />
+            <FAQsWidget />
         </Section>
     )
 }

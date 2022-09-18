@@ -10,44 +10,17 @@ import Content from 'src/components/layouts/Content'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
 import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
+import { useSWRConfig } from 'src/lib/payload-fetcher'
+import useSWR from 'swr'
 
-const data = [
-  {
-    question: "Where does the money go?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis, egestas nisl sit amet."
-  },
-  {
-    question: "Example Question 1",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    question: "How do I see what impact I’m making?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id est iaculis, egestas nisl sit amet."
-  },
-  {
-    question: "Example Question 2",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    question: "Example Question 4",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    question: "Example Question 5",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    question: "Example Question 6",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-]
 
-export interface FAQsProps {
-  faqs: any[]
-}
-
-const FAQs: React.FC<FAQsProps> = ({ faqs=[] }) => {
+const FAQs: React.FC = () => {
     const [visibleFaqs, setVisibleFaqs] = useState(3)
+
+    const { key, fetcher } = useSWRConfig(`faqs`)
+    const { data, error } = useSWR(key, fetcher)
+
+    const faqs: any[] = data ? data.docs : []
 
     return (
       <Content className={styles['faqs']} width="medium">

@@ -10,17 +10,28 @@ import PageStack from 'src/components/primitives/PageStack'
 import FieldReport from './FieldReport'
 import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
-import { MissionProps } from 'pages/mission'
+import { useSWRConfig } from 'src/lib/payload-fetcher'
+import useSWR from 'swr'
 
 
-const Mission: React.FC<MissionProps> = ({ fieldReports, goals }) => {
+const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
+
+    const { key: fieldReportsKey, fetcher } = useSWRConfig(`field-reports?sort=-publishedDate`)
+    const { data: fieldReportsData } = useSWR(fieldReportsKey, fetcher)
+
+    const { key: goalsKey } = useSWRConfig(`goals`)
+    const { data: goalsData } = useSWR(goalsKey, fetcher)
 
     return (
         <>
             <LandingPage />
             <PageStack gap="large">
                 <Content width="medium">
-                    <Slideshow config={makeMissionsConfig(goals.map(goal => goal.text))} />
+                    { goalsData ? (
+                        <Slideshow config={makeMissionsConfig(goalsData.docs.map(goal => goal.text))} />
+                    ) : goals ? (
+                        <Slideshow config={makeMissionsConfig(goals.map(goal => goal.text))} />
+                    ) : null}
                 </Content>
                 <Content width="small">
                     <Statement />
@@ -31,7 +42,11 @@ const Mission: React.FC<MissionProps> = ({ fieldReports, goals }) => {
                             <Text tag="h2" size="header--large">
                                 <TextDecorator underline underlineColor='green' underlineCenter>Field Reports</TextDecorator>
                             </Text>
-                            <Slideshow config={makeFieldReportsConfig(fieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />
+                            {fieldReportsData ? (
+                                (<Slideshow config={makeFieldReportsConfig(fieldReportsData.docs.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)
+                            ) : fieldReports ? (
+                                (<Slideshow config={makeFieldReportsConfig(fieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />)
+                            ) : null}
                         </Stack>
                     </Content>
                 </AnimationOnScroll>

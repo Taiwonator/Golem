@@ -9,9 +9,8 @@ import PageStack from 'src/components/primitives/PageStack'
 import Projects from './Projects'
 import styles from './index.module.scss'
 import { useScrollIntoView } from 'src/hooks/useScrollIntoView'
-import { AboutProps } from 'pages/about'
 
-const About: React.FC<AboutProps> = ({ projects }) => {
+const About: React.FC = () => {
     const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
 
     return (
@@ -28,7 +27,7 @@ const About: React.FC<AboutProps> = ({ projects }) => {
                     <Funding />
                 </PageStack>
             </Content>
-            <Projects projects={projects} />
+            <Projects />
         </PageStack>
     )
 }

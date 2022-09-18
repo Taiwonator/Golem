@@ -25,10 +25,11 @@ interface PostLayoutProps {
     snippet: string,
     author: any,
     heroImage: any,
-    content: string
+    content: string,
+    siteUrl?: string
 }
 
-const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content }) => {  
+const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content, siteUrl }) => {  
 
     const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
     const { data: avatarImage } = useSWR(avatarKey, fetcher)
@@ -80,7 +81,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                    <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['post-layout__share-button']}>
-                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}${router.asPath}`} external>
+                <Link to={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${router.asPath}`} external>
                         <p><Icon fa='hello'/> Share on <span>facebook</span></p>
                     </Link>
                 </Button>

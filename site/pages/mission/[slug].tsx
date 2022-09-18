@@ -5,12 +5,13 @@ import Content from 'src/components/layouts/Content'
 import payloadFetch from 'src/lib/payload-fetcher'
 
 const FieldReport: NextPage = (props: any) => {
-  const { fieldReport } = props
+  const { fieldReport, siteUrl } = props
 
     return (  
       <BaseLayout pageTitle='Golem | Field Report'>
           <Content width='wide'>
               <FieldReportLayout 
+                siteUrl={siteUrl}
                 {...fieldReport}
             />
           </Content>
@@ -29,6 +30,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       fieldReport: data ? data.docs[0] : {},
+      siteUrl: process.env.GOLEM_URL_SITE
     },
   }
 }

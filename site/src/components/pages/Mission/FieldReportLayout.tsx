@@ -15,10 +15,11 @@ import { useRouter } from 'next/router'
 interface FieldReportLayoutProps {
     publishedDate: Date,
     title: string,
-    content: string
+    content: string,
+    siteUrl?: string
 }
 
-const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, title, content }) => {  
+const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, title, content, siteUrl }) => {  
 
     const router = useRouter()
         
@@ -36,7 +37,7 @@ const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, ti
                    <SlateSerialiser data={content} />
                 </div>
                 <Button border otherClassNames={styles['field-report-layout__share-button']}>
-                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GOLEM_URL_SITE}${router.asPath}`} external>
+                    <Link to={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${router.asPath}`} external>
                         <p><Icon fa='hello'/> Share on <span>facebook</span></p>
                     </Link>
                 </Button>

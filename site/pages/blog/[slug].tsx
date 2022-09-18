@@ -5,13 +5,14 @@ import Content from 'src/components/layouts/Content'
 import payloadFetch from 'src/lib/payload-fetcher'
 
 const BlogPost: NextPage = (props: any) => {
-  const { post } = props
+  const { post, siteUrl } = props
 
     return (  
       <BaseLayout pageTitle='Golem | Blog Post'>
           <Content width='wide'>
               <PostLayout 
                 views={0}
+                siteUrl={siteUrl}
                 {...post}
             />
           </Content>
@@ -30,6 +31,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post: data ? data.docs[0] : {},
+      siteUrl: process.env.GOLEM_URL_SITE
     },
   }
 }
@@ -46,7 +48,7 @@ export async function getStaticProps({ params }) {
       paths: data ? data.docs.map(post => post.slug).map(slug => ({
         params: { slug }
       })) : [],
-      fallback: false
+      fallback: false,
     };
   }
 

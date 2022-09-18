@@ -58,7 +58,7 @@ const Post: React.FC<PostProps> = ({
                     <Stack className={styles['post__content__row']}>
                         <Text className={styles['post__title']} tag="h2" size="header"><Link to={`blog/${slug}`}>{title}</Link></Text>
                         <div className={styles['post__info']}>
-                            <Text><Icon name='calendar' color='#D2D2D2' />{formatDate(publishedDate)}</Text>
+                            <Text><Icon name='calendar' color={SETTINGS.green} />{formatDate(publishedDate)}</Text>
                             {/* <Text><Icon name='eye' color='#D2D2D2' />{views}</Text> */}
                         </div>
                     </Stack>

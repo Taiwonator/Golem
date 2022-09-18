@@ -61,7 +61,7 @@ const Footer: React.FC = props => {
                 </Row>
                 <Row>
                     <Credit prefix='Made by'>
-                        <Link to='https://michaeltaiwo.com/' external>Michael Taiwo 😏</Link>
+                        <Link to='https://michaeltaiwo.com/' external>Michael Taiwo 🥳</Link>
                     </Credit>
                 </Row>
             </AnimationOnScroll>

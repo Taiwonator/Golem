@@ -25,13 +25,13 @@ const FieldReport: React.FC<FieldReportProps> = ({ i, title, heroImage, publishe
             {i === 0 && (<Text tag="p" size="standard--small" className={styles['field-report__latest']}>LATEST REPORT!!!</Text>)}
             <div className={styles['field-report__image']}>
                 <Image 
-                    src={heroImage.url}
+                    src={heroImage?.url || '/assets/houses.jpg'}
                     alt={heroImage?.alt}
                     layout="fill"
                     objectFit="cover"
                 />
             </div>
-            <Text tag="p" size="standard--medium" className={styles['field-report__date']}>{formatDate(publishedDate)}</Text>
+            {publishedDate && (<Text tag="p" size="standard--medium" className={styles['field-report__date']}>{formatDate(publishedDate)}</Text>)}
             <Button border color={SETTINGS.darkgreen} otherClassNames={styles['field-report__button']}>
                 <Link to={`/mission/${slug}`}>
                     Read {title}

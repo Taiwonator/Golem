@@ -49,13 +49,18 @@ const Gallery: React.FC<IGallery> = () => {
             const startIndex = 1
             const columnIndex = (i + startIndex) % columnCount
             const image = images[i]
-            console.log('src: ', image)
+
+            // JANK
+            const filename = image.src.split('/')[image.src.split('/').length - 1]
+            const dotSplitFilename = filename.split('.')
+            let correctedFilename = dotSplitFilename.filter((f, i) => i != dotSplitFilename.length - 2).join('.')
+
             columns[columnIndex].push(
                 <GalleryItem 
                     key={`item-${i}`} 
                     blurDataURL={image.blurDataURL}
                     alt={image.src}
-                    src={image.src} 
+                    src={`/assets/gallery/${correctedFilename}`} 
                     width={image.width}
                     height={image.height}
                     onClick={() => setModalImage(image)}

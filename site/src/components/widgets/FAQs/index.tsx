@@ -17,7 +17,7 @@ import useSWR from 'swr'
 const FAQs: React.FC = () => {
     const [visibleFaqs, setVisibleFaqs] = useState(3)
 
-    const { key, fetcher } = useSWRConfig(`faqs`)
+    const { key, fetcher } = useSWRConfig(`faqs?limit=100`)
     const { data, error } = useSWR(key, fetcher)
 
     const faqs: any[] = data ? data.docs : []

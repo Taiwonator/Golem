@@ -25,14 +25,12 @@ const FieldReportLayout: React.FC<FieldReportLayoutProps> = ({ publishedDate, ti
         
     return (
         <article className={styles['field-report-layout']}>
-           <div className={styles['field-report-layout__header']}>
-               <Content>
-                    <Text className={styles['field-report-layout__title']} bold>
-                        <I /><TextDecorator color={SETTINGS.orange}>{title} - {formatDate(publishedDate)}</TextDecorator>
-                    </Text>
-                </Content>
-            </div>
             <Content width='small'>
+                <div className={styles['field-report-layout__header']}>
+                    <Text className={styles['field-report-layout__title']} bold>
+                            <I /><TextDecorator color={SETTINGS.orange}>{title} - {formatDate(publishedDate)}</TextDecorator>
+                    </Text>
+                </div>
                 <div className={styles['field-report-layout__content']}>
                    <SlateSerialiser data={content} />
                 </div>

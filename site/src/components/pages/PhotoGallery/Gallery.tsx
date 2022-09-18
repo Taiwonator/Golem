@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useMemo } from 'react'
 import { useResponsiveWidth } from 'src/hooks/useResponsiveWidth'
 import styles from './Gallery.module.scss'
 import Image from 'next/image'
@@ -14,12 +14,12 @@ export interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ imageUrls }) => {
 
-    let images = imageUrls.map(url => ({
+    const images = useMemo(() => imageUrls.map(url => ({
         src: url,
         alt: url,
         width: getRandomNumber(400, 600),
         height: getRandomNumber(400, 600)
-    }))
+    })), [imageUrls]);
 
     const device = useResponsiveWidth()
     const [modalImage, setModalImage] = useState<any>({})

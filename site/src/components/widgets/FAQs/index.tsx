@@ -39,7 +39,7 @@ const FAQs: React.FC = () => {
               Show more
             </Button>
           )}
-          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we do nott get asked any questions :/</Text>)}
+          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we do not get asked any questions :/</Text>)}
         </Stack>
       </Content>
     )

@@ -31,9 +31,6 @@ interface PostLayoutProps {
 
 const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content, siteUrl }) => {  
 
-    const { key: avatarKey, fetcher } = useSWRConfig(`media/${author.avatar}`)
-    const { data: avatarImage } = useSWR(avatarKey, fetcher)
-
     const router = useRouter()
         
     return (
@@ -51,20 +48,22 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                         </div>
                         <Text className={styles['post-layout__title']} tag="h1" size="header--large"><TextDecorator theme='blog'>{title}</TextDecorator></Text>
                         <Text className={styles['post-layout__snippet']}>{snippet}</Text>
-                        <Credit className={styles['post-layout__credit']} prefix='Written by'>
+                        {author && (
+                            <Credit className={styles['post-layout__credit']} prefix='Written by'>
                                 <Text className={styles['post-layout__author']}>{author.name}</Text>
                                 <div className={styles['post-layout__avatar']}>
-                                {avatarImage && (
-                                    <Image 
-                                        src={avatarImage.url}
-                                        width={40}
-                                        height={40}
-                                        layout="responsive"
-                                        alt={author.name}
-                                    />
-                                )}
-                            </div>
-                        </Credit>
+                                    {author.avatar && (
+                                        <Image 
+                                            src={author.avatar.url}
+                                            width={40}
+                                            height={40}
+                                            layout="responsive"
+                                            alt={author.name}
+                                        />
+                                    )}
+                                </div>
+                            </Credit>
+                        )}
                     </Stack>
                 </Content>
             </div>

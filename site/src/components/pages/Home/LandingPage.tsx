@@ -26,7 +26,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                 <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header>
                 { isMobile ?
                     <>
-                        <Image src="/assets/golem--mobile.png" alt="Picture of logo" width={525.51} height={207.41} />
+                        <Image src="/assets/golem-heart--mobile.png" alt="Picture of logo" width={525.51} height={207.41} />
                         <Header tag='h1'>
                             <span><Decor color={SETTINGS.grey}>is</Decor> emancipating</span>
                             <span><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</span>
@@ -50,8 +50,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
             </Stack>
             <div className={styles['landing-page__desktop-image']} >
                 <Image
-                    src="/assets/landing-image.png"
-                    alt="Picture of a young boy"
+                    src="/assets/golem-heart.png"
+                    alt="Man on the field"
                     width={560.8}
                     height={711}
                 />

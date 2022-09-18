@@ -7,12 +7,15 @@ import Slideshow from "src/components/widgets/Slideshow/Slideshow"
 import { makeProjectsConfig } from "src/data/Slideshow"
 import SETTINGS from "src/styles/settings"
 import styles from './Projects.module.scss' 
+import { useSWRConfig } from 'src/lib/payload-fetcher'
+import useSWR from 'swr'
 
-interface ProjectsProps {
-  projects: any[]
-}
+const Projects: React.FC = () => {
+  const { key, fetcher } = useSWRConfig(`projects`)
+  const { data, error } = useSWR(key, fetcher)
 
-const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  const projects = data ? data.docs : []
+
   return (
     <Stack gap="huge" className={styles['projects']}>
       <Content width="small">

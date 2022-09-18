@@ -2,21 +2,27 @@ import type { NextPage } from 'next'
 import BaseLayout from 'src/components/layouts/BaseLayout'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
-import payloadFetch from 'src/lib/payload-fetcher'
+import payloadFetch, { useSWRConfig } from 'src/lib/payload-fetcher'
 import { formatDate } from 'src/lib/date'
+import useSWR from 'swr'
 
 const BlogPost: NextPage = (props: any) => {
-  const { post, siteUrl } = props
+  const { filter, siteUrl } = props
+
+  const { key, fetcher } = useSWRConfig(`posts?${filter}`)
+  const { data, error } = useSWR(key, fetcher)
+
+  const post = data ? data.docs[0] : {}
 
     return (  
       <BaseLayout
-        pageTitle={`Golem | Blog Post - ${post.title}`}
+        pageTitle={`Golem | Blog Post - ${post?.title}`}
         metaData={{
-          description: post.snippet,
+          description: post?.snippet,
           keywords: 'Blog, Post, Updates, Faith, Africa, Mission, Charity, Golem',
           og: { 
-            title: post.title,
-            imageUrl: post.heroImage?.url 
+            title: post?.title,
+            imageUrl: post?.heroImage?.url 
           }
         }}
       >
@@ -33,22 +39,23 @@ const BlogPost: NextPage = (props: any) => {
 
 export async function getStaticProps({ params }) {
   const filter = `where[slug][equals]=${params.slug}`
-  const [data, res, error] = await payloadFetch(`posts?${filter}`)
-  if(error) {
-    console.error('[slug].jsx - get static props error')
-    return { notFound: true }
-  }
+  // const [data, res, error] = await payloadFetch(`posts?${filter}`)
+  // if(error) {
+  //   console.error('[slug].jsx - get static props error')
+  //   return { notFound: true }
+  // }
   
   return {
     props: {
-      post: data ? data.docs[0] : {},
+      // post: data ? data.docs[0] : {},
+      filter,
       siteUrl: process.env.GOLEM_URL_SITE
     },
   }
 }
 
   export async function getStaticPaths() {
-      const [data, res, error] = await payloadFetch(`posts?limit=20`)
+      const [data, res, error] = await payloadFetch(`posts?limit=10000`)
       if(error) {
         console.error('[slug].jsx - get static paths error')
         return { paths: [], fallback: false }

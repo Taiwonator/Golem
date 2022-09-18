@@ -9,6 +9,8 @@ import SETTINGS from 'src/styles/settings'
 import styles from './BlogPosts.module.scss'
 import cx from 'classnames'
 import Icon from 'src/components/primitives/Icon'
+import { useSWRConfig } from 'src/lib/payload-fetcher'
+import useSWR from 'swr'
 
 interface BlogPosts {
     posts: any[],
@@ -27,7 +29,16 @@ interface BlogPost {
 }
 
 
-const BlogPosts: React.FC<BlogPosts> = ({ posts, fPost }) => {
+const BlogPosts: React.FC= () => {
+
+    const { key: postsKey, fetcher } = useSWRConfig(`posts?where[status][equals]=published&sort=-publishedDate`)
+    const { data: postsData } = useSWR(postsKey, fetcher)
+
+    const { key: fPostsKey } = useSWRConfig(`posts?where[status][equals]=published&where[featured][equals]=true&sort=-publishedDate`)
+    const { data: fPostsData } = useSWR(fPostsKey, fetcher)
+
+    const posts = postsData ? postsData.docs : []
+    const fPost = (fPostsData && fPostsData.docs.length) ? fPostsData.docs[0] : null
 
     return (
         <Stack gap="large" className={styles['blog-posts']}>
@@ -41,7 +52,7 @@ const BlogPosts: React.FC<BlogPosts> = ({ posts, fPost }) => {
                     { fPost && (<div><FeaturedBlogPost {...fPost} /></div> )}
                     <div className={styles['blog-posts__list']}>
                         {posts.map( (post, i) => {
-                            if(post.slug != fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
+                            if(fPost && post.slug != fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
                             return undefined
                         }).filter(x => x != undefined).slice(0, 3)}
                     </div>

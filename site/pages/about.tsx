@@ -4,11 +4,7 @@ import BaseLayout from 'src/components/layouts/BaseLayout'
 import Main from '../src/components/pages/About'
 import payloadFetch from 'src/lib/payload-fetcher'
 
-export interface AboutProps {
-  projects: any[]
-}
-
-const About: NextPage<AboutProps> = (props) => {
+const About: NextPage = () => {
 
   return (
     <BaseLayout
@@ -18,24 +14,24 @@ const About: NextPage<AboutProps> = (props) => {
         keywords: 'Values, About , Golem, Beliefs, Missionary, Mission'
       }}
     >         
-        <Main {...props} />
+        <Main />
     </BaseLayout>
   )
 }
 
-export async function getStaticProps () {
+// export async function getStaticProps () {
 
-  const [data, res, error] = await payloadFetch('projects')
-  if(error) {
-    console.error('index.jsx - get static props error: ', error)
-    return { notFound: true }
-  }
+//   const [data, res, error] = await payloadFetch('projects')
+//   if(error) {
+//     console.error('index.jsx - get static props error: ', error)
+//     return { notFound: true }
+//   }
 
-  return {
-    props: {
-      projects: data ? data.docs : [],
-    },
-  }
-}
+//   return {
+//     props: {
+//       projects: data ? data.docs : [],
+//     },
+//   }
+// }
 
 export default About

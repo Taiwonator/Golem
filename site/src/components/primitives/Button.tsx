@@ -17,7 +17,7 @@ const Button: React.FC<IButton> = ({ border, children, color, disabled, theme, o
         styles['button'],
         border && styles['button--border'],
         disabled && styles['button--disabled'],
-        // noPsuedoClasses && styles['button--noPsuedoClasses'],
+        noPsuedoClasses && styles['button--no-psuedo-classes'],
         otherClassNames
     )
 

@@ -28,11 +28,12 @@ const BaseLayout: React.FC<IBaseLayout> = ({ children, pageTitle, metaData={} })
         <React.Fragment>
             <Head>
                 <title>{ pageTitle }</title>
+                <meta property="og:title" content={pageTitle} />
+
                 {description && (<meta name="description" content={description} />)}
                 {keywords && (<meta name="keywords" content={keywords} />)}
                 {author && (<meta name="author" content={author} />)}
 
-                {ogTitle || pageTitle && (<meta property="og:title" content={ogTitle || pageTitle} />)}
                 {ogDescription || description && (<meta property="og:description" content={ogDescription || description} />)}
                 <meta property="og:image" content={ogImageUrl || '/assets/golem-heart--mobile.png'} />
 

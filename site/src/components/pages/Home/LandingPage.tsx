@@ -26,7 +26,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                 <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header>
                 { isMobile ?
                     <>
-                        <Image src="/assets/golem-heart--mobile.png" alt="Picture of logo" width={525.51} height={207.41} />
+                        <Image src="/assets/golem-heart--mobile.webp" alt="Picture of logo" width={525.51} height={207.41} />
                         <Header tag='h1'>
                             <span><Decor color={SETTINGS.grey}>is</Decor> emancipating</span>
                             <span><Decor color={SETTINGS.orange} underline>vulnerable</Decor> people</span>
@@ -37,7 +37,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                         <Header tag='h1'>
                             <p className={styles['landing-page__header__top-line']}>
                                 <span className={styles['landing-page__desktop-golem']}>
-                                    <Image src="/assets/golem.png" alt="Picture of logo" width={312.37} height={114.8} loading="eager" />
+                                    <Image src="/assets/golem.webp" alt="Picture of logo" width={312.37} height={114.8} loading="eager" />
                                 </span>
                                 <Decor color={SETTINGS.grey}>is</Decor>
                             </p>
@@ -50,7 +50,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
             </Stack>
             <div className={styles['landing-page__desktop-image']} >
                 <Image
-                    src="/assets/golem-heart.png"
+                    src="/assets/golem-heart.webp"
                     alt="Man on the field"
                     width={560.8}
                     height={711}

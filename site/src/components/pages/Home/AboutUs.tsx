@@ -10,8 +10,8 @@ import Text from 'src/components/primitives/Text'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
 
-import SideImage1 from '../../../../public/assets/side-image-1.png'
-import SideImage2 from '../../../../public/assets/side-image-2.png'
+import SideImage1 from '../../../../public/assets/side-image-1.webp'
+import SideImage2 from '../../../../public/assets/side-image-2.webp'
 import Link from 'src/components/primitives/Link'
 
 const AboutUs: React.FC = props => {

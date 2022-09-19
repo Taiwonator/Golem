@@ -7,7 +7,7 @@ import { formatDate } from 'src/lib/date'
 import useSWR from 'swr'
 
 const BlogPost: NextPage = (props: any) => {
-  const { filter, siteUrl } = props
+  const { filter, siteUrl, staticPost } = props
 
   const { key, fetcher } = useSWRConfig(`posts?${filter}`)
   const { data, error } = useSWR(key, fetcher)
@@ -16,13 +16,13 @@ const BlogPost: NextPage = (props: any) => {
 
     return (  
       <BaseLayout
-        pageTitle={`Golem | Blog Post - ${post?.title}`}
+        pageTitle={`Golem | Blog Post - ${staticPost?.title}`}
         metaData={{
-          description: post?.snippet,
+          description: staticPost?.snippet,
           keywords: 'Blog, Post, Updates, Faith, Africa, Mission, Charity, Golem',
           og: { 
-            title: post?.title,
-            imageUrl: post?.heroImage?.url 
+            title: staticPost?.title,
+            imageUrl: staticPost?.heroImage?.url 
           }
         }}
       >
@@ -39,15 +39,15 @@ const BlogPost: NextPage = (props: any) => {
 
 export async function getStaticProps({ params }) {
   const filter = `where[slug][equals]=${params.slug}`
-  // const [data, res, error] = await payloadFetch(`posts?${filter}`)
-  // if(error) {
-  //   console.error('[slug].jsx - get static props error')
-  //   return { notFound: true }
-  // }
+  const [data, res, error] = await payloadFetch(`posts?${filter}`)
+  if(error) {
+    console.error('[slug].jsx - get static props error')
+    return { notFound: true }
+  }
   
   return {
     props: {
-      // post: data ? data.docs[0] : {},
+      staticPost: data ? data.docs[0] : {},
       filter,
       siteUrl: process.env.GOLEM_URL_SITE
     },

@@ -35,6 +35,10 @@
 
 .blog-post {
     text-align: center;
+    
+    @include forTablet {
+        flex: 1;
+    }
 
     &__image {
         position: relative;
@@ -49,9 +53,11 @@
 
 .featured-blog-post {
     text-align: center;
+    margin-bottom: 100px;
 
     @include forTablet {
         display: flex;
+        margin-bottom: 0;
     }
 
     &__image {

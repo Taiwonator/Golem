@@ -5,6 +5,10 @@
     min-height: calc(100vh - (#{$nav-height} + 20px));
     margin-bottom: 100px;
 
+    &__mini-header {
+        margin-bottom: 20px;
+    }
+
     &__header {
         &__top-line {
             @include forTablet {

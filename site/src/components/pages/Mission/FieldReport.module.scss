@@ -2,8 +2,8 @@
     width: 100%;
 
     &--bordered {
-        border-left: 2px solid $color-orange;
-        border-right: 2px solid $color-orange;
+        border-left: 4px solid $color-orange;
+        border-right: 4px solid $color-orange;
         border-radius: 10px;
         overflow: hidden;
     }
@@ -35,6 +35,13 @@
     }
 
     &__button {
-        margin-bottom: 20px
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        @include forTablet {
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
 }

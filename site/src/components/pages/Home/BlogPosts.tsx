@@ -75,18 +75,20 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
     const shortSnippet = snippet.length > MAX_SNIPPET_LENGTH ? snippet.slice(0, MAX_SNIPPET_LENGTH) + '...' : snippet
 
     return (
-        <Link to={`blog/${slug}#top`}>
-            <Stack className={styles['blog-post']}>
-                <div className={styles['blog-post__image']}>
-                    <Image src={heroImage.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
-                </div>
-                <Text tag="h3" size="header--small">{title}</Text>
-                <Text tag="p" size="standard--medium">{shortSnippet}</Text>
-                <Button>
-                    <TextDecorator bold color={SETTINGS.darkgreen}>READ BLOG</TextDecorator>
-                </Button>
-            </Stack>
-        </Link>
+        <div className={styles['blog-post']}>
+            <Link to={`blog/${slug}#top`}>
+                <Stack>
+                    <div className={styles['blog-post__image']}>
+                        <Image src={heroImage.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
+                    </div>
+                    <Text tag="h3" size="header--small">{title}</Text>
+                    <Text tag="p" size="standard--medium">{shortSnippet}</Text>
+                    <Button>
+                        <TextDecorator bold color={SETTINGS.darkgreen}>READ BLOG</TextDecorator>
+                    </Button>
+                </Stack>
+            </Link>
+        </div>
     )
 }
 

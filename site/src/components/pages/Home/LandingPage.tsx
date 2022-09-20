@@ -23,7 +23,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
     return (
         <section className={styles['landing-page']}>
             <Stack gap="large" className={styles['landing-page__content']}>
-                <Header tag="h3" uppercase>God of Love Emancipation Ministries</Header>
+                <Header className={styles['landing-page__mini-header']} tag="h3" uppercase>God of Love Emancipation Ministries</Header>
                 { isMobile ?
                     <>
                         <Image src="/assets/golem-heart--mobile.webp" alt="Picture of logo" width={525.51} height={207.41} />

@@ -34,7 +34,7 @@ const Funding: React.FC = () => {
           beneficiaries.
         </Text>
         <Button color={SETTINGS.orange} border>
-          <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=UNZTUKLRTG58J" external>
+          <Link to="https://www.paypal.com/donate/?hosted_button_id=JS8PX3UEZ4W5U" external>
             Donate Now
           </Link>
         </Button>

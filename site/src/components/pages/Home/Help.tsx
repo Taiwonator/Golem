@@ -21,7 +21,7 @@ const Help: React.FC = props => {
                     <Text bold>Sort Code: 60-15-31</Text>
                 </div>
                 <Button color={SETTINGS.orange} border>
-                    <Link to="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=UNZTUKLRTG58J" external>
+                    <Link to="https://www.paypal.com/donate/?hosted_button_id=JS8PX3UEZ4W5U" external>
                         Donate Now
                     </Link>
                 </Button>

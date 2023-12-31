@@ -79,7 +79,7 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
             <Link to={`blog/${slug}#top`}>
                 <Stack>
                     <div className={styles['blog-post__image']}>
-                        <Image src={heroImage.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
+                        <Image src={heroImage?.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
                     </div>
                     <Text tag="h3" size="header--small">{title}</Text>
                     <Text tag="p" size="standard--medium">{shortSnippet}</Text>
@@ -100,7 +100,7 @@ const FeaturedBlogPost: React.FC<BlogPost> = ({ title, heroImage, snippet, slug 
         <Link to={`blog/${slug}#top`}>
             <div className={styles['featured-blog-post']}>
                 <div className={styles['featured-blog-post__image']}>
-                    <Image src={heroImage.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
+                    <Image src={heroImage?.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
                 </div>
                 <Stack className={styles['featured-blog-post__content']}>
                     <Text tag="h3" size="header--small">{title}</Text>

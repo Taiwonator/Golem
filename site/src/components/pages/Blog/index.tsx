@@ -53,7 +53,7 @@ const Blog: React.FC<BlogProps> = ({ posts, metaData, featuredPosts }) => {
             </Content>
             {!allPosts.length && (<Text className={styles['blog__empty-text']} size="header--medium">We are working on some amazing posts ⭐</Text>)}
             <Stack gap='huge'>
-                {featuredPosts.length && featuredPosts.map((f, i) => 
+                {!!featuredPosts.length && featuredPosts.map((f, i) => 
                     <Post key={`f_${i}`} {...f} />
                 )}
                 

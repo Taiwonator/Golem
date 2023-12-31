@@ -11,6 +11,7 @@ import FAQs from './FAQs'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useScrollIntoView } from 'src/hooks/useScrollIntoView'
 import PageStack from 'src/components/primitives/PageStack'
+import Videos from './Videos'
 
 const Home: React.FC = () => {
 
@@ -37,6 +38,7 @@ const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
                 <PageStack>
                     <Help />
                     <BlogPosts />
+                    <Videos />
                     <ContactUs />
                     <FAQs />
                 </PageStack>

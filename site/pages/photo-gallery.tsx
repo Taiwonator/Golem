@@ -35,7 +35,12 @@ export async function getStaticProps() {
 
     const command = new ListObjectsCommand(awsParams);
     const response = await client.send(command);
-    const allFilenames = response.Contents.map(c => c.Key)
+    const sortedFileContents = response.Contents.sort((a, b) => {
+      const aDate = new Date(a.LastModified)
+      const bDate = new Date(b.LastModified)
+      return bDate.getTime() - aDate.getTime()
+    })
+    const allFilenames = sortedFileContents.map(c => c.Key)
     const galleryFilenames = allFilenames.filter(f => f.split('/').filter(x => x != '').length > 1 && f.includes('gallery'))
     const modifiedGalleryFilenames = galleryFilenames.map(f => f.split(' ').join('+'))
     const imageUrls = modifiedGalleryFilenames.map(f => `${process.env.AWS_BUCKET_API_URL}/${f}`)

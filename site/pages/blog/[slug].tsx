@@ -5,6 +5,7 @@ import Content from 'src/components/layouts/Content'
 import payloadFetch, { useSWRConfig } from 'src/lib/payload-fetcher'
 import { formatDate } from 'src/lib/date'
 import useSWR from 'swr'
+import Head from 'next/head'
 
 const BlogPost: NextPage = (props: any) => {
   const { filter, siteUrl, staticPost } = props
@@ -26,6 +27,10 @@ const BlogPost: NextPage = (props: any) => {
           }
         }}
       >
+        <Head>
+          <div id="fb-root"></div>
+          <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="5bagHmw7"></script>
+        </Head>
           <Content width='wide'>
               <PostLayout 
                 views={0}

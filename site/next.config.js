@@ -1,6 +1,7 @@
 
 /** @type {import('next').NextConfig} */
 const path = require('path')
+const withVideos = require('next-videos')
 
 module.exports = (phase, {defaultConfig}) => {
   if ('sassOptions' in defaultConfig) {
@@ -16,5 +17,5 @@ module.exports = (phase, {defaultConfig}) => {
     }
   }
 
-  return defaultConfig;
+  return withVideos(defaultConfig);
 }

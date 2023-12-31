@@ -40,7 +40,6 @@ const Gallery: React.FC<GalleryProps> = ({ imageUrls }) => {
                 break;
         }
 
-        console.log('grid rerender')
         return Grid
     }
 

@@ -8,9 +8,7 @@
   "scripts": {
     "deploy:strapi": "git subtree push --prefix strapi heroku master"
   },
-  "dependencies": {
-    "react-faq-component": "^1.3.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/webpack-env": "^1.18.0"
   }

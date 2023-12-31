@@ -21,6 +21,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
 
     useEffect(() => {
         const sortedFieldReports = fieldReports.sort((a, b) => Number(new Date(b.publishedDate)) - Number(new Date(a.publishedDate)));
+        console.log(sortedFieldReports)
         setVisibleFieldReports(sortedFieldReports);
         // setVisibleFieldReports(fieldReports)
     }, [fieldReports])

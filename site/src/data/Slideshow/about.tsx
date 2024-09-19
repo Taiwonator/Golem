@@ -17,7 +17,7 @@ const slideTexts: React.ReactNode[] = [
         Jonathan who is 
         currently the Director of Programmes is a Development Economist and Registered Mental 
         Health Practitioner. Jonathan is also a trained Minister of Christian Religion and 
-        Pastoral Carer.  Alice is an Auditor and Financial  Accountant.
+        Pastoral Carer. Alice is a Chartered Accountant.
       </span>
     </Text>
   </>,

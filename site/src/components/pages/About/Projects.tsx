@@ -27,12 +27,14 @@ const Projects: React.FC = () => {
             </Text>
           <Text>
             Our projects are delivered locally and Overseas in collaboration with our 
-            partners abroad. Power of Apostolic Church International (PAC), a faith 
-            based organisation based in the rural communities of Western part of Nigeria 
-            is our key ministry partner. Whilst most of our current overseas is based 
-            in Nigeria in keeping with the adage: ” charity begins at home”, our long 
-            term vision is to identify other viable NGO Partners overseas and expand 
-            the scope of our operations to other needy developing communities.
+            partners abroad. The Churches, Ministries and Schools GOLEM currently partners 
+            with in Nigeria includes Christ Apostolic Church, Owode, Ogun State; Pure 
+            Religion Ministries, Lagos State; Great Grace Mission, Ilaro, Ogun State; 
+            Catch them Young Children Ministry, Ilaro, Ogun State; New Life Gospel 
+            Church, Ilaro, Ogun State; Qs DaySTAR School, Lagos State; Vicona Private 
+            School, Ogun State; MBA School, Ijegun Lagos State and Sammy K School 
+            Lagos State. Our long term vision is to identify other viable NGO Partners 
+            overseas and expand the scope of our operations to other needy developing communities.
           </Text>
           <Text>
             <TextDecorator bold color={SETTINGS.darkgreen}>Here are some ongoing and planned projects:</TextDecorator>
@@ -61,9 +63,9 @@ const Projects: React.FC = () => {
       <Content width="small">
         <Text className={styles['projects__email']} bold>
           <p>For more information about any of these projects or how to get involved please email</p>{' '}
-          <a href="mailto:info@golemministries.org">
+          <a href="mailto:jonathan.golemministries@gmail.com">
             <TextDecorator color={SETTINGS.green}>
-                 info@golemministries.org{' '}
+              jonathan.golemministries@gmail.com{' '}
             </TextDecorator>
           </a>
           <p>or write to us.</p>

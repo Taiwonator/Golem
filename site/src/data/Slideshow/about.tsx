@@ -27,7 +27,7 @@ const slideTexts: React.ReactNode[] = [
         Since commencement of operations in 1998, GOLEM has been providing locally based Pastoral 
         care to vulnerable and needy people within the community whilst supporting and raising 
         funds for other registered charitable organisations such as OXFAM, WORLD VISION, TEAR FUND, 
-        EURO VISION, PAC INTERNATIONAL involved in Overseas poverty relief work in Africa and 
+        EURO VISION involved in Overseas poverty relief work in Africa and 
         around the world.
       </span>
     </Text>

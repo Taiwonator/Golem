@@ -79,11 +79,11 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                 <div className={styles['post-layout__content']}>
                    <SlateSerialiser data={content} />
                 </div>
-                <Button border otherClassNames={styles['post-layout__share-button']}>
-                <Link to={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${router.asPath}`} external>
-                        <p><Icon fa='hello'/> Share on <span>facebook</span></p>
-                    </Link>
-                </Button>
+                <div className="fb-share-button" 
+                    data-href="https://www.your-domain.com/your-page.html" 
+                    data-layout="button_count"
+                >
+                </div>
             </Content>
         </article>
     )

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import LandingPage from './LandingPage'
+import MissionSnippet from './MissionSnippet'
 import OurFight from './OurFight'
 import AboutUs from './AboutUs'
 import Stats from './Stats'
@@ -22,6 +23,8 @@ const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
             <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
                 <LandingPage onButtonClick={() => triggerScrollIntoView()} />
             </AnimationOnScroll>
+
+            <MissionSnippet />
 
             <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
                 <OurFight ref={scrollRef} />

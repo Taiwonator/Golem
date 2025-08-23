@@ -1,0 +1,79 @@
+.notices {
+    padding: 60px 0;
+    margin: 0 $gutter--mobile;
+    text-align: center;
+
+    @include forTablet {
+        padding: 100px 0;
+        margin: 0 $gutter--tablet;
+    }
+
+    &__title {
+        margin-bottom: 30px;
+
+        @include forTablet {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__description {
+        max-width: 800px;
+        margin: 0 auto 50px auto;
+        line-height: 1.6;
+
+        @include forTablet {
+            margin-bottom: 70px;
+        }
+    }
+
+    &__events {
+        display: grid;
+        gap: 40px;
+        max-width: $mw--desktop;
+        margin: 0 auto;
+
+        @include forTablet {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            // grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+    }
+
+    &__event {
+        background-color: $color-lightgrey;
+        padding: 30px 20px;
+        border-radius: 15px;
+        border: 3px solid $color-black;
+        box-shadow: 0 6px 1px $color-black;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        @include forTablet {
+            padding: 40px 30px;
+
+            &:nth-child(3) {
+                grid-column: span 2;
+            }
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 1px $color-black;
+        }
+
+        &-title {
+            margin-bottom: 15px;
+            
+            @include forTablet {
+                margin-bottom: 20px;
+            }
+        }
+
+        p {
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

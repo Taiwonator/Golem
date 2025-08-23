@@ -3,6 +3,8 @@ import Content from 'src/components/layouts/Content'
 import Stack from 'src/components/layouts/Stack'
 import LandingPage from './LandingPage'
 import Statement from './Statement'
+import Notices from './Notices'
+import Flyers from './Flyers'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Slideshow from 'src/components/widgets/Slideshow/Slideshow'
 import { makeFieldReportsConfig, makeMissionsConfig } from 'src/data/Slideshow'
@@ -33,6 +35,12 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
     return (
         <>
             <LandingPage />
+            <Content width="wide">
+                <Notices />
+            </Content>
+            <Content width="wide">
+                <Flyers />
+            </Content>
             <PageStack gap="large">
                 <Content width="medium">
                     {visibleGoals.length ? (<Slideshow config={makeMissionsConfig(visibleGoals.map(goal => goal.text))} />) : null}

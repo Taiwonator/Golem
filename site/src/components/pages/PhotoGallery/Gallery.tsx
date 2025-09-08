@@ -158,13 +158,14 @@ const Modal: React.FC<IModal> = ({ src, alt, blurDataURL, onClick }) => {
     const Component = (
         <li className={styles['gallery__modal']} onClick={onClick}>
             <div className={styles['gallery__modal__inner']}>
-                <Image 
+                <img 
                     src={src}
                     alt={alt}
-                    layout="fill"
-                    objectFit="contain"
-                    // blurDataURL={blurDataURL}
-                    // placeholder="blur"
+                    style={{
+                        objectFit: 'contain',
+                        width: '100%',
+                        height: '100%'
+                    }}
                 />
             </div>
         </li>

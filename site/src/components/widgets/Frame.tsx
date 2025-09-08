@@ -26,10 +26,11 @@ const Frame: React.FC<IFrame> = ({ loading, square, src, noHover }) => {
                     <span className={styles['frame__loader']} />
                 )}
                 {src && (
-                    <Image 
+                    <img 
                         src={src}
-                        layout='fill'
-                        objectFit='cover'
+                        style={{
+                            objectFit: 'cover',
+                        }}
                         alt="Image of tigers"
                     />
                 )}

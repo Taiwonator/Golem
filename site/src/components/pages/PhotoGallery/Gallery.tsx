@@ -116,15 +116,17 @@ const GalleryItem: React.FC<IGalleryItem> = ({ src, alt, width, height, onClick,
             className={styles['gallery__item']}
             onClick={onClick}
         >
-            <Image 
+            <img 
                 src={src}
                 alt={alt}
                 width={width}
                 height={height}
                 loading="lazy"
-                objectFit="cover"
-                // blurDataURL={blurDataURL}
-                // placeholder="blur"
+                style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%'
+                }}
             />
         </button>
     )

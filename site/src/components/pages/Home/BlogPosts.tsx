@@ -85,7 +85,10 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
                             style={{
                                 objectFit: 'cover',
                                 width: '100%',
-                                height: '100%'
+                                height: '100%',
+                                left: '0',
+                                top: '0',
+                                position: 'absolute'
                             }}
                         />
                     </div>

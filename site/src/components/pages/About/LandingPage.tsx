@@ -23,10 +23,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
               src="/assets/mission-landing-shape.webp"
               alt="Woman cleaning clothes"
               style={{
-                width: '1640px',
-                height: '1307px',
-                objectFit: 'cover'
+                objectFit: 'cover',
+                width: '100%',
+                height: '100%'
               }}
+              width={1640}
+              height={1307}
               loading="eager"
             />
           </div>

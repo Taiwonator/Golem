@@ -1,4 +1,4 @@
-import Image from "next/image"
+
 import Content from "src/components/layouts/Content"
 import Stack from "src/components/layouts/Stack"
 import Text from "src/components/primitives/Text"
@@ -50,7 +50,15 @@ const Projects: React.FC = () => {
               </TextDecorator>{' '}
               {project.image && (
                 <div className={styles['projects__project__image']}>
-                  <Image src={project.image.url} alt={project.image.filename} layout="fill" objectFit="cover" />
+                  <img
+                    src={project.image.url}
+                    alt={project.image.filename}
+                    style={{
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: '100%'
+                    }}
+                  />
                 </div>
               )}
               <Text size="header--small" bold tag="p" className="text-double--desktop">

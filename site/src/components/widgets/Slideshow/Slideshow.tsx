@@ -12,7 +12,6 @@ import I from './components/I'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import SETTINGS from 'src/styles/settings'
 import Stack from 'src/components/layouts/Stack'
-import Image from 'next/image'
 import { Config } from 'src/data/Slideshow'
 import { useState } from 'react'
 
@@ -99,11 +98,14 @@ const Slideshow: React.FC<SlideshowProps> = ({ config }) => {
           )}
         </div>
         {images && (<div className={classNames(styles['slideshow__image'])}>
-          <Image 
+          <img
             src="/assets/tigers.png"
             alt="placeholder"
-            layout="fill"
-            objectFit="cover"
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%'
+            }}
           />
         </div>
         )}

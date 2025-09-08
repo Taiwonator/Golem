@@ -5,7 +5,7 @@ import Section from 'src/components/layouts/Section'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Icon from 'src/components/primitives/Icon'
 import styles from './LandingPage.module.scss'
-import Image, { StaticImageData } from 'next/image'
+import { StaticImageData } from 'next/image'
 import PlaceholderImage from '../../../../public/assets/tigers.png'
 import useMouse, { MousePosition } from '@react-hook/mouse-position'
 import Content from 'src/components/layouts/Content'
@@ -96,6 +96,7 @@ interface BubbleProps {
 }
 
 const Bubble: React.FC<BubbleProps> = ({ startingPos: { left, top }, mouse, src }) => {
+    return null
     const getValues = useMemo(() => {
         const leftNum: RegExpMatchArray = left.match(/(\d+)/)
         const topNum: RegExpMatchArray = top.match(/(\d+)/)
@@ -125,13 +126,15 @@ const Bubble: React.FC<BubbleProps> = ({ startingPos: { left, top }, mouse, src 
             style={{ left, top, transform: getImageTransform() }}
             className={styles['bubble']}
         >
-            <Image 
+            <img
                 src={src}
                 alt="placeholder"
-                layout="fill"
-                objectFit="cover"
-                placeholder="blur"
                 className="bubble__image"
+                style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%'
+                }}
             />
         </div>
     )

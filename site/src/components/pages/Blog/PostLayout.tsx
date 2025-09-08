@@ -12,7 +12,7 @@ import { useSWRConfig } from 'src/lib/payload-fetcher'
 import Content from '../../layouts/Content'
 import styles from './PostLayout.module.scss'
 import useSWR from 'swr'
-import Image from 'next/image'
+
 import SETTINGS from 'src/styles/settings'
 import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
 import Link from 'src/components/primitives/Link'
@@ -53,12 +53,14 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                                 <Text className={styles['post-layout__author']}>{author.name}</Text>
                                 <div className={styles['post-layout__avatar']}>
                                     {author.avatar && (
-                                        <Image 
+                                        <img
                                             src={author.avatar.url}
-                                            width={40}
-                                            height={40}
-                                            layout="responsive"
                                             alt={author.name}
+                                            style={{
+                                                width: '40px',
+                                                height: '40px',
+                                                objectFit: 'cover'
+                                            }}
                                         />
                                     )}
                                 </div>

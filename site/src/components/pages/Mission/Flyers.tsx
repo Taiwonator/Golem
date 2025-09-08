@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
 import styles from './Flyers.module.scss'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
@@ -68,12 +67,14 @@ const Flyers: React.FC = () => {
                                 className={styles['flyers__item']}
                                 onClick={() => openModal(flyer)}
                             >
-                                <Image
+                                <img
                                     src={flyer.src}
                                     alt={flyer.alt}
-                                    width={400}
-                                    height={600}
-                                    objectFit="cover"
+                                    style={{
+                                        objectFit: 'cover',
+                                        width: '400px',
+                                        height: '600px'
+                                    }}
                                     loading="lazy"
                                 />
                             </button>
@@ -89,12 +90,14 @@ const Flyers: React.FC = () => {
                             ×
                         </button>
                         <div className={styles['modal__image']}>
-                            <Image
+                            <img
                                 src={selectedFlyer.src}
                                 alt={selectedFlyer.alt}
-                                width={800}
-                                height={1200}
-                                objectFit="contain"
+                                style={{
+                                    objectFit: 'contain',
+                                    width: '800px',
+                                    height: '1200px'
+                                }}
                             />
                         </div>
                     </div>

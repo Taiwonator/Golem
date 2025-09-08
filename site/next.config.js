@@ -14,6 +14,7 @@ module.exports = (phase, {defaultConfig}) => {
     defaultConfig['images'] = {
       ...defaultConfig.images,
       domains: ['placeimg.com', 'res.cloudinary.com', 'golem-uploads-bucket.s3.eu-west-2.amazonaws.com'],
+      unoptimized: true, // Disable image optimization for Netlify
     }
   }
 

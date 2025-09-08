@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import { FaBeer } from 'react-icons/fa';
 import { AiFillFacebook, AiTwotoneCalendar, AiOutlineEye } from 'react-icons/ai';
 import { Calendar, Eye } from './vanilla-icons';
@@ -42,13 +41,16 @@ const Icon: React.FC<IIcon> = ({ fa, height, width, name, color, className }) =>
             default:
                 Component = 
                 <span
-                    className={classNames(styles['icon--image'], className)} 
+                    className={classNames(styles['icon--image'], className)}
                     style={{ width, height: width }}>
-                    <Image
+                    <img
                         src={`/assets/svg/${name}.svg`}
-                        layout="fill" 
                         alt={'logo'}
-                        objectFit="contain" 
+                        style={{
+                            objectFit: 'contain',
+                            width: '100%',
+                            height: '100%'
+                        }}
                     />
                 </span>
 

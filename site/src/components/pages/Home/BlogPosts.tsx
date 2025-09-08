@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import React from 'react'
 import Stack from 'src/components/layouts/Stack'
 import Button from 'src/components/primitives/Button'
@@ -79,7 +79,15 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
             <Link to={`blog/${slug}#top`}>
                 <Stack>
                     <div className={styles['blog-post__image']}>
-                        <Image src={heroImage?.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
+                        <img
+                            src={heroImage?.url}
+                            alt={heroImage?.alt}
+                            style={{
+                                objectFit: 'cover',
+                                width: '100%',
+                                height: '100%'
+                            }}
+                        />
                     </div>
                     <Text tag="h3" size="header--small">{title}</Text>
                     <Text tag="p" size="standard--medium">{shortSnippet}</Text>
@@ -100,7 +108,15 @@ const FeaturedBlogPost: React.FC<BlogPost> = ({ title, heroImage, snippet, slug 
         <Link to={`blog/${slug}#top`}>
             <div className={styles['featured-blog-post']}>
                 <div className={styles['featured-blog-post__image']}>
-                    <Image src={heroImage?.url} alt={heroImage?.alt} layout="fill" objectFit='cover' />
+                    <img
+                        src={heroImage?.url}
+                        alt={heroImage?.alt}
+                        style={{
+                            objectFit: 'cover',
+                            width: '100%',
+                            height: '100%'
+                        }}
+                    />
                 </div>
                 <Stack className={styles['featured-blog-post__content']}>
                     <Text tag="h3" size="header--small">{title}</Text>

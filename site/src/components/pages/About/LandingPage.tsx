@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import React, { useRef, useMemo } from 'react'
 import Section from 'src/components/layouts/Section'
 import styles from './LandingPage.module.scss'
@@ -19,13 +19,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
     <Section id='about-landing' otherClassNames={styles['landing-page']}>
         <div className={styles['landing-page__inner']}>
           <div className={styles['landing-page__image']}>
-            <Image 
+            <img
               src={HeroImage}
               alt="Woman cleaning clothes"
-              width={1640}
-              height={1307}
+              style={{
+                width: '1640px',
+                height: '1307px',
+                objectFit: 'cover'
+              }}
               loading="eager"
-              placeholder='blur'
             />
           </div>
           <Stack className={styles['landing-page__content']} gap="medium">

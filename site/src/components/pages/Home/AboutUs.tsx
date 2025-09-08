@@ -1,6 +1,5 @@
 import React from 'react'
 import Section from '../../layouts/Section'
-import Image from 'next/image'
 import Header from 'src/components/primitives/Header'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import styles from './AboutUs.module.scss'
@@ -19,11 +18,14 @@ const AboutUs: React.FC = props => {
         <Section id='about-us' otherClassNames={styles['about-us']}>
             <Stack gap="large" className={styles['about-us__content']}>
                 <div className={styles['about-us__image-2']}>
-                    <Image 
+                    <img
                         src={SideImage2}
-                        width={967.06}
-                        height={468.2}
                         alt="Image of a lady"
+                        style={{
+                            width: '967.06px',
+                            height: '468.2px',
+                            objectFit: 'cover'
+                        }}
                     />
                 </div>
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
@@ -35,11 +37,14 @@ const AboutUs: React.FC = props => {
                 </Button>
                 <Icon name="bars--s" width={100} />
                 <div className={styles['about-us__image-1']}>
-                    <Image 
+                    <img
                         src={SideImage1}
-                        width={963.91}
-                        height={897.18}
                         alt="Image of a lady"
+                        style={{
+                            width: '963.91px',
+                            height: '897.18px',
+                            objectFit: 'cover'
+                        }}
                     />
                 </div>
             </Stack>

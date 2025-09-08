@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { MutableRefObject } from 'react'
 import Section from '../../layouts/Section'
-import Image from 'next/image'
+
 import Header from 'src/components/primitives/Header'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Button from 'src/components/primitives/Button'
@@ -30,11 +30,14 @@ const OurFight = React.forwardRef<HTMLDivElement | null>((props, ref) => {
             </Stack>
             
             <div className={styles['our-fight__desktop-image']}>
-                <Image 
+                <img
                     src="/assets/cross.png"
-                    width={520.99}
-                    height={652.82}
                     alt="logo"
+                    style={{
+                        width: '520.99px',
+                        height: '652.82px',
+                        objectFit: 'cover'
+                    }}
                 />
             </div>
 

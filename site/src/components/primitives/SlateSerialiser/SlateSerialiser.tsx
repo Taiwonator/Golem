@@ -1,7 +1,7 @@
 import Link from "../Link"
 import Text from "../Text"
 import styles from './SlateSerialiser.module.scss'
-import Image from 'next/image'
+
 import SETTINGS from "src/styles/settings"
 import cx from "classnames"
 import Stack from "src/components/layouts/Stack"
@@ -38,7 +38,15 @@ const serialise = (data: any): any => {
                     return (
                         <div key={i} className={styles['slate-serialiser__image-wrapper']}>
                             <div className={styles['slate-serialiser__image']}>
-                                <Image layout="fill" src={node.value.url} alt={node.value.filename} objectFit="contain" />
+                                <img
+                                    src={node.value.url}
+                                    alt={node.value.filename}
+                                    style={{
+                                        objectFit: 'contain',
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                />
                             </div>
                             <Text className={styles['slate-serialiser__image__filename']} bold tag="small" size="standard--small">{node.value.filename}</Text>
                         </div>

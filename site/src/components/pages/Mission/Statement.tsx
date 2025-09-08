@@ -3,7 +3,6 @@ import TextDecorator from "src/components/primitives/TextDecorator";
 import SETTINGS from "src/styles/settings";
 import styles from './Statement.module.scss'
 import Education from '../../../../public/assets/education.jpg'
-import Image from "next/image";
 import Stack from "src/components/layouts/Stack";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import PageStack from "src/components/primitives/PageStack";

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Frame.module.scss'
-import Image from 'next/image'
+
 import Button from '../primitives/Button'
 import classNames from 'classnames'
 import SETTINGS from 'src/styles/settings'
@@ -30,6 +30,8 @@ const Frame: React.FC<IFrame> = ({ loading, square, src, noHover }) => {
                         src={src}
                         style={{
                             objectFit: 'cover',
+                            width: '100%',
+                            height: '100%'
                         }}
                         alt="Image of tigers"
                     />

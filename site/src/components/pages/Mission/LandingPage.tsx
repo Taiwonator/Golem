@@ -5,8 +5,7 @@ import Section from 'src/components/layouts/Section'
 import TextDecorator from 'src/components/primitives/TextDecorator'
 import Icon from 'src/components/primitives/Icon'
 import styles from './LandingPage.module.scss'
-import { StaticImageData } from 'next/image'
-import PlaceholderImage from '../../../../public/assets/tigers.png'
+
 import useMouse, { MousePosition } from '@react-hook/mouse-position'
 import Content from 'src/components/layouts/Content'
 import getRandomNumber from 'src/lib/get-random-number'
@@ -68,7 +67,7 @@ const ImageBubbleArea: React.FC = () => {
         return arr
     }, [])
 
-    const srcs = [PlaceholderImage]
+    const srcs = ["/assets/tigers.png"]
 
     return (
         <div className={styles['image-bubble-area']} ref={mouseAreaRef}>
@@ -92,11 +91,10 @@ interface Pos {
 interface BubbleProps {
     startingPos: Pos
     mouse: MousePosition
-    src: StaticImageData
+    src: string
 }
 
 const Bubble: React.FC<BubbleProps> = ({ startingPos: { left, top }, mouse, src }) => {
-    return null
     const getValues = useMemo(() => {
         const leftNum: RegExpMatchArray = left.match(/(\d+)/)
         const topNum: RegExpMatchArray = top.match(/(\d+)/)

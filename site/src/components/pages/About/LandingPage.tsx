@@ -2,7 +2,7 @@
 import React, { useRef, useMemo } from 'react'
 import Section from 'src/components/layouts/Section'
 import styles from './LandingPage.module.scss'
-import HeroImage from '../../../../public/assets/mission-landing-shape.webp'
+
 import Icon from 'src/components/primitives/Icon'
 import Text from 'src/components/primitives/Text'
 import Button from 'src/components/primitives/Button'
@@ -20,7 +20,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
         <div className={styles['landing-page__inner']}>
           <div className={styles['landing-page__image']}>
             <img
-              src={HeroImage}
+              src="/assets/mission-landing-shape.webp"
               alt="Woman cleaning clothes"
               style={{
                 width: '1640px',

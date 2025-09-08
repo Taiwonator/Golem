@@ -30,6 +30,7 @@
                 left: 45%;
                 transform: translateY(-50%);
                 background-color: $color-black;
+                z-index: -1;
             }
         }
     }

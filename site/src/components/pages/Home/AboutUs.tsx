@@ -9,8 +9,7 @@ import Text from 'src/components/primitives/Text'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
 
-import SideImage1 from '../../../../public/assets/side-image-1.webp'
-import SideImage2 from '../../../../public/assets/side-image-2.webp'
+
 import Link from 'src/components/primitives/Link'
 
 const AboutUs: React.FC = props => {
@@ -19,7 +18,7 @@ const AboutUs: React.FC = props => {
             <Stack gap="large" className={styles['about-us__content']}>
                 <div className={styles['about-us__image-2']}>
                     <img
-                        src={SideImage2}
+                        src="/assets/side-image-2.webp"
                         alt="Image of a lady"
                         style={{
                             width: '967.06px',
@@ -38,7 +37,7 @@ const AboutUs: React.FC = props => {
                 <Icon name="bars--s" width={100} />
                 <div className={styles['about-us__image-1']}>
                     <img
-                        src={SideImage1}
+                        src="/assets/side-image-1.webp"
                         alt="Image of a lady"
                         style={{
                             width: '963.91px',

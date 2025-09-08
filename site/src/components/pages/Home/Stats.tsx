@@ -13,7 +13,7 @@ import useSWR from 'swr'
 
 const statData: StatsData = {
     families: {
-        count: '20+',
+        count: '100+',
         text: "We are dedicated to serving families, especially widows and their children. We believe in equipping them in order that they may continue to help others and themselves."
     },
     posts: {

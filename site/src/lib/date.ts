@@ -4,7 +4,7 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 export const formatDate = (date) => {
     if(date) {
         date = new Date(date)
-        const formattedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() //Tuesday February 12 2013
+        const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() //Tuesday February 12 2013
         return formattedDate
     } else {
         return '...'

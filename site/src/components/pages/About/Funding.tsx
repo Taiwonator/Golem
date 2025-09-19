@@ -25,14 +25,6 @@ const Funding: React.FC = () => {
           <FundingItem>Corporate bodies and income realised from its trading</FundingItem>
           <FundingItem>Activities</FundingItem>
         </ul>
-        <Text tag="p">
-          Without these vital sources of income, we will be unable to
-          effectively realise our charitable objectives. GOLEM has a
-          relatively lower operating and overhead cost in that it has
-          only one full time paid staff; with many volunteers thus
-          ensuring that maximum benefits is delivered to funds
-          beneficiaries.
-        </Text>
         <Button color={SETTINGS.orange} border>
           <Link to="https://www.paypal.com/donate/?hosted_button_id=JS8PX3UEZ4W5U" external>
             Donate Now

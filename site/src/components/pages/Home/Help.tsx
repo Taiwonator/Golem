@@ -32,11 +32,14 @@ const Help: React.FC = props => {
                     <Text bold>Bank: United Bank of Africa</Text>
                     <Text bold>Account No: 1024194113</Text>
                 </div>
-                <Button color={SETTINGS.orange} border>
-                    <Link to="https://www.paypal.com/donate/?hosted_button_id=JS8PX3UEZ4W5U" external>
-                        Donate Now
-                    </Link>
-                </Button>
+                <div>
+                    <Text tag="h2" size="header--small"><TextDecorator underline underlineColor='green' underlineCenter>PayPal</TextDecorator></Text>
+                </div>
+                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                    <input type="hidden" name="hosted_button_id" value="M5VG227XFP8X6" />
+                    <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                    <img alt="" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+                </form>
             </Stack>
         </Section>
     )

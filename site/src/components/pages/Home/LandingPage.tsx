@@ -27,13 +27,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                 { isMobile ?
                     <>
                         <img
+                            className={styles['landing-page__mobile-image']}
                             src="/assets/golem-heart--mobile.webp"
                             alt="Picture of logo"
-                            style={{
-                                width: '525.51px',
-                                height: '207.41px',
-                                objectFit: 'cover'
-                            }}
                         />
                         <Header tag='h1'>
                             <span><Decor color={SETTINGS.grey}>is</Decor> emancipating</span>
@@ -68,11 +64,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onButtonClick }) => {
                 <img
                     src="/assets/golem-heart.webp"
                     alt="Man on the field"
-                    style={{
-                        width: '560.8px',
-                        height: '711px',
-                        objectFit: 'cover'
-                    }}
                 />
             </div>
         </section>

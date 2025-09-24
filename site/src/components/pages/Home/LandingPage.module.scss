@@ -5,6 +5,16 @@
     min-height: calc(100vh - (#{$nav-height} + 20px));
     margin-bottom: 100px;
 
+    &__mobile-image {
+        display: block;
+        max-width: 100%;
+        margin-bottom: 40px;
+
+        @include forTablet {
+            display: none;
+        }
+    }
+
     &__mini-header {
         margin-bottom: 20px;
     }
@@ -20,10 +30,10 @@
 
     &__content {
         position: relative;
-        
+        width: 100%;
+        text-align: left;
 
         h3 {
-            text-align: center;
             font-size: .75em;
 
             @include forTablet {
@@ -34,10 +44,12 @@
         h1 {
             margin-top: -35px;
             text-transform: uppercase;
+            display: grid;
 
             @include forTablet {
                 margin-top: 0;
                 font-size: 2.5em;
+                display: block;
             }
         }
 
@@ -54,6 +66,10 @@
 
     &__desktop-image {
         display: none;
+
+        img {
+            width: 100%;
+        }
 
         @include forTablet {
             display: block;

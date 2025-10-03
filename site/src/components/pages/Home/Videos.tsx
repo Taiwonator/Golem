@@ -17,7 +17,8 @@ const Videos: React.FC = () => {
           <Slideshow config={{
             title: 'Videos from our missionary work',
             slides: [
-              <Video key={'video-11'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-24 at 09.10.37.mp4')} />,
+              <Video key={'video-12'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-24 at 09.10.37.mp4')} />,
+              <Video key={'video-11'} src={require('../../../../public/assets/video/WhatsApp Video 2025-10-01 at 06.47.49.mp4')} />,
               <Video key={'video-10'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-27 at 08.50.22.mp4')} />,
               <Video key={'video-9'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.41.mp4')} />,
               <Video key={'video-8'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.41 (2).mp4')} />,

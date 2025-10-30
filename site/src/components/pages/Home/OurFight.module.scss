@@ -1,7 +1,9 @@
-.our-fight {        
+.our-fight {
+    align-items: stretch;
     @include forTablet {
         flex-direction: row;
         text-align: left;
+        align-items: center;
     }
 
     &__content {
@@ -14,11 +16,12 @@
     }
 
     &__desktop-image {
-        display: none;
+        display: block;
+        position: relative;
+        margin-top: 2em;
 
         @include forTablet {
-            display: block;
-            position: relative;
+            margin-top: 0;
             flex: 1;
 
             &::before {
@@ -35,11 +38,127 @@
         }
     }
 
+    &__video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        margin: 0 auto;
+
+        @include forTablet {
+            max-width: 520px;
+        }
+
+        &:hover {
+            .our-fight__play-button {
+                transform: translate(-50%, -50%) scale(1.1);
+                svg circle {
+                    fill: $color-green !important;
+                }
+            }
+        }
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.3s ease;
+        padding: 0;
+
+        &:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        svg {
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+    }
+
+    &__modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
+
+    &__modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        max-height: 90vh;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__modal-video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 40px;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
     &__mobile-icon {
         display: block;
 
         @include forTablet {
             display: none;
         }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

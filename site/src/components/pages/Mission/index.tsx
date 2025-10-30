@@ -51,7 +51,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
                 <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
                     <Content width="medium" center>
                         <Stack gap="large">
-                            <Text tag="h2" size="header--large">
+                            <Text id="field-reports" tag="h2" size="header--large">
                                 <TextDecorator underline underlineColor='green' underlineCenter>Field Reports</TextDecorator>
                             </Text>
                             {visibleFieldReports.length ? (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />) : null}

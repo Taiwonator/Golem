@@ -6,17 +6,21 @@
 
         p {
 
-            @include forTablet {
+            @include forDesktop {
                 max-width: 30%;
             }
         }
+    }
+
+    &__text {
+        max-width: 300px;
     }
 
     &__image-2,  &__image-1 {
         position: relative;
         width: 200%;
 
-        @include forTablet {
+        @include forDesktop {
             position: absolute;
             width: 75%;
         }
@@ -26,7 +30,7 @@
     &__image-2 {
         left: 55%;
 
-        @include forTablet {
+        @include forDesktop {
             left: 70%;
         }
     }
@@ -35,7 +39,7 @@
         right: 45%;
         margin-top: 2em;
 
-        @include forTablet {
+        @include forDesktop {
             right: 70%;
         }
     }

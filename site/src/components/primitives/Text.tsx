@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { IContainer } from 'src/types/react-types'
 
 interface IText extends IContainer {
+    id?: string
     bold?: boolean,
     uppercase?: boolean,
     className?: string,
@@ -19,11 +20,12 @@ interface IText extends IContainer {
             'header--large'
 }
 
-const Text: React.FC<IText> = ({ bold, className, children, marginBottom, size, tag, uppercase }) => {
+const Text: React.FC<IText> = ({id, bold, className, children, marginBottom, size, tag, uppercase }) => {
     const Tag = tag || 'p'
     const isStandard = size && size.includes('standard')
     return (
         <Tag 
+        id={id}
         className={classNames(
             styles['text'],
             size ? styles[size] : styles['standard'],

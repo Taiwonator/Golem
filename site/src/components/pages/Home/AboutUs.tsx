@@ -12,7 +12,7 @@ import SETTINGS from 'src/styles/settings'
 
 import Link from 'src/components/primitives/Link'
 
-const AboutUs: React.FC = props => {
+const AboutUs: React.FC = () => {
     return (
         <Section id='about-us' otherClassNames={styles['about-us']}>
             <Stack gap="large" className={styles['about-us__content']}>
@@ -28,7 +28,7 @@ const AboutUs: React.FC = props => {
                     />
                 </div>
                 <Header large><TextDecorator underline underlineColor='orange' underlineCenter>Our values</TextDecorator></Header>
-                <Text tag="p">We value love, justice, liberty, inclusivity, transparency, honesty, accountability humility, selfless and exemplary leadership.</Text>
+                <Text tag="p" className={styles['about-us__text']}>We value love, justice, liberty, inclusivity, transparency, honesty, accountability humility, selfless and exemplary leadership.</Text>
                 <Button border color={SETTINGS.green}>
                     <Link to="/about#values">
                         Read More

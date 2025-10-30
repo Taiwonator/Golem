@@ -16,12 +16,12 @@ const MissionSnippet: React.FC = () => {
                 <Stack gap="large">
                     <Text tag="h2" size="header--large" className={styles['mission-snippet__title']}>
                         <TextDecorator underline underlineColor='green' underlineCenter>
-                            ✨ Join Our Mission Programmes 2025! ✨
+                            ✨ Mission 2025 Completed! ✨
                         </TextDecorator>
                     </Text>
-                    
+
                     <Text size="header--small" className={styles['mission-snippet__description']}>
-                        Take the gospel and love of Christ to the nations through{' '}
+                        Our mission programmes have successfully brought the gospel and love of Christ to communities through{' '}
                         <TextDecorator color={SETTINGS.orange} bold>Evangelism</TextDecorator>,{' '}
                         <TextDecorator color={SETTINGS.green} bold>Drama & Songs</TextDecorator>, and{' '}
                         <TextDecorator color={SETTINGS.darkgreen} bold>Community Empowerment</TextDecorator>.
@@ -30,34 +30,34 @@ const MissionSnippet: React.FC = () => {
                     <div className={styles['mission-snippet__highlights']}>
                         <div className={styles['mission-snippet__highlight']}>
                             <Text size="standard--medium" bold>
-                                <TextDecorator color={SETTINGS.darkgreen}>📍 3 Chapters</TextDecorator>
+                                <TextDecorator color={SETTINGS.darkgreen}>✅ 3 Chapters</TextDecorator>
                             </Text>
                             <Text size="standard--small">Ilaro • Owode • Lagos</Text>
                         </div>
-                        
+
                         <div className={styles['mission-snippet__highlight']}>
                             <Text size="standard--medium" bold>
-                                <TextDecorator color={SETTINGS.orange}>📅 September 2025</TextDecorator>
+                                <TextDecorator color={SETTINGS.orange}>✅ September 2025</TextDecorator>
                             </Text>
-                            <Text size="standard--small">Multiple dates available</Text>
+                            <Text size="standard--small">Successfully completed</Text>
                         </div>
-                        
+
                         <div className={styles['mission-snippet__highlight']}>
                             <Text size="standard--medium" bold>
-                                <TextDecorator color={SETTINGS.green}>🎯 Our Focus</TextDecorator>
+                                <TextDecorator color={SETTINGS.green}>💚 Impact Made</TextDecorator>
                             </Text>
-                            <Text size="standard--small">Widows & Children in Need</Text>
+                            <Text size="standard--small">Widows & Children Blessed</Text>
                         </div>
                     </div>
 
                     <div className={styles['mission-snippet__cta']}>
                         <Button border color={SETTINGS.green} otherClassNames={styles['mission-snippet__button']}>
-                            <Link to="/mission">
-                                View Full Mission Details
+                            <Link to="/mission#field-reports">
+                                View Field Reports
                             </Link>
                         </Button>
                         <Text size="standard--small" className={styles['mission-snippet__subtitle']}>
-                            See dates, locations & how to get involved
+                            See photos, stories & testimonies from the mission
                         </Text>
                     </div>
                 </Stack>

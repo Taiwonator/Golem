@@ -114,11 +114,6 @@ const FeaturedBlogPost: React.FC<BlogPost> = ({ title, heroImage, snippet, slug 
                     <img
                         src={heroImage?.url}
                         alt={heroImage?.alt}
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: '100%'
-                        }}
                     />
                 </div>
                 <Stack className={styles['featured-blog-post__content']}>

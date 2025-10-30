@@ -65,9 +65,14 @@
         flex: 1;
         height: 0;
         padding-bottom: 56.75%;
-        border: 5px solid $color-black;
-        border-radius: 20px;
         overflow: hidden;
+
+        img {
+            border: 5px solid $color-black;
+            border-radius: 20px;
+            object-fit: cover;
+            width: 100%;
+        }
 
         @include forTablet {
             padding-bottom: calc(56.75% / 2);

@@ -43,7 +43,7 @@ const Interview: React.FC = () => {
             <Stack gap="large">
                 <Text tag="h2" size="header--large" className={styles['interview__title']}>
                     <TextDecorator underline underlineColor='green' underlineCenter>
-                        Who you're helping
+                        Who you&apos;re helping
                     </TextDecorator>
                 </Text>
                 <Text tag="p" className={styles['interview__description']}>

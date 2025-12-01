@@ -5,6 +5,7 @@ import LandingPage from './LandingPage'
 import Statement from './Statement'
 import Notices from './Notices'
 import Flyers from './Flyers'
+import ChristmasFlyer from './ChristmasFlyer'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Slideshow from 'src/components/widgets/Slideshow/Slideshow'
 import { makeFieldReportsConfig, makeMissionsConfig } from 'src/data/Slideshow'
@@ -16,7 +17,7 @@ import { useSWRConfig } from 'src/lib/payload-fetcher'
 import useSWR from 'swr'
 
 
-const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
+const Mission: React.FC<any> = ({ fieldReports, goals }) => {
 
     const [visibleFieldReports, setVisibleFieldReports] = useState(fieldReports)
     const [visibleGoals, setVisibleGoals] = useState(goals)
@@ -36,6 +37,9 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
         <>
             <LandingPage />
             <Content width="wide">
+                <ChristmasFlyer />
+            </Content>
+            <Content width="wide">
                 <Notices />
             </Content>
             <Content width="wide">
@@ -54,7 +58,7 @@ const Mission: React.FC<any>  = ({ fieldReports, goals }) => {
                             <Text id="field-reports" tag="h2" size="header--large">
                                 <TextDecorator underline underlineColor='green' underlineCenter>Field Reports</TextDecorator>
                             </Text>
-                            {visibleFieldReports.length ? (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f,i) => <FieldReport key={i} i={i} {...f} />))} />) : null}
+                            {visibleFieldReports.length ? (<Slideshow config={makeFieldReportsConfig(visibleFieldReports.map((f, i) => <FieldReport key={i} i={i} {...f} />))} />) : null}
                         </Stack>
                     </Content>
                 </AnimationOnScroll>

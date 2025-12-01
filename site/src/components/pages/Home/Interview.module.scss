@@ -1,0 +1,41 @@
+.interview {
+    text-align: center;
+    padding: 60px 0;
+
+    @include forTablet {
+        padding: 100px 0;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        max-width: 700px;
+        margin: 0 auto 40px auto;
+        // color: $color-grey;
+        line-height: 1.6;
+
+        @include forTablet {
+            margin-bottom: 50px;
+        }
+    }
+
+    &__video-container {
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        background-color: $color-black;
+    }
+
+    &__video {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        background-color: $color-black;
+    }
+}

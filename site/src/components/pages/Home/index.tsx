@@ -3,6 +3,7 @@ import LandingPage from './LandingPage'
 import MissionSnippet from './MissionSnippet'
 import OurFight from './OurFight'
 import AboutUs from './AboutUs'
+import Interview from './Interview'
 import Stats from './Stats'
 import Help from './Help'
 import BlogPosts from './BlogPosts'
@@ -16,7 +17,7 @@ import Videos from './Videos'
 
 const Home: React.FC = () => {
 
-const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
+    const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
 
     return (
         <Content width="medium">
@@ -37,6 +38,11 @@ const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
             <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
                 <Stats />
             </AnimationOnScroll>
+
+            <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+                <Interview />
+            </AnimationOnScroll>
+
             <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
                 <PageStack>
                     <Help />

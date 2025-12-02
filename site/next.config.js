@@ -1,4 +1,3 @@
-
 /** @type {import('next').NextConfig} */
 const path = require('path')
 const withVideos = require('next-videos')
@@ -16,11 +15,14 @@ module.exports = (phase, { defaultConfig }) => {
       domains: ['placeimg.com', 'res.cloudinary.com', 'golem-uploads-bucket.s3.eu-west-2.amazonaws.com'],
       unoptimized: true, // Disable image optimization for Netlify
     }
-    defaultConfig['output'] = 'standalone',
-      defaultConfig['experimental'] = {
-        outputFileTracingRoot: path.join(__dirname, '..')
-      }
   }
+
+  defaultConfig['experimental'] = {
+    ...defaultConfig.experimental,
+    outputFileTracingRoot: path.join(__dirname, '..')
+  }
+
+  defaultConfig['output'] = 'standalone'
 
   return withVideos(defaultConfig);
 }

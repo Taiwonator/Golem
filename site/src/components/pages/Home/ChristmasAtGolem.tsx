@@ -19,7 +19,7 @@ const ChristmasAtGolem: React.FC = () => {
             <Text tag="h3" size="header--small" className={styles['christmas__subtitle']}>
               Christmas Love
             </Text>
-            <Video src={require('../../../../public/assets/video/WhatsApp Video 2025-12-20 at 22.47.39.mp4')} />
+            <Video src={'https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp+Video+2025-12-20+at+22.47.39.mp4'} />
             <div className={styles['christmas__image-wrapper']}>
               <img
                 src="https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/gallery/WhatsApp+Image+2025-09-23+at+00.18.00+(1).jpeg"

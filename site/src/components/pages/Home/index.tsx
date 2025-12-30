@@ -14,6 +14,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useScrollIntoView } from 'src/hooks/useScrollIntoView'
 import PageStack from 'src/components/primitives/PageStack'
 import Videos from './Videos'
+import ChristmasAtGolem from './ChristmasAtGolem'
 
 const Home: React.FC = () => {
 
@@ -25,7 +26,13 @@ const Home: React.FC = () => {
                 <LandingPage onButtonClick={() => triggerScrollIntoView()} />
             </AnimationOnScroll>
 
-            <MissionSnippet />
+            <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+                <ChristmasAtGolem />
+            </AnimationOnScroll>
+
+            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
+                <MissionSnippet />
+            </AnimationOnScroll>
 
             <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
                 <OurFight ref={scrollRef} />

@@ -5,5 +5,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-  [plugins.inputs]
-    node_bundler = "esbuild"

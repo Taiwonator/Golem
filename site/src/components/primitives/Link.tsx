@@ -11,10 +11,8 @@ const Link: React.FC<ILink> = ({ children, external, to }) => {
     to = to || '#'
 
     return (
-        <NextLink href={to}>
-            <a target={external && '_blank'} rel={external && 'noopener'}>
-                { children }
-            </a>
+        <NextLink href={to} target={external && '_blank'} rel={external && 'noopener'}>
+            {children}
         </NextLink>
     )
 }

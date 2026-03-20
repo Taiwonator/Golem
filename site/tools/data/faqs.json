@@ -1,0 +1,205 @@
+[
+    {
+        "_id": "632609b5e4b9aacf38709bb2",
+        "faqs": [
+            {
+                "question": "How old am I?",
+                "answer": [
+                    {
+                        "children": [
+                            {
+                                "text": "You are "
+                            },
+                            {
+                                "text": "9 ",
+                                "strikethrough": true
+                            },
+                            {
+                                "bold": true,
+                                "text": "10 "
+                            },
+                            {
+                                "text": "years old"
+                            }
+                        ]
+                    }
+                ],
+                "id": "632609b5eba7355dccf9ebb9"
+            },
+            {
+                "question": "Another FAQ",
+                "id": "632609c4eba7355dccf9ebba"
+            }
+        ],
+        "createdAt": "2022-09-17T17:53:57.280Z",
+        "updatedAt": "2023-12-31T10:02:45.847Z",
+        "__v": 0,
+        "answer": [
+            {
+                "children": [
+                    {
+                        "text": "Golem Outreach aims to holistically emancipate vulnerable individuals globally, with a special emphasis on Nigeria. The charity addresses physical, social, material, educational, and spiritual needs. A significant focus is on education for the underprivileged, as it is seen as a key tool in breaking the cycle of poverty. Projects are delivered both locally and overseas in partnership with organizations like Power of Apostolic Church International (PAC) and focus on supporting families, especially widows and their children​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/#:~:text=We%20are%20dedicated%20to%20serving,to%20help%20others%20and%20themselves",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/about",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/mission#:~:text=Our%20mission%20is%20to%20accomplish,material%2C%20educational%20and%20spiritual%20needs",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/mission",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​."
+                    }
+                ]
+            }
+        ],
+        "question": "What are the primary objectives and focus areas of Golem Outreach's projects?"
+    },
+    {
+        "_id": "63260a8509d3642b4522b6a6",
+        "question": "How does Golem Outreach fund its charitable activities and ensure financial sustainability?",
+        "answer": [
+            {
+                "children": [
+                    {
+                        "text": ""
+                    }
+                ]
+            },
+            {
+                "children": [
+                    {
+                        "text": "Golem Outreach relies on diverse funding sources, including donations from individuals, churches, corporate bodies, and income from trading activities like consultancy services and sales of publications. The organization, incorporated as a charitable company limited by guarantee in 2012, emphasizes low operating costs with minimal full-time staff and many volunteers. This approach ensures maximum benefit delivery to the fund's beneficiaries. The Taiwos initially financed the charity by dedicating a portion of their income to support various charitable ventures​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/about",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​​"
+                    },
+                    {
+                        "type": "link",
+                        "newTab": true,
+                        "url": "https://golemoutreach.org/about#:~:text=Without%20these%20vital%20sources%20of,is%20delivered%20to%20funds%20beneficiaries",
+                        "children": [
+                            {
+                                "text": ""
+                            }
+                        ]
+                    },
+                    {
+                        "text": "​."
+                    }
+                ]
+            },
+            {
+                "children": [
+                    {
+                        "text": ""
+                    }
+                ]
+            }
+        ],
+        "createdAt": "2022-09-17T17:57:25.658Z",
+        "updatedAt": "2023-12-31T10:02:24.244Z",
+        "__v": 0
+    },
+    {
+        "_id": "632715f455d275163ddd283a",
+        "question": "What is the history and founding vision of Golem Outreach?",
+        "answer": [
+            {
+                "children": [
+                    {
+                        "text": "Golem Outreach, also known as God of Love Emancipation Ministries, was founded in 1998 by Jonathan and Alice Taiwo. It started as an informal effort to support Christian ministries and evolved into a formal organization in 2012. The charity's vision focuses on propagating the Christian gospel globally and providing practical support to the needy, particularly in Nigeria. Jonathan Taiwo, a Development Economist and Registered Mental Health Practitioner, currently serves as the Director of Programmes, while Alice Taiwo, an Auditor and Financial Accountant, has been instrumental in the organization's financial management."
+                    }
+                ]
+            }
+        ],
+        "createdAt": "2022-09-18T12:58:28.562Z",
+        "updatedAt": "2023-12-31T10:01:44.017Z",
+        "__v": 0
+    },
+    {
+        "_id": "632715ff55d275163ddd2892",
+        "question": "What does GOLEM stand for?",
+        "answer": [
+            {
+                "children": [
+                    {
+                        "text": "GOLEM stands for GOD OF "
+                    },
+                    {
+                        "text": "LOVE EMANCIPATION MINISTRIES",
+                        "bold": true
+                    }
+                ]
+            }
+        ],
+        "createdAt": "2022-09-18T12:58:39.126Z",
+        "updatedAt": "2023-12-31T09:59:03.664Z",
+        "__v": 0
+    }
+]

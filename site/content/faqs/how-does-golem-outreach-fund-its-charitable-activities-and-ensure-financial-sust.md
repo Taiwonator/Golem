@@ -1,0 +1,5 @@
+---
+question: 'How does Golem Outreach fund its charitable activities and ensure financial sustainability?'
+---
+
+Golem Outreach relies on diverse funding sources, including donations from individuals, churches, corporate bodies, and income from trading activities like consultancy services and sales of publications. The organization, incorporated as a charitable company limited by guarantee in 2012, emphasizes low operating costs with minimal full-time staff and many volunteers. This approach ensures maximum benefit delivery to the fund's beneficiaries. The Taiwos initially financed the charity by dedicating a portion of their income to support various charitable ventures​[https://golemoutreach.org/](https://golemoutreach.org/)​​[https://golemoutreach.org/about](https://golemoutreach.org/about)​​[https://golemoutreach.org/about#:~:text=Without%20these%20vital%20sources%20of,is%20delivered%20to%20funds%20beneficiaries](https://golemoutreach.org/about#:~:text=Without%20these%20vital%20sources%20of,is%20delivered%20to%20funds%20beneficiaries)​.

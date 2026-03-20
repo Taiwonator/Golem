@@ -8,15 +8,13 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Credit from 'src/components/widgets/Credit'
 import Frame from 'src/components/widgets/Frame'
 import { formatDate } from 'src/lib/date'
-import { useSWRConfig } from 'src/lib/payload-fetcher'
 import Content from '../../layouts/Content'
 import styles from './PostLayout.module.scss'
-import useSWR from 'swr'
 
 import SETTINGS from 'src/styles/settings'
-import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
 import Link from 'src/components/primitives/Link'
 import { useRouter } from 'next/router'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
 interface PostLayoutProps {
     publishedDate: Date,
@@ -25,19 +23,19 @@ interface PostLayoutProps {
     snippet: string,
     author: any,
     heroImage: any,
-    content: string,
+    body: any,
     siteUrl?: string
 }
 
-const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, content, siteUrl }) => {  
+const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, snippet, author, heroImage, body, siteUrl }) => {
 
     const router = useRouter()
-        
+
     return (
         <article className={styles['post-layout']}>
-           <div className={styles['post-layout__header']}>
-               <Content>
-                   <Stack>
+            <div className={styles['post-layout__header']}>
+                <Content>
+                    <Stack>
                         <div className={styles['post-layout__info']}>
                             <Text><Icon name='calendar' width={20} height={20} color={SETTINGS.green} />
                                 {formatDate(publishedDate)}
@@ -71,18 +69,18 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
             </div>
             <div className={styles['post-layout__image']}>
                 <div className={styles['post-layout__image__inner']}>
-                    { (heroImage) ? 
-                        <Frame noHover src={heroImage?.url} square/> :  
-                        <Frame noHover loading={true} square/>
+                    {(heroImage) ?
+                        <Frame noHover src={heroImage} square /> :
+                        <Frame noHover loading={true} square />
                     }
                 </div>
             </div>
             <Content width='small'>
                 <div className={styles['post-layout__content']}>
-                   <SlateSerialiser data={content} />
+                    <TinaMarkdown content={body} />
                 </div>
-                <div className="fb-share-button" 
-                    data-href="https://www.your-domain.com/your-page.html" 
+                <div className="fb-share-button"
+                    data-href="https://www.your-domain.com/your-page.html"
                     data-layout="button_count"
                 >
                 </div>

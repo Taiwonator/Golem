@@ -2,79 +2,81 @@ import type { NextPage } from 'next'
 import BaseLayout from 'src/components/layouts/BaseLayout'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
-import payloadFetch, { useSWRConfig } from 'src/lib/payload-fetcher'
-import { formatDate } from 'src/lib/date'
-import useSWR from 'swr'
-import Head from 'next/head'
+import { useTina } from 'tinacms/dist/react'
+import client from '../../tina/__generated__/client'
 
 const BlogPost: NextPage = (props: any) => {
-  const { filter, siteUrl, staticPost } = props
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  })
 
-  const { key, fetcher } = useSWRConfig(`posts?${filter}`)
-  const { data, error } = useSWR(key, fetcher)
+  const post = data.post
 
-  const post = data ? data.docs[0] : {}
-
-  console.log('post: ', post)
-
-    return (  
-      <>
+  return (
+    <>
       <div id="fb-root"></div>
       <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="5bagHmw7"></script>
       <BaseLayout
-        pageTitle={`Golem | Blog Post - ${staticPost?.title}`}
+        pageTitle={`Golem | Blog Post - ${post?.title}`}
         metaData={{
-          description: staticPost?.snippet,
+          description: post?.snippet,
           keywords: 'Blog, Post, Updates, Faith, Africa, Mission, Charity, Golem',
-          og: { 
-            title: staticPost?.title,
-            imageUrl: staticPost?.heroImage?.url 
+          og: {
+            title: post?.title,
+            imageUrl: post?.heroImage
           }
         }}
       >
         <Content width='wide'>
-            <PostLayout 
-              views={0}
-              siteUrl={siteUrl}
-              {...post}
+          <PostLayout
+            views={0}
+            siteUrl={process.env.NEXT_PUBLIC_GOLEM_URL_SITE}
+            title={post?.title}
+            snippet={post?.snippet}
+            publishedDate={post?.publishedDate}
+            heroImage={post?.heroImage}
+            author={post?.author}
+            body={post?.body}
           />
         </Content>
       </BaseLayout>
-      </>
-    )
+    </>
+  )
 }
 
 export async function getStaticProps({ params }) {
-  const filter = `where[slug][equals]=${params.slug}`
-  const [data, res, error] = await payloadFetch(`posts?${filter}`)
-  if(error) {
-    console.error('[slug].jsx - get static props error')
+  let data = {}
+  let query = {}
+  let variables = { relativePath: `${params.slug}.md` }
+  try {
+    const res = await client.queries.post(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch {
     return { notFound: true }
   }
-  
+
   return {
     props: {
-      staticPost: data ? data.docs[0] : {},
-      filter,
-      siteUrl: process.env.GOLEM_URL_SITE
+      variables,
+      data,
+      query,
     },
   }
 }
 
-  export async function getStaticPaths() {
-      const [data, res, error] = await payloadFetch(`posts?limit=10000`)
-      if(error) {
-        console.error('[slug].jsx - get static paths error')
-        return { paths: [], fallback: false }
-      }
-  
+export async function getStaticPaths() {
+  const postsListData = await client.queries.postConnection()
 
-    return {
-      paths: data ? data.docs.map(post => post.slug).map(slug => ({
-        params: { slug }
-      })) : [],
-      fallback: false,
-    };
+  return {
+    paths: postsListData.data.postConnection.edges?.map((post) => ({
+      params: { slug: post.node._sys.filename },
+    })) || [],
+    fallback: false,
   }
+}
 
 export default BlogPost

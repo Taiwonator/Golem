@@ -44,7 +44,13 @@ async function getAllData() {
         console.log(`Found ${projects.length} projects`);
         Bun.write(`${Bun.env.PWD}/data/projects.json`, JSON.stringify(projects));
 
-        return { posts, faqs, fieldReports, goals, projects };
+        // Get media
+        const mediaCollection = database.collection('media');
+        const media = await mediaCollection.find({}).toArray();
+        console.log(`Found ${media.length} media`);
+        Bun.write(`${Bun.env.PWD}/data/media.json`, JSON.stringify(media));
+
+        return { posts, faqs, fieldReports, goals, projects, media };
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
         throw error;

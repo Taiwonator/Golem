@@ -1,6 +1,7 @@
 ---
 title: 'GOLEM OUTREACH TO ZAMBIA DECEMBER 2024 FIELD REPORT'
 slug: 'golem-outreach-to-zambia'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/Screenshot 2025-01-04 210653.png"
 publishedDate: "2025-01-03T17:00:00.150Z"
 status: 'published'
 ---

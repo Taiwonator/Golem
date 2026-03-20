@@ -1,7 +1,7 @@
 .post-layout {
     margin-top: 0px;
     text-align: center;
-    
+
     &__header {
         position: relative;
         padding: 2em 0;
@@ -14,7 +14,9 @@
         }
     }
 
-    &__title, &__snippet, &__info {
+    &__title,
+    &__snippet,
+    &__info {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
@@ -33,10 +35,12 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        
-        & > * {
+
+        &>* {
             margin: 0 1em;
-            & div, & svg {
+
+            & div,
+            & svg {
                 margin-right: 1em;
                 position: relative;
                 vertical-align: text-bottom;
@@ -49,7 +53,8 @@
         display: inline-flex;
         justify-content: flex-start;
         align-items: center;
-        & > * + * {
+
+        &>*+* {
             margin-left: 5px;
         }
     }
@@ -84,16 +89,24 @@
 
         text-align: justify;
         margin: 50px 0;
-        
+
         @include forTablet {
             margin: 100px 0;
         }
 
         p {
             font-size: 0.75em;
+            margin-bottom: 1.5em;
+
             @include forTablet {
                 font-size: 0.9em;
             }
+        }
+
+        ol,
+        ul {
+            margin-top: 2em;
+            margin-bottom: 2em;
         }
     }
 
@@ -104,7 +117,8 @@
             // margin-bottom: 100px;
         }
 
-        span, svg {
+        span,
+        svg {
             color: #1877F2;
             font-weight: 900;
         }

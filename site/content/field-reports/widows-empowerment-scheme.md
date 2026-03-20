@@ -1,6 +1,7 @@
 ---
 title: 'Pure Religion inc - Widows Empowerment Scheme '
 slug: 'widows-empowerment-scheme'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WhatsApp Image 2023-12-29 at 15.29.29.jpeg"
 publishedDate: "2023-12-19T00:00:00.000Z"
 status: 'published'
 ---

@@ -9,40 +9,36 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Content from 'src/components/layouts/Content'
 import Button from 'src/components/primitives/Button'
 import SETTINGS from 'src/styles/settings'
-import SlateSerialiser from 'src/components/primitives/SlateSerialiser/SlateSerialiser'
-import { useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
+interface FAQsProps {
+  faqs?: any[]
+}
 
-const FAQs: React.FC = () => {
-    const [visibleFaqs, setVisibleFaqs] = useState(3)
+const FAQs: React.FC<FAQsProps> = ({ faqs = [] }) => {
+  const [visibleFaqs, setVisibleFaqs] = useState(3)
 
-    const { key, fetcher } = useSWRConfig(`faqs?limit=100`)
-    const { data, error } = useSWR(key, fetcher)
-
-    const faqs: any[] = data ? data.docs : []
-
-    return (
-      <Content className={styles['faqs']} width="medium">
-        <Stack gap="large">
-          <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='green' underlineCenter>FAQs</TextDecorator></Text>
-          {faqs.map((faq, i) => {
-            return i < visibleFaqs ? <FAQ key={faq.question} {...faq} /> : null
-          })}
-          {visibleFaqs <= faqs.length && (
-            <Button
-              onClick={() => setVisibleFaqs(visibleFaqs + 3)}
-              otherClassNames={styles['faqs__pagination-button']}
-              border
-              color={SETTINGS.darkgreen
+  return (
+    <Content className={styles['faqs']} width="medium">
+      <Stack gap="large">
+        <Text tag="h2" size="header--large"><TextDecorator underline underlineColor='green' underlineCenter>FAQs</TextDecorator></Text>
+        {faqs.map((faq, i) => {
+          return i < visibleFaqs ? <FAQ key={faq.question} {...faq} /> : null
+        })}
+        {visibleFaqs <= faqs.length && (
+          <Button
+            onClick={() => setVisibleFaqs(visibleFaqs + 3)}
+            otherClassNames={styles['faqs__pagination-button']}
+            border
+            color={SETTINGS.darkgreen
             }>
-              Show more
-            </Button>
-          )}
-          {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we do not get asked any questions :/</Text>)}
-        </Stack>
-      </Content>
-    )
+            Show more
+          </Button>
+        )}
+        {!faqs.length && (<Text className={styles['faqs__empty-label']} size="header--medium">It seems like we do not get asked any questions :/</Text>)}
+      </Stack>
+    </Content>
+  )
 }
 
 interface FAQProps {
@@ -64,8 +60,7 @@ const FAQ: React.FC<FAQProps> = ({ question, answer }) => {
       </div>
       {open && (
         <div className={styles['faq__answer']}>
-        {typeof answer === 'string' || answer instanceof String && (<Text>{answer}</Text>)}
-        {typeof answer === 'object' && (<SlateSerialiser data={answer} />)}
+          <TinaMarkdown content={answer} />
         </div>
       )}
     </div>

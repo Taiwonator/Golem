@@ -10,7 +10,11 @@ import Projects from './Projects'
 import styles from './index.module.scss'
 import { useScrollIntoView } from 'src/hooks/useScrollIntoView'
 
-const About: React.FC = () => {
+interface AboutProps {
+    projects?: any[]
+}
+
+const About: React.FC<AboutProps> = ({ projects }) => {
     const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
 
     return (
@@ -18,8 +22,8 @@ const About: React.FC = () => {
             <Content width="medium">
                 <LandingPage onButtonClick={() => triggerScrollIntoView()} />
             </Content>
-             <Content width="medium" ref={scrollRef}>
-            <Slideshow config={aboutConfig} />
+            <Content width="medium" ref={scrollRef}>
+                <Slideshow config={aboutConfig} />
             </Content>
             <Content width="small" className={styles['about__content--no-margin-top']}>
                 <PageStack>
@@ -27,7 +31,7 @@ const About: React.FC = () => {
                     <Funding />
                 </PageStack>
             </Content>
-            <Projects />
+            <Projects projects={projects} />
         </PageStack>
     )
 }

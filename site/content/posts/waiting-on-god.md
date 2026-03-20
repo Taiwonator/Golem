@@ -2,9 +2,10 @@
 title: 'Learning To Wait On God'
 slug: 'waiting-on-god'
 snippet: 'Waiting on God is a profound spiritual practice that involves trusting in His timing and plan, even amidst uncertainty or difficulty. It means patiently relying on God, being steadfast in prayer, following His commandments, and doing His will while expecting His promises to manifest.'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/Learning to wait on God.jpg"
 featured: true
 publishedDate: "2025-01-19T00:00:00.000Z"
-author: '63b489039d2d07acac27d4bd'
+author: content/authors/jonathan-taiwo.json
 status: 'published'
 ---
 

@@ -15,7 +15,15 @@ import { useScrollIntoView } from 'src/hooks/useScrollIntoView'
 import PageStack from 'src/components/primitives/PageStack'
 import Videos from './Videos'
 
-const Home: React.FC = () => {
+interface HomeProps {
+    posts?: any[]
+    fPost?: any
+    postCount?: number
+    faqs?: any[]
+    videos?: string[]
+}
+
+const Home: React.FC<HomeProps> = ({ posts, fPost, postCount, faqs, videos }) => {
 
     const [scrollRef, triggerScrollIntoView] = useScrollIntoView()
 
@@ -36,7 +44,7 @@ const Home: React.FC = () => {
             </AnimationOnScroll>
 
             <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
-                <Stats />
+                <Stats postCount={postCount} />
             </AnimationOnScroll>
 
             <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
@@ -46,12 +54,13 @@ const Home: React.FC = () => {
             <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
                 <PageStack>
                     <Help />
-                    <BlogPosts />
-                    <Videos />
+                    <BlogPosts posts={posts} fPost={fPost} />
+                    {videos && videos.length > 0 && <Videos videos={videos} />}
                     <ContactUs />
-                    <FAQs />
                 </PageStack>
             </AnimationOnScroll>
+
+            <FAQs faqs={faqs} />
 
         </Content>
     )

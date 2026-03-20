@@ -1,11 +1,12 @@
 ---
-title: 'REVEALED KNOWLEDGE ABOUT THE LOVE OF GOD'
-slug: 'the-love-of-god'
-snippet: 'No human being can truly love without first loving God - The creator of heavens and earth and the father of love'
+title: REVEALED KNOWLEDGE ABOUT THE LOVE OF GOD
+slug: the-love-of-god
+snippet: No human being can truly love without first loving God - The creator of heavens and earth and the father of love
+heroImage: 'https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/pexels-tara-winstead-8383493 (1) (2).jpeg'
 featured: false
-publishedDate: "2025-01-01T20:00:00.000Z"
-author: '63b489039d2d07acac27d4bd'
-status: 'published'
+publishedDate: 2025-01-01T20:00:00.000Z
+author: content/authors/jonathan-taiwo.json
+status: published
 ---
 
 God is love and all true agape love comes from Him. Nobody,
@@ -19,9 +20,8 @@ Because Jesus said that all the commandments, the law and
 prophets is summed up in 2 commandments as follows:
 
 1. Love the Lord your God with all your heart, with all your
-mind and with all your soul (Matt 22:37 - 40).
-
-2. Love your neighbour as yourself (Matt 22:40).
+   mind and with all your soul (Matt 22:37 - 40).
+2. Love your neighbour as yourself (Matt 22:40).k
 
 It is the first commandment before the second. If you want
 to be able to truly love your neighbour as yourself, you must first truly love
@@ -53,7 +53,7 @@ the commitment of this sins will ultimately carry with it judgement -The
 judgement of God. When sin is ripe, it brings about judgement. This is the
 reason why many are languishing in 'darkness'. This is the reason why many are
 in the captivity of Satan, and they have never been able to come into their
-full inheritance as the children of God. 
+full inheritance as the children of God.
 
 If you are reading this article today, thank your heavenly
 father. Your being drawn to this website today is not an accident. It is a date
@@ -69,7 +69,7 @@ Open the eyes of my understanding to see and know you. Help me to love you as I
 should with all my mind and heart and soul. Search me thoroughly and expose all
 the idols which I have consciously or unconsciously created in my life which
 are competing with you being the first place in my life and help me to destroy
-those idols and turn my attention back to you". 
+those idols and turn my attention back to you".
 
 If you will pray this prayer in faith, sincerely from your
 heart, things will start happening in your life. God will start showing you
@@ -139,7 +139,7 @@ life for his friends".  Brethren,
 this is the sort of love Jesus Christ our Lord is calling us into. This is why
 He repeatedly admonished the disciples and of course us to love one another as
 he has loved us. There is no other way. The God we serve is love and is a God
-of love. May God help us to obey this commandment. 
+of love. May God help us to obey this commandment.
 
 BY: Jonathan Taiwo (GOLEM Director of
 Overseas Missions).

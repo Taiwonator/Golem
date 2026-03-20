@@ -13,8 +13,6 @@ import PageStack from 'src/components/primitives/PageStack'
 import FieldReport from './FieldReport'
 import Text from 'src/components/primitives/Text'
 import TextDecorator from 'src/components/primitives/TextDecorator'
-import { useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
 
 
 const Mission: React.FC<any> = ({ fieldReports, goals }) => {

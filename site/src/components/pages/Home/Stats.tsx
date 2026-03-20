@@ -8,8 +8,6 @@ import TextDecorator from 'src/components/primitives/TextDecorator'
 import Icon from 'src/components/primitives/Icon'
 import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
-import { useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
 
 const statData: StatsData = {
     families: {
@@ -37,12 +35,13 @@ interface StatsData {
     countries: Stat
 }
 
-const Stats: React.FC = () => {
-    const {families, posts, countries } = statData
+interface StatsProps {
+    postCount?: number
+}
 
-const { key, fetcher } = useSWRConfig('posts')
-const { data: postData, error } = useSWR(key, fetcher)
-    
+const Stats: React.FC<StatsProps> = ({ postCount = 0 }) => {
+    const { families, posts, countries } = statData
+
     return (
         <Section id='impact' otherClassNames={styles['stats']}>
             <Stack gap="large">
@@ -60,7 +59,7 @@ const { data: postData, error } = useSWR(key, fetcher)
                     </Stack>
                     <Stack className={styles['stats__column']}>
                         <Circle color={SETTINGS.orange} otherClassNames={styles['stats__circle']}>
-                            {postData && (<Text tag="h2" size="header--large">{postData.totalDocs}</Text>)}
+                            <Text tag="h2" size="header--large">{postCount}</Text>
                         </Circle>
                         <Text tag="h2" size="header">Blog Posts</Text>
                         <Text>{posts.text}</Text>

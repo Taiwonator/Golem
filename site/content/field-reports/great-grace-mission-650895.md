@@ -1,6 +1,7 @@
 ---
 title: 'Great Grace Mission Empowerment Program'
 slug: 'great-grace-mission'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/grace-mission.jpeg"
 publishedDate: "2023-09-18T08:00:00.000Z"
 status: 'published'
 ---

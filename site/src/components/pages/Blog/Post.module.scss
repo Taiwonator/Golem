@@ -10,9 +10,9 @@
     &__frame {
 
         @include forTablet {
-           max-width: 300px;
-           width: 100%;
-           margin-right: 1em;
+            max-width: 300px;
+            width: 100%;
+            margin-right: 1em;
         }
     }
 
@@ -25,6 +25,7 @@
 
         &__inner {
             text-align: center;
+
             @include forTablet {
                 text-align: left;
             }
@@ -56,12 +57,16 @@
 
     &__info {
         display: inline-flex;
+        align-items: center;
         color: $color-grey;
+        gap: 2em;
 
-        & > * {
-            margin-right: 2em; 
-            
-            & > svg {
+        &--featured {
+            fill: #FFD700;
+        }
+
+        &>* {
+            &>svg {
                 margin-right: .5em;
                 position: relative;
                 vertical-align: text-bottom;

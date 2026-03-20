@@ -1,57 +1,44 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import React from 'react'
+import type { NextPage, GetStaticProps } from 'next'
 import BaseLayout from 'src/components/layouts/BaseLayout'
 import Main from 'src/components/pages/Blog'
-import payloadFetch, { useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
+import client from '../tina/__generated__/client'
 
-const Blog: NextPage = () => {  
-
-  const { key: postsKey, fetcher } = useSWRConfig(`posts?sort=-publishedDate&where[status][equals]=published`)
-  const { data: postsData } = useSWR(postsKey, fetcher)
-
-  const { key: featuredPostsKey } = useSWRConfig(`posts?sort=-publishedDate&where[status][equals]=published&where[featured][equals]=true`)
-  const { data: featuredPostsData } = useSWR(featuredPostsKey, fetcher)
-
-  const posts = postsData ? postsData.docs : []
-  const featuredPosts = featuredPostsData ? featuredPostsData.docs : []
-
-    return (
-      <BaseLayout
-        pageTitle='Golem | Blog'
-        metaData={{
-          description: 'Check out our collection of blog articles about everything Africa, Faith and Life.',
-          keywords: 'Charity, Golem, God, Blog, Stories, Missionary, Ministry'
-        }}
-      >
-          <Main featuredPosts={featuredPosts} posts={posts} metaData={postsData} />
-      </BaseLayout>
-    )
+interface BlogProps {
+  posts: any[]
+  featuredPosts: any[]
 }
 
-// export async function getStaticProps () {
+const Blog: NextPage<BlogProps> = ({ posts, featuredPosts }) => {
 
-//   const [data, res, error] = await payloadFetch('posts?sort=-publishedDate&where[status][equals]=published')
-//   if(error) {
-//     console.error('blog.jsx - get static props error: ', error)
-//     return { notFound: true }
-//   }
+  return (
+    <BaseLayout
+      pageTitle='Golem | Blog'
+      metaData={{
+        description: 'Check out our collection of blog articles about everything Africa, Faith and Life.',
+        keywords: 'Charity, Golem, God, Blog, Stories, Missionary, Ministry'
+      }}
+    >
+      <Main featuredPosts={featuredPosts} posts={posts} />
+    </BaseLayout>
+  )
+}
 
-//   const [fData, fRes, fError] = await payloadFetch('posts?sort=-publishedDate&where[status][equals]=published&where[featured][equals]=true')
-//   if(fError) {
-//     console.error('blog.jsx - get static props error: ', error)
-//     return { notFound: true }
-//   }
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await client.queries.postConnection({
+    sort: 'publishedDate',
+    filter: { status: { eq: 'published' } }
+  })
+  const edges = res.data.postConnection.edges || []
+  const allPosts = edges.map(e => e?.node).filter(Boolean).reverse()
+  const featuredPosts = allPosts.filter((p: any) => p.featured)
 
-//   return {
-//     props: {
-//       postsData: data ? data : {},
-//       featuredPosts: fData ? fData.docs : []
-//     },
-//   }
-// }
-
-// Create fetch hook, return data, res, error
-
+  return {
+    props: {
+      posts: allPosts,
+      featuredPosts
+    }
+  }
+}
 
 export default Blog

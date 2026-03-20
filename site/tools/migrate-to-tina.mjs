@@ -136,6 +136,45 @@ function writeMarkdown(dir, filename, frontmatter, body) {
   console.log(`  ✓ ${filePath}`);
 }
 
+// --- Media lookup ---
+
+const S3_BUCKET_URL = "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images";
+
+function buildMediaMap() {
+  const mediaPath = path.join(dataDir, "media.json");
+  if (!fs.existsSync(mediaPath)) {
+    console.warn("⚠️  No media.json found — image references will be skipped");
+    return {};
+  }
+  const media = JSON.parse(fs.readFileSync(mediaPath, "utf-8"));
+  const map = {};
+  for (const m of media) {
+    const id = m._id?.$oid || m._id;
+    if (id && m.filename) {
+      map[id] = {
+        url: `${S3_BUCKET_URL}/${m.filename}`,
+        alt: m.alt || "",
+        filename: m.filename,
+      };
+    }
+  }
+  console.log(`📸 Loaded ${Object.keys(map).length} media records`);
+  return map;
+}
+
+function resolveImage(mediaMap, imageId) {
+  if (!imageId) return undefined;
+  const id = typeof imageId === "object" ? (imageId.$oid || imageId) : imageId;
+  const media = mediaMap[id];
+  if (!media) {
+    console.warn(`  ⚠️  Media not found for ID: ${id}`);
+    return undefined;
+  }
+  return media.url;
+}
+
+const mediaMap = buildMediaMap();
+
 // --- Migrate each collection ---
 
 function migratePosts() {
@@ -143,10 +182,12 @@ function migratePosts() {
   const posts = JSON.parse(fs.readFileSync(path.join(dataDir, "posts.json"), "utf-8"));
   const outDir = path.join(contentDir, "posts");
   for (const post of posts) {
+    const heroImageUrl = resolveImage(mediaMap, post.heroImage || post.image);
     const fm = toFrontmatter({
       title: post.title,
       slug: post.slug,
       snippet: post.snippet || "",
+      heroImage: heroImageUrl || "",
       featured: post.featured || false,
       publishedDate: post.publishedDate,
       author: post.author || "",
@@ -168,9 +209,11 @@ function migrateFieldReports() {
       slug = `${slug}-${report._id.substring(0, 6)}`;
     }
     usedSlugs.add(slug);
+    const heroImageUrl = resolveImage(mediaMap, report.heroImage);
     const fm = toFrontmatter({
       title: report.title,
       slug: report.slug,
+      heroImage: heroImageUrl || "",
       publishedDate: report.publishedDate,
       status: report.status || "draft",
     });
@@ -212,8 +255,10 @@ function migrateProjects() {
   const outDir = path.join(contentDir, "projects");
   for (const [i, project] of projects.entries()) {
     const filename = slugify(project.text).substring(0, 60) || `project-${i + 1}`;
+    const imageUrl = resolveImage(mediaMap, project.image);
     const fm = toFrontmatter({
       text: project.text,
+      image: imageUrl || "",
     });
     writeMarkdown(outDir, filename, fm, "");
   }

@@ -2,9 +2,10 @@
 title: 'THE NEED FOR SPIRITUAL RENEWAL AND RE-AWAKENING IN THE CHURCH'
 slug: 'spiritual-renewal-and-church-re-awakening'
 snippet: "I have always\npondered in my mind the fact that the Church seems to be powerless today."
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/SPIRITUAL REAWAKENING IMAGE FOR SPIRITUAL REAWAKENING BLOG.jpg"
 featured: false
 publishedDate: "2025-01-01T17:00:00.000Z"
-author: '63b489039d2d07acac27d4bd'
+author: content/authors/jonathan-taiwo.json
 status: 'published'
 ---
 

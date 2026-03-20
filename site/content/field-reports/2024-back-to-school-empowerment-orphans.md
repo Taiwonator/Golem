@@ -1,6 +1,7 @@
 ---
 title: '2024 Back-to-School Empowerment for Orphans – Great Grace Mission'
 slug: '2024-back-to-school-empowerment-orphans'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WhatsApp Image 2024-09-12 at 00.49.29 (1).jpeg"
 publishedDate: "2024-09-21T09:00:00.000Z"
 status: 'published'
 ---

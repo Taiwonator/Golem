@@ -8,7 +8,7 @@ import { S3Client, ListObjectsCommand } from "@aws-sdk/client-s3";
 const PhotoGallery: NextPage<GalleryProps> = (props) => {
 
   return (
-    <BaseLayout 
+    <BaseLayout
       pageTitle='Golem | Photo Gallery'
       metaData={{
         description: 'A quick look at the change we are making.',
@@ -22,28 +22,30 @@ const PhotoGallery: NextPage<GalleryProps> = (props) => {
 
 export async function getStaticProps() {
   const client = new S3Client({
-    region: process.env.AWS_API_REGION,
+    region: process.env.S3_REGION,
     credentials: {
-      accessKeyId: process.env.AWS_API_KEY,
-      secretAccessKey: process.env.AWS_API_SECRET,
+      accessKeyId: process.env.S3_ACCESS_KEY,
+      secretAccessKey: process.env.S3_SECRET_KEY,
     },
+    forcePathStyle: true,
   });
 
-    var awsParams = { 
-        Bucket: 'golem-uploads-bucket',
-    }
+  var awsParams = {
+    Bucket: 'golem-uploads-bucket',
+  }
 
-    const command = new ListObjectsCommand(awsParams);
-    const response = await client.send(command);
-    const sortedFileContents = response.Contents.sort((a, b) => {
-      const aDate = new Date(a.LastModified)
-      const bDate = new Date(b.LastModified)
-      return bDate.getTime() - aDate.getTime()
-    })
-    const allFilenames = sortedFileContents.map(c => c.Key)
-    const galleryFilenames = allFilenames.filter(f => f.split('/').filter(x => x != '').length > 1 && f.includes('gallery'))
-    const modifiedGalleryFilenames = galleryFilenames.map(f => f.split(' ').join('+'))
-    const imageUrls = modifiedGalleryFilenames.map(f => `${process.env.AWS_BUCKET_API_URL}/${f}`)
+  const command = new ListObjectsCommand(awsParams);
+  const response = await client.send(command);
+  const sortedFileContents = response.Contents.sort((a, b) => {
+    const aDate = new Date(a.LastModified)
+    const bDate = new Date(b.LastModified)
+    return bDate.getTime() - aDate.getTime()
+  })
+  const allFilenames = sortedFileContents.map(c => c.Key)
+  const galleryFilenames = allFilenames.filter(f => f.split('/').filter(x => x != '').length > 1 && f.includes('gallery'))
+  const modifiedGalleryFilenames = galleryFilenames.map(f => f.split(' ').join('+'))
+  const bucketUrl = `https://golem-uploads-bucket.s3.${process.env.S3_REGION}.amazonaws.com`
+  const imageUrls = modifiedGalleryFilenames.map(f => `${bucketUrl}/${f}`)
 
   return {
     props: {

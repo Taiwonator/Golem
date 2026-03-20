@@ -20,9 +20,9 @@ export default defineConfig({
     publicFolder: "public",
   },
   media: {
-    tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+    loadCustomStore: async () => {
+      const pack = await import('next-tinacms-s3')
+      return pack.TinaCloudS3MediaStore
     },
   },
   schema: {
@@ -78,9 +78,10 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
+            type: "reference",
             name: "author",
             label: "Author",
+            collections: ["author"],
           },
           {
             type: "string",
@@ -169,7 +170,7 @@ export default defineConfig({
             label: "Answer",
             isBody: true,
           },
-        ],
+        ]
       },
 
       // Goals Collection
@@ -225,6 +226,82 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
+          },
+        ],
+      },
+
+      // Authors Collection
+      {
+        name: "author",
+        label: "Authors",
+        path: "content/authors",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "email",
+            label: "Email",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "avatar",
+            label: "Avatar",
+          },
+        ],
+      },
+
+      // Pages Collection
+      {
+        name: "page",
+        label: "Pages",
+        path: "content/pages",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "object",
+            name: "blocks",
+            label: "Blocks",
+            list: true,
+            templates: [
+              {
+                name: "videoCarousel",
+                label: "Video Carousel",
+                fields: [
+                  {
+                    type: "string",
+                    name: "heading",
+                    label: "Heading",
+                  },
+                  {
+                    type: "image",
+                    name: "videos",
+                    label: "Videos",
+                    list: true,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

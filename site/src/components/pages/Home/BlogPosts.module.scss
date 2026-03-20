@@ -9,16 +9,16 @@
     }
 
     &__list {
-        & > * + * {
+        &>*+* {
             display: inline-block;
             margin-top: 100px;
         }
-    
+
         @include forTablet {
             display: flex;
             justify-content: center;
-    
-            & > * + * {
+
+            &>*+* {
                 margin-top: 0;
                 margin-left: 20px;
             }
@@ -27,6 +27,7 @@
 
     &--tabletOnly {
         display: none;
+
         @include forTablet {
             display: block;
         }
@@ -35,7 +36,7 @@
 
 .blog-post {
     text-align: center;
-    
+
     @include forTablet {
         flex: 1;
     }
@@ -45,9 +46,10 @@
         width: 100%;
         height: 0;
         padding-bottom: 56.75%;
-        border: 5px solid $color-black;
+        // border: 5px solid $color-black;
         border-radius: 20px;
         overflow: hidden;
+        background-color: $color-lightgrey;
     }
 }
 
@@ -65,10 +67,12 @@
         flex: 1;
         height: 0;
         padding-bottom: 56.75%;
+        border-radius: 20px;
         overflow: hidden;
+        background-color: $color-lightgrey;
 
         img {
-            border: 5px solid $color-black;
+            // border: 5px solid $color-black;
             border-radius: 20px;
             object-fit: cover;
             width: 100%;
@@ -84,6 +88,7 @@
         margin-top: auto;
         margin-bottom: auto;
         margin-left: 20px;
+
         @include forTablet {
             text-align: left;
         }

@@ -48,11 +48,11 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                         <Text className={styles['post-layout__snippet']}>{snippet}</Text>
                         {author && (
                             <Credit className={styles['post-layout__credit']} prefix='Written by'>
-                                <Text className={styles['post-layout__author']}>{author.name}</Text>
-                                <div className={styles['post-layout__avatar']}>
+                                <span className={styles['post-layout__author']}>{author.name}</span>
+                                <span className={styles['post-layout__avatar']}>
                                     {author.avatar && (
                                         <img
-                                            src={author.avatar.url}
+                                            src={author.avatar}
                                             alt={author.name}
                                             style={{
                                                 width: '40px',
@@ -61,7 +61,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ publishedDate, views, title, sn
                                             }}
                                         />
                                     )}
-                                </div>
+                                </span>
                             </Credit>
                         )}
                     </Stack>

@@ -1,0 +1,27 @@
+{
+  "videoCarousel": [],
+  "title": "Home",
+  "blocks": [
+    {
+      "videos": [
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202023-12-29%20at%2015.27.09.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202023-12-29%20at%2015.27.10%20(1).mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202023-12-29%20at%2015.27.10.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202023-12-29%20at%2015.27.12.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202024-09-21%20at%2005.06.18.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-23%20at%2000.17.39.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-23%20at%2000.17.41%20(1).mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-23%20at%2000.17.41%20(2).mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-23%20at%2000.17.41.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-24%20at%2009.10.37.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-09-27%20at%2008.50.22.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-10-01%20at%2006.47.49.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-10-10%20at%2001.10.41.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-11-26%20at%2017.45.17.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/WhatsApp%20Video%202025-12-20%20at%2022.47.39.mp4",
+        "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/videos/long_interview.mp4"
+      ],
+      "_template": "videoCarousel"
+    }
+  ]
+}

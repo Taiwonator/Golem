@@ -2,71 +2,77 @@ import type { NextPage } from 'next'
 import BaseLayout from 'src/components/layouts/BaseLayout'
 import FieldReportLayout from 'src/components/pages/Mission/FieldReportLayout'
 import Content from 'src/components/layouts/Content'
-import payloadFetch, { useSWRConfig } from 'src/lib/payload-fetcher'
 import { formatDate } from 'src/lib/date'
-import useSWR from 'swr'
+import client from '../../tina/__generated__/client'
+import { useTina } from 'tinacms/dist/react'
 
 const FieldReport: NextPage = (props: any) => {
-  const { filter, siteUrl, staticFieldReport } = props
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  })
 
-  const { key, fetcher } = useSWRConfig(`field-reports?${filter}`)
-  const { data, error } = useSWR(key, fetcher)
+  const fieldReport = data.fieldReport
 
-  const fieldReport = data ? data.docs[0] : {}
-
-    return (  
-      <BaseLayout 
-        pageTitle={`Golem | Field Report - ${staticFieldReport?.title}`}
-        metaData={{
-          description: `Golem | Field Report - ${staticFieldReport?.title} (${formatDate(staticFieldReport?.publishedDate)})`,
-          keywords: 'Field Report, Updates, Mission, Charity',
-          og: {
-            title: staticFieldReport?.title,
-            imageUrl: staticFieldReport?.heroImage?.url 
-          }
-        }}
-      >
-          <Content width='wide'>
-              <FieldReportLayout 
-                siteUrl={siteUrl}
-                {...fieldReport}
-            />
-          </Content>
-      </BaseLayout>
-    )
+  return (
+    <BaseLayout
+      pageTitle={`Golem | Field Report - ${fieldReport?.title}`}
+      metaData={{
+        description: `Golem | Field Report - ${fieldReport?.title} (${formatDate(fieldReport?.publishedDate)})`,
+        keywords: 'Field Report, Updates, Mission, Charity',
+        og: {
+          title: fieldReport?.title,
+          imageUrl: fieldReport?.heroImage
+        }
+      }}
+    >
+      <Content width='wide'>
+        <FieldReportLayout
+          siteUrl={props.siteUrl}
+          title={fieldReport.title}
+          publishedDate={fieldReport.publishedDate}
+          body={fieldReport.body}
+        />
+      </Content>
+    </BaseLayout>
+  )
 }
 
 export async function getStaticProps({ params }) {
-  const filter = `where[slug][equals]=${params.slug}`
-  const [data, res, error] = await payloadFetch(`field-reports?${filter}`)
-  if(error) {
-    console.error('[field-reports: slug].jsx - get static props error')
+  const slug = params.slug as string
+  // Find the file that matches this slug
+  const allReports = await client.queries.fieldReportConnection()
+  const edges = allReports.data.fieldReportConnection.edges || []
+  const match = edges.find(e => e.node.slug === slug)
+
+  if (!match) {
     return { notFound: true }
   }
-  
+
+  const relativePath = match.node._sys.relativePath
+  const tinaData = await client.queries.fieldReport({ relativePath })
+
   return {
     props: {
-      filter,
-      staticFieldReport: data ? data.docs[0] : {},
-      siteUrl: process.env.GOLEM_URL_SITE
+      data: tinaData.data,
+      query: tinaData.query,
+      variables: tinaData.variables,
+      siteUrl: process.env.GOLEM_URL_SITE || ''
     },
   }
 }
 
-  export async function getStaticPaths() {
-      const [data, res, error] = await payloadFetch(`field-reports`)
-      if(error) {
-        console.error('[field-reports: slug].jsx - get static paths error')
-        return { paths: [], fallback: false }
-      }
-  
+export async function getStaticPaths() {
+  const result = await client.queries.fieldReportConnection()
+  const edges = result.data.fieldReportConnection.edges || []
 
-    return {
-      paths: data ? data.docs.map(fieldReport => fieldReport.slug).map(slug => ({
-        params: { slug }
-      })) : [],
-      fallback: false
-    };
+  return {
+    paths: edges.map(edge => ({
+      params: { slug: edge.node.slug }
+    })),
+    fallback: false
   }
+}
 
 export default FieldReport

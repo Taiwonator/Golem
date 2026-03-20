@@ -1,6 +1,7 @@
 ---
 title: "HEARTS OF COMPASSION: GOLEM WEEK TOUCHES LIVES WITH THE POWER OF LOVE "
 slug: 'hearts-of-compassion'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WhatsApp Image 2025-09-26 at 00.59.20.jpeg"
 publishedDate: "2025-10-03T12:00:00.000Z"
 status: 'published'
 ---

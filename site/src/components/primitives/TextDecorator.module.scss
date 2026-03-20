@@ -14,7 +14,7 @@
         background-color: $color-black;
         left: 0;
         bottom: 0;
-        z-index: -1;
+        // z-index: -1;
     }
 
     &--center {
@@ -69,7 +69,7 @@
 
     &.underline--center {
         display: inline-flex;
-        
+
         &::before {
             left: 50%;
             transform: translateX(-50%);

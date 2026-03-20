@@ -1,6 +1,7 @@
 ---
 title: 'The Golem Nigeria Harvest'
 slug: 'golem-nigeria-harvest'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WhatsApp Image 2022-08-05 at 4.54.43 PM (1).jpeg"
 publishedDate: "2021-10-05T20:00:00.000Z"
 status: 'published'
 ---

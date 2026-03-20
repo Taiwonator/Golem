@@ -1,0 +1,12 @@
+[build.environment]
+# This increases the memory limit to 4GB, 
+# which usually resolves "Out of Memory" errors during heavy builds.
+NODE_OPTIONS = "--max-old-space-size=4096"
+
+[[redirects]]
+from = '/api/*'
+to = '/.netlify/functions/api/:splat'
+status = 200
+
+[functions]
+node_bundler = 'esbuild'

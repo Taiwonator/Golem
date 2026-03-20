@@ -9,8 +9,6 @@ import SETTINGS from 'src/styles/settings'
 import styles from './BlogPosts.module.scss'
 import cx from 'classnames'
 import Icon from 'src/components/primitives/Icon'
-import { useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
 
 interface BlogPosts {
     posts: any[],
@@ -19,26 +17,19 @@ interface BlogPosts {
 
 interface BlogPost {
     title: string
-    heroImage: {
-        url: string
-        alt?: string
-    }
+    heroImage?: string
     snippet: string
     slug: string
     odd: boolean
 }
 
 
-const BlogPosts: React.FC= () => {
+interface BlogPostsProps {
+    posts?: any[]
+    fPost?: any
+}
 
-    const { key: postsKey, fetcher } = useSWRConfig(`posts?where[status][equals]=published&sort=-publishedDate`)
-    const { data: postsData } = useSWR(postsKey, fetcher)
-
-    const { key: fPostsKey } = useSWRConfig(`posts?where[status][equals]=published&where[featured][equals]=true&sort=-publishedDate`)
-    const { data: fPostsData } = useSWR(fPostsKey, fetcher)
-
-    const posts = postsData ? postsData.docs : []
-    const fPost = (fPostsData && fPostsData.docs.length) ? fPostsData.docs[0] : null
+const BlogPosts: React.FC<BlogPostsProps> = ({ posts = [], fPost = null }) => {
 
     return (
         <Stack gap="large" className={styles['blog-posts']}>
@@ -49,10 +40,10 @@ const BlogPosts: React.FC= () => {
             </div>
             {posts.length > 3 ? (
                 <>
-                    { fPost && (<div><FeaturedBlogPost {...fPost} /></div> )}
+                    {fPost && (<div><FeaturedBlogPost {...fPost} /></div>)}
                     <div className={styles['blog-posts__list']}>
-                        {posts.map( (post, i) => {
-                            if(fPost && post.slug != fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
+                        {posts.map((post, i) => {
+                            if (fPost && post.slug != fPost.slug) return <BlogPost odd={i % 2 != 0} key={i} {...post} />
                             return undefined
                         }).filter(x => x != undefined).slice(0, 3)}
                     </div>
@@ -60,12 +51,12 @@ const BlogPosts: React.FC= () => {
             ) : (
                 <>
                     <div className={styles['blog-posts__list']}>
-                        {posts.map( (post, i) => <BlogPost odd={i % 2 != 0} key={i} {...post} />)}
+                        {posts.map((post, i) => <BlogPost odd={i % 2 != 0} key={i} {...post} />)}
                     </div>
                 </>
             )}
 
-            {posts.length === 0 && (<Text size="header--medium">We are working on some amazing posts ⭐</Text>) }
+            {posts.length === 0 && (<Text size="header--medium">We are working on some amazing posts ⭐</Text>)}
         </Stack>
     )
 }
@@ -80,8 +71,8 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
                 <Stack>
                     <div className={styles['blog-post__image']}>
                         <img
-                            src={heroImage?.url}
-                            alt={heroImage?.alt}
+                            src={heroImage}
+                            alt={title}
                             style={{
                                 objectFit: 'cover',
                                 width: '100%',
@@ -106,14 +97,14 @@ const BlogPost: React.FC<BlogPost> = ({ odd, title, heroImage, snippet, slug }) 
 const FeaturedBlogPost: React.FC<BlogPost> = ({ title, heroImage, snippet, slug }) => {
     const MAX_SNIPPET_LENGTH = 100
     const shortSnippet = snippet.length > MAX_SNIPPET_LENGTH ? snippet.slice(0, MAX_SNIPPET_LENGTH) + '...' : snippet
-    
+
     return (
         <Link to={`blog/${slug}#top`}>
             <div className={styles['featured-blog-post']}>
                 <div className={styles['featured-blog-post__image']}>
                     <img
-                        src={heroImage?.url}
-                        alt={heroImage?.alt}
+                        src={heroImage}
+                        alt={title}
                     />
                 </div>
                 <Stack className={styles['featured-blog-post__content']}>

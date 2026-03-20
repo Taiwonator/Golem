@@ -3,6 +3,7 @@ import BaseLayout from 'src/components/layouts/BaseLayout'
 import PostLayout from 'src/components/pages/Blog/PostLayout'
 import Content from 'src/components/layouts/Content'
 import { useTina } from 'tinacms/dist/react'
+import Script from 'next/script'
 import client from '../../tina/__generated__/client'
 
 const BlogPost: NextPage = (props: any) => {
@@ -16,8 +17,11 @@ const BlogPost: NextPage = (props: any) => {
 
   return (
     <>
-      <div id="fb-root"></div>
-      <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="5bagHmw7"></script>
+      <Script
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0"
+        strategy="lazyOnload"
+        nonce="5bagHmw7"
+      />
       <BaseLayout
         pageTitle={`Golem | Blog Post - ${post?.title}`}
         metaData={{

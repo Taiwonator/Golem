@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBeer } from 'react-icons/fa';
+import { FaBeer, FaStar } from 'react-icons/fa';
 import { AiFillFacebook, AiTwotoneCalendar, AiOutlineEye } from 'react-icons/ai';
 import { Calendar, Eye } from './vanilla-icons';
 import styles from './Icon.module.scss'
@@ -8,7 +8,7 @@ import classNames from 'classnames'
 
 interface IIcon {
     fa?: string,
-    width?: number, 
+    width?: number,
     height?: number,
     name?: string,
     color?: string
@@ -18,20 +18,23 @@ interface IIcon {
 const Icon: React.FC<IIcon> = ({ fa, height, width, name, color, className }) => {
 
     let Component
-    if(fa) {
-        switch(fa) {
+    if (fa) {
+        switch (fa) {
             case 'calendar':
-                Component = <FaBeer />
+                Component = <FaBeer className={className} />
+                break
+            case 'star':
+                Component = <FaStar className={className} />
                 break
             default:
-                Component = <AiFillFacebook />
+                Component = <AiFillFacebook className={className} />
                 break
         }
         return Component
     }
 
-    if(name) {
-        switch(name) {
+    if (name) {
+        switch (name) {
             case 'eye':
                 Component = <Eye color={color} />
                 break
@@ -39,20 +42,20 @@ const Icon: React.FC<IIcon> = ({ fa, height, width, name, color, className }) =>
                 Component = <Calendar color={color} />
                 break
             default:
-                Component = 
-                <span
-                    className={classNames(styles['icon--image'], className)}
-                    style={{ width, height: width }}>
-                    <img
-                        src={`/assets/svg/${name}.svg`}
-                        alt={'logo'}
-                        style={{
-                            objectFit: 'contain',
-                            width: '100%',
-                            height: '100%'
-                        }}
-                    />
-                </span>
+                Component =
+                    <span
+                        className={classNames(styles['icon--image'], className)}
+                        style={{ width, height: width }}>
+                        <img
+                            src={`/assets/svg/${name}.svg`}
+                            alt={'logo'}
+                            style={{
+                                objectFit: 'contain',
+                                width: '100%',
+                                height: '100%'
+                            }}
+                        />
+                    </span>
 
                 break
         }

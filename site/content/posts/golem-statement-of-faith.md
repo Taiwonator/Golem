@@ -1,11 +1,14 @@
 ---
-title: 'GOLEM STATEMENT OF FAITH'
-slug: 'golem-statement-of-faith'
-snippet: "We believe that God our heavenly father the creator of\nmankind is LOVE"
+title: GOLEM STATEMENT OF FAITH
+slug: golem-statement-of-faith
+snippet: |-
+  We believe that God our heavenly father the creator of
+  mankind is LOVE
+heroImage: 'https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/Screenshot 2025-01-17 004043.png'
 featured: false
-publishedDate: "2025-01-03T16:30:00.518Z"
-author: '63b489039d2d07acac27d4bd'
-status: 'published'
+publishedDate: 2025-01-03T16:30:00.518Z
+author: content/authors/jonathan-taiwo.json
+status: published
 ---
 
 ## GOLEM Statement of Faith
@@ -35,7 +38,7 @@ Heaven.
 We believe in the Baptism of the Holy Spirit as an
 experience after salvation, speaking in tongues may be a manifestation of this
 gift. This Baptism of the Holy Spirit enhances the believer’s ability to
-witness about Jesus Christ. 
+witness about Jesus Christ.
 
  
 
@@ -78,6 +81,6 @@ heaven, and the wicked will exist in endless punishment of hell.
 
 We believe in the importance of the assembling of
 believers for the purpose of worship. We believe the worship of God should be
-spiritual, inspirational, 
+spiritual, inspirational,
 
 Rational, fruitful and orderly.

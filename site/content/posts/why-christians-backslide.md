@@ -2,9 +2,10 @@
 title: 'WHY CHRISTIANS REBEL AGAINST GOD AND BACKSLIDE '
 slug: 'why-christians-backslide'
 snippet: 'Is there a fail-safe method or way of ensuring that we will never rebel against God or bring his name to disrepute when we have become great, rich or powerful? Faced with torture or certain death, can anyone say with full confidence that they will not denounce our Lord Jesus or renounce their faith?'
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/Rebellion against God and backsliding for GOLEM WEBSITE BLOG.jpg"
 featured: false
 publishedDate: "2025-01-11T00:00:00.000Z"
-author: '63b489039d2d07acac27d4bd'
+author: content/authors/jonathan-taiwo.json
 status: 'published'
 ---
 

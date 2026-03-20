@@ -2,9 +2,10 @@
 title: "WALKING WITH JESUS: THE PATH TO SPIRITUAL MATURITY"
 slug: 'the-path-to-spiritual-maturity'
 snippet: "Christianity\nis not a religion, but a relationship with our Saviour, Lord Jesus through whom\nwe have communication and access to God, our heavenly father. Our heavenly\nfather's ultimate purpose of saving you and adopting you into his glorious\nfamily is to make you become like His only begotten Son Jesus Christ."
+heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WALKING WITH JESUS IMAGE FOR WALKING WITH JESUS BLOG.jpg"
 featured: true
 publishedDate: "2025-01-07T00:00:00.000Z"
-author: '63b489039d2d07acac27d4bd'
+author: content/authors/jonathan-taiwo.json
 status: 'published'
 ---
 

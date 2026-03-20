@@ -24,5 +24,13 @@ module.exports = (phase, { defaultConfig }) => {
 
   defaultConfig['output'] = 'standalone'
 
+  defaultConfig['redirects'] = async () => [
+    {
+      source: '/admin',
+      destination: '/admin/index.html',
+      permanent: true,
+    },
+  ]
+
   return withVideos(defaultConfig);
 }

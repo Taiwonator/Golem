@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Section from '../../layouts/Section'
 import styles from './Videos.module.scss'
 import TextDecorator from 'src/components/primitives/TextDecorator'
@@ -7,7 +7,13 @@ import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
 import Slideshow from 'src/components/widgets/Slideshow/Slideshow'
 
-const Videos: React.FC = () => {
+interface VideosProps {
+  videos?: string[]
+}
+
+const Videos: React.FC<VideosProps> = ({ videos = [] }) => {
+  if (!videos.length) return null
+
   return (
     <Section id='videos' otherClassNames={styles['videos__section']}>
       <Stack gap="large">
@@ -16,22 +22,9 @@ const Videos: React.FC = () => {
         </Text>
         <Slideshow config={{
           title: 'Videos from our missionary work',
-          slides: [
-            <Video key={'video-13'} src={require('../../../../public/assets/video/WhatsApp Video 2025-11-26 at 17.45.17.mp4')} />,
-            <Video key={'video-12'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-24 at 09.10.37.mp4')} />,
-            <Video key={'video-11'} src={require('../../../../public/assets/video/WhatsApp Video 2025-10-01 at 06.47.49.mp4')} />,
-            <Video key={'video-10'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-27 at 08.50.22.mp4')} />,
-            <Video key={'video-9'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.41.mp4')} />,
-            <Video key={'video-8'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.41 (2).mp4')} />,
-            <Video key={'video-7'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.41 (1).mp4')} />,
-            <Video key={'video-6'} src={require('../../../../public/assets/video/WhatsApp Video 2025-09-23 at 00.17.39.mp4')} />,
-            <Video key={'video-5'} src={require('../../../../public/assets/video/WhatsApp Video 2023-12-29 at 15.27.10.mp4')} />,
-            <Video key={'video-4'} src={require('../../../../public/assets/video/WhatsApp Video 2023-12-29 at 15.27.10 (1).mp4')} />,
-            <Video key={'video-3'} src={require('../../../../public/assets/video/WhatsApp Video 2023-12-29 at 15.27.09.mp4')} />,
-            <Video key={'video-2'} src={require('../../../../public/assets/video/WhatsApp Video 2023-12-29 at 15.27.12.mp4')} />,
-            <Video key={'video-1'} src={require('../../../../public/assets/video/WhatsApp Video 2024-09-21 at 05.06.18.mp4')} />,
-          ]
-
+          slides: videos.reverse().map((src, i) => (
+            <Video key={`video-${i}`} src={src} />
+          )),
         }} />
       </Stack>
     </Section>

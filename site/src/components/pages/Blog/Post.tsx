@@ -12,8 +12,6 @@ import { formatDate } from 'src/lib/date'
 import Credit from 'src/components/widgets/Credit'
 import Text from 'src/components/primitives/Text'
 import Stack from 'src/components/layouts/Stack'
-import { resolveImage, useSWRConfig } from 'src/lib/payload-fetcher'
-import useSWR from 'swr'
 
 interface PostProps {
     title: string,
@@ -23,10 +21,11 @@ interface PostProps {
     slug: string,
     heroImage: any,
     featured?: boolean,
+    displayAsFeatured?: boolean,
     ref?: MutableRefObject<HTMLDivElement>
 }
 
-const Post: React.FC<PostProps> = ({ 
+const Post: React.FC<PostProps> = ({
     title,
     publishedDate,
     views,
@@ -34,13 +33,15 @@ const Post: React.FC<PostProps> = ({
     slug,
     heroImage,
     featured,
+    displayAsFeatured
 }) => {
+    const isFeatured = displayAsFeatured
 
     const MAX_SNIPPET_LENGTH = 100
 
     const className = classNames(
         styles['post'],
-        featured && styles['post--featured']
+        isFeatured && styles['post--featured']
     )
 
     const shortSnippet = snippet.length > MAX_SNIPPET_LENGTH ? snippet.slice(0, MAX_SNIPPET_LENGTH) + '...' : snippet
@@ -48,9 +49,9 @@ const Post: React.FC<PostProps> = ({
     return (
         <Stack tag="article" className={className}>
             <div className={styles['post__frame']}>
-                { (heroImage) ? 
-                    <Frame noHover src={heroImage?.url} square={featured}/> :  
-                    <Frame noHover loading={true} square={featured}/>
+                {(heroImage) ?
+                    <Frame noHover src={heroImage} square={isFeatured} /> :
+                    <Frame noHover loading={true} square={isFeatured} />
                 }
             </div>
             <div className={styles['post__content']}>
@@ -58,8 +59,10 @@ const Post: React.FC<PostProps> = ({
                     <Stack className={styles['post__content__row']}>
                         <Text className={styles['post__title']} tag="h2" size="header"><Link to={`blog/${slug}`}>{title}</Link></Text>
                         <div className={styles['post__info']}>
+                            {featured && (
+                                <Icon className={styles['post__info--featured']} fa='star' color={SETTINGS.yellow} />
+                            )}
                             <Text><Icon name='calendar' color={SETTINGS.green} />{formatDate(publishedDate)}</Text>
-                            {/* <Text><Icon name='eye' color='#D2D2D2' />{views}</Text> */}
                         </div>
                     </Stack>
                     <Text>{shortSnippet}</Text>

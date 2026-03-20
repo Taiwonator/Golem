@@ -11,10 +11,7 @@ import cx from 'classnames'
 interface FieldReportProps {
     i: number
     title: string
-    heroImage: {
-        url: string
-        alt?: string
-    }
+    heroImage?: string
     publishedDate: string
     slug: string
 }
@@ -25,8 +22,8 @@ const FieldReport: React.FC<FieldReportProps> = ({ i, title, heroImage, publishe
             {i === 0 && (<Text tag="p" size="standard--small" className={styles['field-report__latest']}>LATEST REPORT!!!</Text>)}
             <div className={styles['field-report__image']}>
                 <img
-                    src={heroImage?.url || '/assets/houses.jpg'}
-                    alt={heroImage?.alt}
+                    src={heroImage || '/assets/houses.jpg'}
+                    alt={title}
                     style={{
                         objectFit: 'cover',
                         width: '100%',

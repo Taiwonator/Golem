@@ -2,6 +2,7 @@
 
 import { MongoClient } from 'mongodb';
 
+// Hmmm should probably not hardcode this...
 const uri = 'mongodb+srv://9ac51e72ef59deeb:da68a93846b191fe1d18955ecceb97b5@mongodb.mongo-server--golem-payload-cms--tai-s2d2.addon.code.run/f326abf94719?replicaSet=rs0&authSource=f326abf94719&tls=true';
 
 

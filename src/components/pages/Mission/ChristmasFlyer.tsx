@@ -36,20 +36,20 @@ const ChristmasFlyer: React.FC = () => {
                 <div className={styles['christmas-flyer']}>
                     <Stack gap="large">
                         <Text tag="h2" size="header--large" className={styles['christmas-flyer__title']}>
-                            <TextDecorator underline underlineColor='orange' underlineCenter>
-                                🎄 Christmas Love Gift Outreach 2025 🎄
+                            <TextDecorator>
+                                🎄 Christmas Love Gift Outreach 2026 🎄
                             </TextDecorator>
                         </Text>
-                        <Text size="header--small" className={styles['christmas-flyer__subtitle']}>
+                        {/* <Text size="header--small" className={styles['christmas-flyer__subtitle']}>
                             <TextDecorator color={SETTINGS.darkgreen} bold>📅 December 20th Programme</TextDecorator>
-                        </Text>
+                        </Text> */}
                         <button
                             className={styles['christmas-flyer__image-button']}
                             onClick={openModal}
                         >
                             <img
-                                src="/assets/christmas_flyer.jpeg"
-                                alt="Christmas Love Gift Outreach 2025 - December 20th Programme"
+                                src="/assets/season-of-love_2026.jpeg"
+                                alt="Christmas Love Gift Outreach 2026"
                                 className={styles['christmas-flyer__image']}
                             />
                         </button>
@@ -65,7 +65,7 @@ const ChristmasFlyer: React.FC = () => {
                         </button>
                         <div className={styles['modal__image']}>
                             <img
-                                src="/assets/christmas_flyer.jpeg"
+                                src="/assets/season-of-love_2026.jpeg"
                                 alt="Christmas Love Gift Outreach 2025 - December 20th Programme"
                             />
                         </div>

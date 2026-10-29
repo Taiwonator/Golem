@@ -1,7 +1,7 @@
 ---
 title: 'Golem Wrap Project'
 slug: 'golem-wrap-project-2026'
-heroImage: "https://golem-uploads-bucket.s3.eu-west-2.amazonaws.com/images/WhatsApp Image 2023-12-29 at 15.29.29.jpeg"
+heroImage: ""
 publishedDate: "2026-10-29T00:00:00.000Z"
 status: 'published'
 ---

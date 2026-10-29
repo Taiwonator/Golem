@@ -35,6 +35,8 @@ export async function getStaticProps() {
   }
 
   const command = new ListObjectsCommand(awsParams);
+  console.log('command: ', command)
+
   const response = await client.send(command);
   const sortedFileContents = response.Contents.sort((a, b) => {
     const aDate = new Date(a.LastModified)

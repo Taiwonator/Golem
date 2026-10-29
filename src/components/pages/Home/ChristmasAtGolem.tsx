@@ -33,7 +33,7 @@ const ChristmasAtGolem: React.FC = () => {
           <div className={styles['christmas__newsletter']}>
             <div className={styles['christmas__image-wrapper']}>
               <img
-                src="/assets/season-of-love.jpeg"
+                src="/assets/season-of-love_2026.jpeg"
                 alt="Season of Love Newsletter"
                 className={styles['christmas__image']}
               />
